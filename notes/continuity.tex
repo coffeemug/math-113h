@@ -1,6 +1,6 @@
 \section{Continuity}
 
-\subsection{Definitions}
+\subsection{Definition of continuity}
 
 A function $f$ is \textbf{continuous} at $a$ when
 
@@ -21,37 +21,37 @@ A function $f$ is \textbf{continuous on an interval} $(a, b)$ if it's
 continuous at all $c\in(a,b)$\footnote{Closed intervals are a tiny bit
   harder, and I'm keeping them out for brevity.}.
 
-\subsection{Building blocks}
+\subsection{Recognizing continuous functions}
 The following theorems allow us to tell at a glance that large classes
 of functions are continuous (e.g. polynomials, rational functions,
 etc.)
 
-\subsubsection{Easy proofs}
+\subsubsection*{Five easy proofs}
 
-\textbf{Constants}. Let $f(x)=c$. Then $f$ is continuous at all $a$
+\paragraph{Constants}. Let $f(x)=c$. Then $f$ is continuous at all $a$
 because $\lim_{x\to a}f(x)=c=f(a)$.
 
 \vs
 
-\textbf{Identity}. Let $f(x)=x$. Then $f$ is continuous at all $a$
+\paragraph{Identity}. Let $f(x)=x$. Then $f$ is continuous at all $a$
 because $\lim_{x\to a}f(x)=a=f(a)$.
 
 \vs
 
-\textbf{Addition}. Let $f,g\in\R\to\R$ be continuous at $a$. Then
+\paragraph{Addition}. Let $f,g\in\R\to\R$ be continuous at $a$. Then
 $f+g$ is continuous at $a$ because
 \[\lim_{x\to a}(f+g)(x)=\lim_{x\to a}f(x)+\lim_{x\to a}g(x)=f(a)+g(a)=(f+g)(a)\]
 
-\textbf{Multiplication}. Let $f,g\in\R\to\R$ be continuous at $a$. Then
+\paragraph{Multiplication}. Let $f,g\in\R\to\R$ be continuous at $a$. Then
 $f\cdot g$ is continuous at $a$ because
 \[\lim_{x\to a}(fg)(x)=\lim_{x\to a}f(x)\cdot\lim_{x\to a}g(x)=f(a)g(a)=(fg)(a)\]
 
-\textbf{Reciprocal}. Let $f$ be continuous at $a$. Then $\frac{1}{g}$
+\paragraph{Reciprocal}. Let $f$ be continuous at $a$. Then $\frac{1}{g}$
 is continuous at $a$ where $g(a)\neq 0$ because
 \[\lim_{x\to a}\left(\frac{1}{g}\right)(x)=\frac{1}{\lim_{x\to a}g(x)}=\frac{1}{g(a)}=\left(\frac{1}{g}\right)(a)\]
 (recall that we proved in the limits chapter that $\frac{1}{g}$ is defined.)
 
-\subsubsection{Composition}
+\subsubsection*{Slightly harder proof: composition}
 
 Let $f,g\in\R\to\R$. Let $g$ be continuous at $a$, and let $f$ be
 continuous at $g(a)$. Then $f\circ g$ is continuous at $a$. Put
@@ -86,7 +86,7 @@ I.e. there exists $\delta>0$ such that $|x-a|<\delta$ implies
 $|g(x)-g(a)|<\delta'$. Which by the first statement implies
 $|f(g(x))-f(g(a))|<\epsilon$, as desired.
 
-\subsection{Appendix: fun examples}
+\subsection{Continuity and discontinuity examples}
 
 %%% Local Variables:
 %%% TeX-master: "index"

@@ -1,6 +1,6 @@
 \section{Limits}
 
-\subsection{A hand-wavy version}
+\subsection{A hand-wavy limits definition}
 
 I'll first do a hand-wavy definition of limits and a higher level
 "interface" that allows computing actual limits of functions. After
@@ -35,7 +35,7 @@ limit of this thing? Can you just plug $0$ into the equation? It seems
 to work, but once we formally define limits, we'll have to prove
 somehow that plugging $a=0$ into $x$ gives us the correct result.
 
-\subsection{Evaluating limits}
+\subsection{Limits evaluation mechanics}
 
 It turns out that it does in fact work because of a few building
 blocks that allow you to practically evaluate limits of functions.
@@ -65,7 +65,7 @@ This tells us that
 
 \[\lim_{x\to 0}\frac{1-\sqrt{x}}{1-x}=\frac{\lim_{x\to 0}1-(\lim_{x\to 0}x)^{\frac{1}{2}}}{\lim_{x\to 0}1-\lim_{x\to 0}x}=\frac{1-0^{\frac{1}{2}}}{1-0}=1\]
 
-\subsubsection{Holes}
+\subsubsection*{Holes}
 
 What happens if we try to take a limit at $x\to 1$ rather than $x\to 0$?
 
@@ -91,14 +91,14 @@ function at $x=a$. So we never have to consider $1-\sqrt{x}$ as $x=1$,
 $1-\sqrt{x}$ never takes on the value of $0$, and it is safe to divide
 it out.
 
-\subsection{Formal definition}
+\subsection{Formal limits definition}
 
 Now we establish a rigorous definition of limits that formalizes the
 hand-wavy version above.
 
 \vs
 
-\textbf{Definition:} $\lim_{x\to a}f(x)=L$ when for any
+\paragraph{Definition:} $\lim_{x\to a}f(x)=L$ when for any
 $\epsilon\in\R$ there exists $\delta\in\R$ such that for all $x$,
 $0<|x-a|<\delta$ implies $|f(x)-L|<\epsilon$. (Also $\epsilon>0, \delta>0$.)
 
@@ -149,7 +149,7 @@ The second equation, $|f(x)-L|<\epsilon$ should now be easy to understand.
 Intuitively, along the y-axis $f(x)$ should be within $\epsilon$ of
 $L$, or put differently $L-\epsilon<f(x)<L+\epsilon$.
 
-\subsubsection{Limit uniqueness}
+\subsubsection*{Limit uniqueness}
 
 Suppose $\lim_{x\to a}f(x)=L$. It's easy to assume $L$ is the only limit
 around $a$, but such a thing needs to be proved. We prove this here.
@@ -182,7 +182,7 @@ for all $x$. Thus
 
 We have a contradiction, and so $L=M$ as desired.
 
-\subsubsection{Half-Value Continuity Lemma}
+\subsubsection*{Half-Value Continuity Lemma}
 
 Suppose $\lim_{x\to a}g(x)=M$. We show that there exists some $\delta$ such
 that $0<|x-a|<\delta$ implies for all $x$:
@@ -215,13 +215,13 @@ all $x$
 
 \textbf{Claim 3} follows from claims 1 and 2.
 
-\subsection{Proving the building blocks}
+\subsection{Proving the evaluation theorems}
 
 Armed with the formal definition, we can use it to rigorously prove
 the five building blocks useful for evaluating limits (constants,
 identity, addition, multiplication, reciprocal). Let's do that now.
 
-\subsubsection{Constants}
+\subsubsection*{Constants}
 Let $f(x)=c$, where $c\in\R$. We prove that $\lim_{x\to a}f(x)=c$ for all $a\in\R$.
 
 \vs
@@ -235,7 +235,7 @@ $|f(x)-c|=|c-c|=0<\epsilon$. QED.
 (Note that we can pick any positive $\delta$, e.g.
 $1, 10, \frac{1}{10}$. Thus we say any positive $\delta\in\R$.)
 
-\subsubsection{Identity}
+\subsubsection*{Identity}
 
 Let $f(x)=x$. We prove that $\lim_{x\to a}f(x)=a$ for all $a\in\R$.
 
@@ -251,7 +251,7 @@ $|x-a|<\delta$ implies $|x-a|<\epsilon$. This obviously works for any $\delta\le
 (Note that we have many options of for $\delta$, e.g.
 $\delta=\epsilon$, $\delta=\frac{\epsilon}{2}$, etc.)
 
-\subsubsection{Addition}
+\subsubsection*{Addition}
 
 Let $f,g\in\R\to\R$. We prove that
 
@@ -302,7 +302,7 @@ $0<|x-a|<\delta$ we have
 
 as desired.
 
-\subsubsection{Multiplication}
+\subsubsection*{Multiplication}
 
 Let $f,g\in\R\to\R$. We prove that
 
@@ -372,7 +372,7 @@ Fix $\delta=\min(\delta_1, \delta_2, \delta_3)$. Now
 
 as desired.
 
-\subsubsection{Reciprocal}
+\subsubsection*{Reciprocal}
 
 Let $\lim_{x\to a}f(x)=L$. We prove $\lim_{x\to a}\left(\frac{1}{f}\right)(x)=1/L$ when $L\neq 0$.
 
@@ -410,13 +410,65 @@ small as we like. Dividing both sides by $\frac{2}{|L|^2}$, we must
 make $|f(x)-L|<\frac{|L|^2\epsilon}{2}$. Thus we must fix
 $\delta=\min(\delta_1, \delta_2)$. QED.
 
+\subsection{Absence of limits}
+
+What does it mean to say $L$ is not a limit of $f(x)$ at $a$? It flows
+out of the definition-- there exist some $\epsilon$ such that for any
+$\delta$ there exists an $x$ in $0<|x-a|<\delta$ such that $|f(x)-L|\geq\epsilon$.
+
+\vs
+
+A stronger version is to say there is no limit of $f(x)$ at $a$. To do
+that we must prove that \textit{any} $L$ is not a limit of $f(x)$ at
+$a$.
+
+\subsubsection*{Example: Absolute value fraction}
+
+Consider $f(x)=\frac{x}{|x|}$. It's easy to see that
+
+\[f(x)=\begin{cases}
+    -1 & \text{if } x<0\\
+    1 & \text{if } x>0\\
+\end{cases}\]
+
+We will show there is no limit of $f(x)$ near $0$.
+
+\paragraph{Weak version.}
+
+First, let's prove a weak version first-- that
+$\lim_{x\to 0}f(x)\neq 0$. That is easy. Pick some reasonably small
+epsilon, say $\epsilon=\frac{1}{10}$. We must show that for any
+$\delta$ there exists an $x$ in $0<|x-a|<\delta$ such that
+$|f(x)-0|\geq \frac{1}{10}$.
+
+\vs
+
+Let's pick some arbitrary $x$ out of our permitted interval, say $x=\delta/2$. Then
+\[|f(x)-0|=|f(\delta/2)|=\left|\frac{\delta/2}{|\delta/2|}\right|=1\geq\frac{1}{10}\]
+
+
+\paragraph{Strong version.}
+
+Now we prove that $\lim_{x\to 0}f(x)\neq L$ for \textit{any} $L$. Sticking
+with $\epsilon=\frac{1}{10}$ we proceed as follows.
+
+\vs
+
+If $L<0$ take $x=\delta/2$. Then
+
+\[|f(x)-L|=|f(\delta/2)-L|=\left|\frac{\delta/2}{|\delta/2|}-L\right|=|1-L|>\frac{1}{10}\]
+
+Similarly if $L\geq 0$ take $x=-\delta/2$. Then
+
+\[|f(x)-L|=|f(-\delta/2)-L|=\left|\frac{-\delta/2}{|-\delta/2|}-L\right|=|-1-L|>\frac{1}{10}\]
+
 \subsection{Appendix: low-level proofs}
 
 While high level theorems allow us to easily compute complicated
 limits, it's instructive to compute a few limits for complicated
 functions straight from the definition. We do that here.
 
-\subsubsection{Aside: inequalities}
+\subsubsection*{Aside: inequalities}
 
 We will often need to make an inequality of the following form work out:
 
@@ -453,7 +505,7 @@ The above is true (as we can make any bound on $|n|$ true).
 Multiplying both sides by $3|a|+4$ it's then easy to see that our
 desired inequality is also true.
 
-\subsubsection{Quadratic}
+\subsubsection*{Limits of quadratic functions}
 
 We will show from the definition that $\lim_{x\to a}x^2=a^2$. Let
 $\epsilon\in\R$ be positive. We must show there exists $\delta$ such that
@@ -498,7 +550,7 @@ goal, $|x-a||x+a|<\epsilon$ when
 
 Putting these together, $\delta=\min(1, \frac{\epsilon}{|2a|+1})$.
 
-\subsubsection{Fraction}
+\subsubsection*{Limits of fractions}
 
 We will show from the definition that
 $\lim_{x\to 2}\frac{3}{x}=\frac{3}{2}$. Let $\epsilon\in\R$ be positive. We must
@@ -530,58 +582,6 @@ that $|x-2|<1$ (we could as well pick $\frac{1}{10}$ or $10$). Then
 Since $|x|>1$, it take a moment of thought to see that
 \[|x-2|<\frac{2\epsilon}{3}\implies\frac{|x-2|}{|x|}<\frac{2\epsilon}{3}\]
 (if $|x-2|$ is less than some number, certainly $|x-2|$ divided by something greater than $1$ is less than that number.) Coming back to our original goal, $|\frac{3}{x}-\frac{3}{2}|<\epsilon$ provided that $|x-2|<1$ and $|x-2|<\frac{2\epsilon}{3}$. Putting these together, we get $\delta=\min(1, \frac{2\epsilon}{3})$.
-
-\subsection{Appendix: no-limit hold'em}
-
-What does it mean to say $L$ is not a limit of $f(x)$ at $a$? It flows
-out of the definition-- there exist some $\epsilon$ such that for any
-$\delta$ there exists an $x$ in $0<|x-a|<\delta$ such that $|f(x)-L|\geq\epsilon$.
-
-\vs
-
-A stronger version is to say there is no limit of $f(x)$ at $a$. To do
-that we must prove that \textit{any} $L$ is not a limit of $f(x)$ at
-$a$.
-
-\subsubsection{Example: Absolute value fraction}
-
-Consider $f(x)=\frac{x}{|x|}$. It's easy to see that
-
-\[f(x)=\begin{cases}
-    -1 & \text{if } x<0\\
-    1 & \text{if } x>0\\
-\end{cases}\]
-
-We will show there is no limit of $f(x)$ near $0$.
-
-\paragraph{Weak version.}
-
-First, let's prove a weak version first-- that
-$\lim_{x\to 0}f(x)\neq 0$. That is easy. Pick some reasonably small
-epsilon, say $\epsilon=\frac{1}{10}$. We must show that for any
-$\delta$ there exists an $x$ in $0<|x-a|<\delta$ such that
-$|f(x)-0|\geq \frac{1}{10}$.
-
-\vs
-
-Let's pick some arbitrary $x$ out of our permitted interval, say $x=\delta/2$. Then
-\[|f(x)-0|=|f(\delta/2)|=\left|\frac{\delta/2}{|\delta/2|}\right|=1\geq\frac{1}{10}\]
-
-
-\paragraph{Strong version.}
-
-Now we prove that $\lim_{x\to 0}f(x)\neq L$ for \textit{any} $L$. Sticking
-with $\epsilon=\frac{1}{10}$ we proceed as follows.
-
-\vs
-
-If $L<0$ take $x=\delta/2$. Then
-
-\[|f(x)-L|=|f(\delta/2)-L|=\left|\frac{\delta/2}{|\delta/2|}-L\right|=|1-L|>\frac{1}{10}\]
-
-Similarly if $L\geq 0$ take $x=-\delta/2$. Then
-
-\[|f(x)-L|=|f(-\delta/2)-L|=\left|\frac{-\delta/2}{|-\delta/2|}-L\right|=|-1-L|>\frac{1}{10}\]
 
 %%% Local Variables:
 %%% TeX-master: "index"
