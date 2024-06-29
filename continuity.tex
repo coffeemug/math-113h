@@ -3,43 +3,63 @@
 \subsection{Definitions}
 
 A function $f$ is \textbf{continuous} at $a$ when
+
 \[\lim_{x\to a}f(x)=f(a)\]
 
-Inlining $\epsilon-\delta$ definition, $f$ is continuous at $a$ if for all $\epsilon>0$ there exists $\delta>0$ such that $|x-a|<\delta$ implies $|f(x)-f(a)|<\delta$. Note:
+Inlining $\epsilon-\delta$ definition, $f$ is continuous at $a$ if for all
+$\epsilon>0$ there exists $\delta>0$ such that $|x-a|<\delta$ implies
+$|f(x)-f(a)|<\delta$. Note:
+
 \begin{itemize}
     \item $|f(x)-f(a)|<\delta$ simply says $f(a)$ is the limit.
-    \item we drop "$0<$" from $|x-a|<\delta$ because when $x=a$ in continuous functions, $f(x)-f(a)=0$ and thus we're free to examine the value of $f(a)$.
+    \item we drop "$0<$" from $|x-a|<\delta$ because when $x=a$ in
+      continuous functions, $f(x)-f(a)=0$ and thus we're free to
+      examine the value of $f(a)$.
 \end{itemize}
 
-A function $f$ is \textbf{continuous on an interval} $(a, b)$ if it's continuous at all $c\in(a,b)$\footnote{Closed intervals are a tiny bit harder, and I'm keeping them out for brevity.}.
+A function $f$ is \textbf{continuous on an interval} $(a, b)$ if it's
+continuous at all $c\in(a,b)$\footnote{Closed intervals are a tiny bit
+  harder, and I'm keeping them out for brevity.}.
 
 \subsection{Building blocks}
-The following theorems allow us to tell at a glance that large classes of functions are continuous (e.g. polynomials, rational functions, etc.)
+The following theorems allow us to tell at a glance that large classes
+of functions are continuous (e.g. polynomials, rational functions,
+etc.)
 
 \subsubsection{Easy proofs}
-\textbf{Constants}. Let $f(x)=c$. Then $f$ is continuous at all $a$ because $\lim_{x\to a}f(x)=c=f(a)$.
+
+\textbf{Constants}. Let $f(x)=c$. Then $f$ is continuous at all $a$
+because $\lim_{x\to a}f(x)=c=f(a)$.
 
 \vs
 
-\textbf{Identity}. Let $f(x)=x$. Then $f$ is continuous at all $a$ because $\lim_{x\to a}f(x)=a=f(a)$.
+\textbf{Identity}. Let $f(x)=x$. Then $f$ is continuous at all $a$
+because $\lim_{x\to a}f(x)=a=f(a)$.
 
 \vs
 
-\textbf{Addition}. Let $f,g\in\R\to\R$ be continuous at $a$. Then $f+g$ is continuous at $a$ because
+\textbf{Addition}. Let $f,g\in\R\to\R$ be continuous at $a$. Then
+$f+g$ is continuous at $a$ because
 \[\lim_{x\to a}(f+g)(x)=\lim_{x\to a}f(x)+\lim_{x\to a}g(x)=f(a)+g(a)=(f+g)(a)\]
 
-\textbf{Multiplication}. Let $f,g\in\R\to\R$ be continuous at $a$. Then $f\cdot g$ is continuous at $a$ because
+\textbf{Multiplication}. Let $f,g\in\R\to\R$ be continuous at $a$. Then
+$f\cdot g$ is continuous at $a$ because
 \[\lim_{x\to a}(fg)(x)=\lim_{x\to a}f(x)\cdot\lim_{x\to a}g(x)=f(a)g(a)=(fg)(a)\]
 
-\textbf{Reciprocal}. Let $f$ be continuous at $a$. Then $\frac{1}{g}$ is continuous at $a$ where $g(a)\neq 0$ because
+\textbf{Reciprocal}. Let $f$ be continuous at $a$. Then $\frac{1}{g}$
+is continuous at $a$ where $g(a)\neq 0$ because
 \[\lim_{x\to a}\left(\frac{1}{g}\right)(x)=\frac{1}{\lim_{x\to a}g(x)}=\frac{1}{g(a)}=\left(\frac{1}{g}\right)(a)\]
 (recall that we proved in the limits chapter that $\frac{1}{g}$ is defined.)
 
 \subsubsection{Composition}
-Let $f,g\in\R\to\R$. Let $g$ be continuous at $a$, and let $f$ be continuous at $g(a)$. Then $f\circ g$ is continuous at $a$. Put differently, we want to show
+
+Let $f,g\in\R\to\R$. Let $g$ be continuous at $a$, and let $f$ be
+continuous at $g(a)$. Then $f\circ g$ is continuous at $a$. Put
+differently, we want to show
 \[\lim_{x\to a}(f\circ g)(x)=(f\circ g)(a)\]
 
-Unpacking the definitions, let $\epsilon>0$ be given. We want to show there exists $\delta>0$ such that $|x-a|<\delta$ implies
+Unpacking the definitions, let $\epsilon>0$ be given. We want to show there
+exists $\delta>0$ such that $|x-a|<\delta$ implies
 \begin{align*}
     |(f\circ g)&(x)-(f\circ g)(a)|\\
     &=|f(g(x))-f(g(a))|<\epsilon
@@ -49,15 +69,22 @@ By problem statement we have two continuities.
 
 \vs
 
-\textbf{First}, $f$ is continuous at $g(a)$, i.e. $\lim_{y\to g(a)}f(y)=f(g(a))$. Thus there exists $\delta'>0$ such that $|y-g(a)|<\delta'$ implies $|f(y)-f(g(a))|<\epsilon$.
+\textbf{First}, $f$ is continuous at $g(a)$, i.e.
+$\lim_{y\to g(a)}f(y)=f(g(a))$. Thus there exists $\delta'>0$ such that
+$|y-g(a)|<\delta'$ implies $|f(y)-f(g(a))|<\epsilon$.
 
 \vs
 
-\textbf{Second}, $g$ is continuous at $a$, i.e. $\lim_{x\to a}g(x)=g(a)$. Thus there exists $\delta>0$ such that $|x-a|<\delta$ implies $|g(x)-g(a)|<\epsilon$. Since we can make $\epsilon$ be anything, we can set it to $\delta'$.
+\textbf{Second}, $g$ is continuous at $a$, i.e.
+$\lim_{x\to a}g(x)=g(a)$. Thus there exists $\delta>0$ such that
+$|x-a|<\delta$ implies $|g(x)-g(a)|<\epsilon$. Since we can make
+$\epsilon$ be anything, we can set it to $\delta'$.
 
 \vs
 
-I.e. there exists $\delta>0$ such that $|x-a|<\delta$ implies $|g(x)-g(a)|<\delta'$. Which by the first statement implies $|f(g(x))-f(g(a))|<\epsilon$, as desired.
+I.e. there exists $\delta>0$ such that $|x-a|<\delta$ implies
+$|g(x)-g(a)|<\delta'$. Which by the first statement implies
+$|f(g(x))-f(g(a))|<\epsilon$, as desired.
 
 \subsection{Appendix: fun examples}
 
