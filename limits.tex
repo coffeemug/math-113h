@@ -1,0 +1,371 @@
+\section{Limits}
+
+\subsection{A hand-wavy version}
+
+I'll first do a hand-wavy definition of limits and a higher level "interface" that allows computing actual limits of functions. After that I'll do a proper definition and prove everything.
+
+\vs
+
+\textbf{A hand-wavy definition:} a limit of $f(x)$ at $a$ is the value $f(x)$ approaches close to (but not necessarily at) $a$.
+
+\vs
+
+\textbf{A slightly less hand-wavy definition:} let $f:\R\to\R$, let $a\in\R$ be some number on the x-axis, and let $l\in\R$ be some number on the y-axis. Then as $x$ gets closer to $a$, $f(x)$ gets closer to $l$.
+
+\vs
+
+The notation for this whole thing is
+\[\lim_{x\to a} f(x)=l\]
+
+So for example $\lim_{x\to5}x^2=25$ because the closer $x$ gets to $5$, the closer $x^2$ gets to $25$ (we'll prove all this properly soon). Now suppose you have some fancy pants function like this one:
+\[\lim_{x\to 0}\frac{1-\sqrt{x}}{1-x}\]
+
+If you plot it, it's easy to see that as $x$ approaches $0$, the whole shebang approaches $1$. But how do you algebraically evaluate the limit of this thing? Can you just plug $0$ into the equation? It seems to work, but once we formally define limits, we'll have to prove somehow that plugging $a=0$ into $x$ gives us the correct result.
+
+\subsection{Evaluating limits}
+
+It turns out that it does in fact work because of a few building blocks that allow you to practically evaluate limits of functions. I'll first state these as facts, and then go back and properly prove them as theorems.
+
+\begin{enumerate}
+    \item \textbf{Constants}. $\lim_{x\to a}c=c$, where $c\in\R$. In other words if the function is a constant, e.g. $f(x)=5$, then $\lim_{x\to a}f(x)=5$ for any $a$.
+    \item \textbf{Identity}. $\lim_{x\to a}x=a$. In other words if the function is an identity function $f(x)=x$, then $\lim_{x\to a}f(x)=a$. Meaning we simply plug $a$ into $x$.
+    \item \textbf{Addition}. $\lim_{x\to a}(f+g)(x)=\lim_{x\to a}f(x)+\lim_{x\to a}g(x)$. For example $\lim_{x\to a}x+2=\lim_{x\to a}x+\lim_{x\to a}2=a+2$.
+    \item \textbf{Multiplication}. $\lim_{x\to a}(f\cdot g)(x)=\lim_{x\to a}f(x)\cdot \lim_{x\to a}g(x)$. For example $\lim_{x\to a}2x=\lim_{x\to a}2\cdot \lim_{x\to a}x=2a$.
+    \item \textbf{Reciprocal}. $\lim_{x\to a}\left(\frac{1}{f}\right)(x)=\frac{1}{\lim_{x\to a}f(x)}$ (when the denominator isn't zero). For example $\lim_{x\to a}\frac{1}{x}=\frac{1}{\lim_{x\to a}x}=\frac{1}{a}$.
+\end{enumerate}
+
+This tells us that
+\[\lim_{x\to 0}\frac{1-\sqrt{x}}{1-x}=\frac{\lim_{x\to 0}1-(\lim_{x\to 0}x)^{\frac{1}{2}}}{\lim_{x\to 0}1-\lim_{x\to 0}x}=\frac{1-0^{\frac{1}{2}}}{1-0}=1\]
+
+\subsubsection{Holes}
+
+What happens if we try to take a limit at $x\to 1$ rather than $x\to 0$?
+\[\lim_{x\to 1}\frac{1-\sqrt{x}}{1-x}\]
+
+We can't use the same trick and plug in $1$ because we get a nonsensical result $0/0$ as the function isn't defined at $0$. If we plot it, we clearly see the limit approaches $1/2$ at $0$, but how do we prove this algebraically? The answer is to do some trickery to find a way to cancel out the offending term (in this case $1-x$)
+\[\lim_{x\to 1}\frac{1-\sqrt{x}}{1-x}=\lim_{x\to 1}\frac{1-\sqrt{x}}{(1-\sqrt{x})(1+\sqrt{x})}=\lim_{x\to 1}\frac{1}{1+\sqrt{x}}=\frac{1}{2}\]
+
+\vs
+
+Why is it ok here to divide out by $1-\sqrt{x}$? Good question! Recall that the limit is defined \textit{close to} $a$ (or \textit{around} $a$, or as $x$ \textit{approaches} $a$), but not \textbf{at} $a$. In other words $f(a)$ need not even be defined (as is the case here). This means that as we consider $1-\sqrt{x}$ at different values of $x$ as it approaches $a$, the limit never requires us to evaluate the function at $x=a$. So we never have to consider $1-\sqrt{x}$ as $x=1$, $1-\sqrt{x}$ never takes on the value of $0$, and it is safe to divide it out.
+
+\subsection{Formal definition}
+Now we establish a rigorous definition of limits that formalizes the hand-wavy version above.
+
+\vs
+
+\textbf{Definition:} $\lim_{x\to a}f(x)=L$ when for any $\epsilon\in\R$ there exists $\delta\in\R$ such that for all $x$, $0<|x-a|<\delta$ implies $|f(x)-L|<\epsilon$. (Also $\epsilon>0, \delta>0$.)
+
+\vs
+
+Here is what this says. Suppose $\lim_{x\to a}f(x)=L$. You pick any interval on the y-axis around $L$. Make it as small (or as large) as you want. I'll produce an interval on the x-axis around $a$. You can take any number from my interval, plug it into $f$, and the output will stay within the bounds you specified.
+
+\vs
+
+Formally, $\epsilon$ specifies the distance away from $L$ along the y-axis, and $\delta$ specifies the distance away from $a$ along the x-axis. Take any $x$ within $\delta$ of $a$, plug it into $f$, and the result is guaranteed to be within $\epsilon$ of $L$. $\lim_{x\to a}f(x)=L$ just means there exists such $\delta$ for any $\epsilon$.
+
+\vs
+
+This is quite simple, but the mechanics of the limit definition tend to be hard. I think it's because absolute value inequalities are unfamiliar. Wtf is $0<|x-a|<\delta$ and $|f(x)-L|<\epsilon$?! Let's tease it apart\footnote{The best answer is to go to Khan academy and do a bunch of absolute value inequalities until they become second nature.}
+
+\vs
+
+First, consider $0<|x-a|<\delta$. There are two inequalities here. The left side, $0<|x-a|$ is equivalent to $|x-a|>0$. But $|x-a|$ is an absolute value, it's \textbf{always} true that $|x-a|\geq 0$. So this part of the inequality says $x-a\neq 0$, or $x\neq a$. (Remember, we said the limit is defined \textit{around} $a$ but not \textit{at} $a$). I don't know why mathematicians say $0<|x-a|$ instead of $x\neq a$, probably because confusing you brings them pleasure.
+
+\vs
+
+The right side is $|x-a|<\delta$. Intuitively this says that along the x-axis the difference between $x$ and $a$ should be less than $\delta$. Put differently, $x$ should be within $\delta$ of $a$. We can rewrite this as $a-\delta<x<a+\delta$.
+
+\vs
+
+The second equation, $|f(x)-L|<\epsilon$ should now be easy to understand. Intuitively, along the y-axis $f(x)$ should be within $\epsilon$ of $L$, or put differently $L-\epsilon<f(x)<L+\epsilon$.
+
+\subsubsection{Limit uniqueness}
+Suppose $\lim_{x\to a}f(x)=L$. It's easy to assume $L$ is the only limit around $a$, but such a thing needs to be proved. We prove this here. More formally, suppose $\lim_{x\to a}f(x)=L$ and $\lim_{x\to a}f(x)=M$. We prove that $L=M$.
+
+\vs
+
+Suppose for contradiction $L\neq M$. Assume without loss of generality $L>M$. Let $\epsilon\in\R$. Recall that we can pick any arbitrarily small (or large) epsilon. Here, fix $\epsilon=(L-M)/4$ because it will be convenient to work out the equations below (note we assumed $L>M$, thus $\epsilon>0$). By limit definition there is a positive $\delta\in\R$ such that $0<|x-a|<\delta$ implies
+\begin{itemize}
+    \item $|f(x)-L|<\epsilon\implies L-\epsilon<f(x)$
+    \item $|f(x)-M|<\epsilon\implies f(x)<M+\epsilon$
+\end{itemize}
+for all $x$. Thus
+\begin{align*}
+    &L-\epsilon<f(x)<M+\epsilon\\
+    &\implies L-\epsilon<M+\epsilon\\
+    &\implies L-M<2\epsilon\\
+    &\implies (L-M)/4<\epsilon/2&&\text{dividing both sides by 4}\\
+    &\implies \epsilon<\epsilon/2&&\text{recall we set $\epsilon=(L-M)/4$}
+\end{align*}
+
+We have a contradiction, and so $L=M$ as desired.
+
+\subsubsection{Half-Value Continuity Lemma}
+Suppose $\lim_{x\to a}g(x)=M$. We show that there exists some $\delta$ such that $0<|x-a|<\delta$ implies for all $x$:
+\begin{enumerate}
+    \item If $M>0$ then $g(x)\geq M/2$
+    \item If $M<0$ then $g(x)\leq M/2$
+    \item If $M\neq 0$ then $|g(x)|\geq|M|/2$ and $g(x)\neq 0$
+\end{enumerate}
+
+\textbf{Claim 1} is easy to prove. Suppose $M>0$. Fix $\epsilon=M/2$. By limit definition there is some $\delta$ such that $0<|x-a|<\delta$ implies for all $x$
+\begin{align*}
+    &|g(x)-M|<M/2\\
+    &\implies -M/2<g(x)-M\\
+    &\implies M/2<g(x)&&\text{add $M$ to both sides}\\
+    &\implies g(x)\geq M/2&&\text{note $\geq$ is correct but not tight}
+\end{align*}
+
+\textbf{Claim 2} is similar. Suppose $M<0$. Fix $\epsilon=-M/2$. Then
+\begin{align*}
+    &|g(x)-M|<-M/2\\
+    &\implies g(x)-M<-M/2\\
+    &\implies g(x)\leq M/2&&\text{add $M$ to both sides}\\
+    & &&\text{note $\geq$ is correct but not tight}
+\end{align*}
+
+\textbf{Claim 3} follows from claims 1 and 2.
+
+\subsection{Proving the building blocks}
+Armed with the formal definition, we can use it to rigorously prove the five building blocks useful for evaluating limits (constants, identity, addition, multiplication, reciprocal). Let's do that now.
+
+\subsubsection{Constants}
+Let $f(x)=c$, where $c\in\R$. We prove that $\lim_{x\to a}f(x)=c$ for all $a\in\R$.
+
+\vs
+
+Let $\epsilon\in\R$ such that $\epsilon>0$. Pick any positive $\delta\in\R$. Then for all $x$ such that $0<|x-a|<\delta$, $|f(x)-c|=|c-c|=0<\epsilon$. QED.
+
+\vs
+
+(Note that we can pick any positive $\delta$, e.g. $1, 10, \frac{1}{10}$. Thus we say any positive $\delta\in\R$.)
+
+\subsubsection{Identity}
+Let $f(x)=x$. We prove that $\lim_{x\to a}f(x)=a$ for all $a\in\R$.
+
+\vs
+
+Let $\epsilon\in\R$ such that $\epsilon>0$. We need to find a positive $\delta\in\R$ such that for all $x$ in $0<|x-a|<\delta$, $|f(x)-a|=|x-a|<\epsilon$. I.e. we need to find a $\delta$ such that $|x-a|<\delta$ implies $|x-a|<\epsilon$. This obviously works for any $\delta\leq\epsilon$. QED.
+
+\vs
+
+(Note that we have many options of for $\delta$, e.g. $\delta=\epsilon$, $\delta=\frac{\epsilon}{2}$, etc.)
+
+\subsubsection{Addition}
+Let $f,g\in\R\to\R$. We prove that
+\[\lim_{x\to a}(f+g)(x)=\lim_{x\to a}f(x)+\lim_{x\to a}g(x)\]
+
+Let $L_f=\lim_{x\to a}f(x)$ and let $L_g=\lim_{x\to a}g(x)$. Let $\epsilon\in\R$ such that $\epsilon>0$. We must now show there exists $\delta\in\R$ such that for all $x$ bounded by $0<|x-a|<\delta$ the following inequality holds:
+\begin{equation}
+|(f+g)(x)-(L_f+L_g)|<\epsilon    
+\end{equation}
+(i.e. we're trying to show $\lim_{x\to a}(f+g)(x)$ equals to $L_f+L_g$, the sum of the other two limits.)
+
+\vs
+
+By limit definition there exist positive $\delta_f, \delta_g\in\R$ such that for all $x$
+\begin{itemize}
+    \item $0<|x-a|<\delta_f$ implies $|f(x)-L_f|<\epsilon/2$
+    \item $0<|x-a|<\delta_g$ implies $|g(x)-L_g|<\epsilon/2$
+\end{itemize}
+(Recall that we can make $\epsilon$ as small as we like. Here we pick deltas for $\epsilon/2$ because it's convenient to make the equations below work out.) Let's first convert the left side of inequality (1) into a more convenient form:
+\begin{align*}
+    |(f+g)(x)-(L_f+L_g)|&=|f(x)+g(x)-(L_f+L_g)|\\
+    &=|(f(x)-L_f)+(g(x)-L_g)|\\
+    &\leq |(f(x)-L_f)|+|(g(x)-L_g)|&&\text{by triangle inequality}
+\end{align*}
+
+Observe that for all $x$ bounded by $0<|x-a|<\min(\delta_f, \delta_g)$ we have
+\[|(f(x)-L_f)|<\epsilon/2 \ \ \ \text{ and }\ \ \  |(g(x)-L_g)|<\epsilon/2\]
+
+Thus fix $\delta=\min(\delta_f, \delta_g)$. Then for all $x$ bounded by $0<|x-a|<\delta$ we have
+\begin{align*}
+    |(f+g)(x)-(L_f+L_g)|&\leq |(f(x)-L_f)|+|(g(x)-L_g)|\\
+    &<\epsilon/2+\epsilon/2=\epsilon
+\end{align*}
+as desired.
+
+\subsubsection{Multiplication}
+Let $f,g\in\R\to\R$. We prove that
+\[\lim_{x\to a}(fg)(x)=\lim_{x\to a}f(x)\cdot\lim_{x\to a}g(x)\]
+
+Let $L_f=\lim_{x\to a}f(x)$ and let $L_g=\lim_{x\to a}g(x)$. Let $\epsilon\in\R$ such that $\epsilon>0$. We must now show there exists $\delta\in\R$ such that for all $x$ bounded by $0<|x-a|<\delta$ the following inequality holds:
+
+\[|(fg)(x)-(L_fL_g)|<\epsilon\]
+
+(i.e. we're trying to show $\lim_{x\to a}(fg)(x)$ equals to $L_fL_g$, the product of the other two limits.) Let's convert the left side of this inequality into a more convenient form:
+
+\begin{align*}
+    |(fg)(x)-(L_fL_g)|&=|f(x)g(x)-L_fL_g|\\
+    &=|f(x)g(x)-L_fg(x)+L_fg(x)-L_fL_g|\\
+    &=|g(x)(f(x)-L_f)+L_f(g(x)-L_g)|\\
+    &\leq |g(x)||f(x)-L_f|+|L_f||g(x)-L_g|
+\end{align*}
+(Note that in general $|ab|=|a||b|$, and thus $|g(x)(f(x)-L_f)|=|g(x)||f(x)-L_f|$ and $|L_f(g(x)-L_g)|=|L_f||g(x)-L_g|$.) 
+
+\vs
+
+We now need to show that
+\[|g(x)||f(x)-L_f|+|L_f||g(x)-L_g|<\epsilon\]
+We will do that by proving
+\begin{enumerate}
+    \item $|g(x)||f(x)-L_f|<\epsilon/2$
+    \item $|L_f||g(x)-L_g|<\epsilon/2$
+\end{enumerate}
+
+First, we show $|g(x)||f(x)-L_f|<\epsilon/2$. By limit definition we can find $\delta_1$ to make $|f(x)-L_f|$ as small as we like. But how small? To make $|g(x)||f(x)-L_f|<\epsilon/2$ we must find a delta such that $|f(x)-L_f|<\epsilon/2g(x)$. But to do that we need to get a bound on $g(x)$. Fortunately we know there is $\delta_2$ such that $|g(x)-L_g|<1$ (we pick $1$ because we must pick some bound, and $1$ is as good as any). Thus $|g(x)|<|L_g|+1$. And so, we can pick $\delta_1$ such that $|f(x)-L_f|<\epsilon/2(|L_g|+1)$.
+
+\vs
+
+Second, we show $|L_f||g(x)-L_g|<\epsilon/2$. That is easy. By limit definition there exists a $\delta_3$ such that $0<|x-a|<\delta_3$ implies $|g(x)-L_g|<\epsilon/2|L_f|$ for all $x$. Actually, we need a $\delta_3$ such that $0<|x-a|<\delta_3$ implies $|g(x)-L_g|<\epsilon/2|L_f+1|$ for all $x$ to avoid divide by zero, and of course that exists too.
+
+\vs
+
+Fix $\delta=\min(\delta_1, \delta_2, \delta_3)$. Now
+\begin{align*}
+    |(fg)(x)-(L_fL_g)|&\leq |g(x)||f(x)-L_f|+|L_f||g(x)-L_g|\\
+    &<e/2+e/2=e
+\end{align*}
+as desired.
+
+\subsubsection{Reciprocal}
+Let $\lim_{x\to a}f(x)=L$. We prove $\lim_{x\to a}\left(\frac{1}{f}\right)(x)=1/L$ when $L\neq 0$.
+
+\vs
+
+By Half-Value Continuity Lemma, $f(x)\neq 0$ near $a$, and thus $\frac{1}{f}$ near $a$ is defined. All we must do is find a delta such that $\left|\frac{1}{f}(x)-\frac{1}{L}\right|<\epsilon$. Let's make the equation more convenient:
+\begin{align*}
+    \left|\frac{1}{f}(x)-\frac{1}{L}\right|&=\left|\frac{1}{f(x)}-\frac{1}{L}\right|\\
+    &=\left|\frac{L-f(x)}{Lf(x)}\right|\\
+    &=\frac{|f(x)-L|}{|L||f(x)|}
+\end{align*}
+
+We know by half value continuity lemma there exists $\delta_1$ such that $|f(x)|\geq |L|/2$. Raising both sides to $-1$ we get $|\frac{1}{f(x)}|\leq \frac{2}{|L|}$. Continuing the chain of reasoning above we get
+\begin{align*}
+    \frac{|f(x)-L|}{|L||f(x)|}&=\frac{|f(x)-L|}{|L|}\cdot\frac{1}{|f(x)|}\\
+    &\leq\frac{|f(x)-L|}{|L|}\cdot\frac{2}{|L|}=\frac{2}{|L|^2}|f(x)-L|\\
+\end{align*}
+(if you're confused about the above, left-multiply both sides of $|\frac{1}{f(x)}|\leq \frac{2}{|L|}$ by $\frac{|f(x)-L|}{|L|}$.) Thus we must find $\delta_2$ such that
+\[\frac{2}{|L|^2}|f(x)-L|<\epsilon\]
+
+That is easy. Since $\lim_{x\to a}f(x)=L$ we can make $|f(x)-L|$ as small as we like. Dividing both sides by $\frac{2}{|L|^2}$, we must make $|f(x)-L|<\frac{|L|^2\epsilon}{2}$. Thus we must fix $\delta=\min(\delta_1, \delta_2)$. QED.
+
+\subsection{Appendix: low-level proofs}
+While high level theorems allow us to easily compute complicated limits, it's instructive to compute a few limits for complicated functions straight from the definition. We do that here. 
+
+\subsubsection{Aside: inequalities}
+
+We will often need to make an inequality of the following form work out:
+\[|n||m|<\epsilon\]
+
+Here $\epsilon$ is given to us, we have complete control over the upper bound of $|n|$, and $|m|$ can take on any value outside our control. Obviously we can't make the inequality work without knowing \textit{something} about $|m|$, so we'll try to find a bound for it in terms of $|a|$ (that's the $a$ from $\lim_{x\to a}f(x)$, the value of which we know precisely).
+
+\vs
+
+Suppose we've discovered that $|m|<3|a|+4$. What does it tell us about $|n||m|<\epsilon$? More precisely, since we control $|n|$, how do we express it in terms of $\epsilon$ and $|a|$ in order to make the inequality work?
+
+\vs
+
+Well, if the upper bound of $|m|$ is $3|a|+4$, we can rewrite the inequality as follows
+\[|n|(3|a|+4)<\epsilon\]
+
+The reason for this is that if we can make $|n|(3|a|+4)<\epsilon$ true, then certainly anything smaller, e.g. $|n|(3|a|+3)<\epsilon$ will also be true. And $|m|$ is always smaller than $3|a|+4$. Since $|n|$ is in our control, we can set it as follows
+\[|n|<\frac{\epsilon}{3|a|+4}\]
+
+The above is true (as we can make any bound on $|n|$ true). Multiplying both sides by $3|a|+4$ it's then easy to see that our desired inequality is also true.
+
+\subsubsection{Quadratic}
+We will show from the definition that $\lim_{x\to a}x^2=a^2$. Let $\epsilon\in\R$ be positive. We must show there exists $\delta$ such that $|x^2-a^2|<\epsilon$ for all $x$ in $0<|x-a|<\delta$.
+
+\vs
+
+Observe that $|x^2-a^2|=|(x-a)(x+a)|=|x-a||x+a|$. Thus we must pick $\delta$ such that $|x-a||x+a|<\epsilon$. We can make $|x-a|$ arbitrarily small by picking $\delta$ of our choice-- that comes from the limit definition. But how small? For all we know $|x+a|$ could take on any value. There is nothing we can say about the inequality if that's the case. Thus we need to find an upper bound on $|x+a|$. We can do it as follows.
+
+\vs
+
+Start by setting $|x-a|<1$. (This is arbitrary; we may pick $1/10$ or $10$ just as well). Then
+\begin{align*}
+    &|x-a|<1\\
+    &\implies -1<x-a<1\\
+    &\implies 2a-1<x+a<2a+1&&\text{add $2a$ to both sides}
+\end{align*}
+We now have a bound on $x+a$, but we need one on $|x+a|$. It's easy to see $|x+a|<\max(|2a-1|, |2a+1|)$. By triangle inequality ($|a+b|\leq|a|+|b|$):
+\begin{align*}
+    &|2a-1|\leq|2a|+|-1|=|2a|+1\\
+    &|2a+1|\leq|2a|+|1|=|2a|+1
+\end{align*}
+Thus $|x+a|<|2a|+1$, provided $|x-a|<1$. Coming back to our original goal, $|x-a||x+a|<\epsilon$ when
+\begin{itemize}
+    \item $|x-a|<1$ and
+    \item $|x-a|<\frac{\epsilon}{|2a|+1}$
+\end{itemize}
+Putting these together, $\delta=\min(1, \frac{\epsilon}{|2a|+1})$.
+
+\subsubsection{Fraction}
+We will show from the definition that $\lim_{x\to 2}\frac{3}{x}=\frac{3}{2}$. Let $\epsilon\in\R$ be positive. We must show there exists $\delta$ such that $|\frac{3}{x}-\frac{3}{2}|<\epsilon$ for all $x$ in $0<|x-2|<\delta$.
+
+\vs
+
+Let's manipulate $|\frac{3}{x}-\frac{3}{2}|$ to make it more convenient:
+\[\left|\frac{3}{x}-\frac{3}{2}\right|=\left|\frac{6-3x}{2x}\right|=\frac{3}{2}\frac{|x-2|}{|x|}\]
+
+Thus we need to find $\delta$ such that
+\begin{align*}
+&\frac{3}{2}\frac{|x-2|}{|x|}<\epsilon\\
+&\implies \frac{|x-2|}{|x|}<\frac{2\epsilon}{3}\\
+\end{align*}
+
+We need to find a bound for $|x|$. Let's arbitrarily pick delta so that $|x-2|<1$ (we could as well pick $\frac{1}{10}$ or $10$). Then
+\begin{align*}
+    &|x-2|<1\\
+    &\implies -1<x-2<1\\
+    &\implies 1<x<3\\
+    &\implies 1<|x|<3
+\end{align*}
+
+Since $|x|>1$, it take a moment of thought to see that
+\[|x-2|<\frac{2\epsilon}{3}\implies\frac{|x-2|}{|x|}<\frac{2\epsilon}{3}\]
+(if $|x-2|$ is less than some number, certainly $|x-2|$ divided by something greater than $1$ is less than that number.) Coming back to our original goal, $|\frac{3}{x}-\frac{3}{2}|<\epsilon$ provided that $|x-2|<1$ and $|x-2|<\frac{2\epsilon}{3}$. Putting these together, we get $\delta=\min(1, \frac{2\epsilon}{3})$.
+
+\subsection{Appendix: no-limit hold'em}
+What does it mean to say $L$ is not a limit of $f(x)$ at $a$? It flows out of the definition-- there exist some $\epsilon$ such that for any $\delta$ there exists an $x$ in $0<|x-a|<\delta$ such that $|f(x)-L|\geq\epsilon$.
+
+\vs
+
+A stronger version is to say there is no limit of $f(x)$ at $a$. To do that we must prove that \textit{any} $L$ is not a limit of $f(x)$ at $a$.
+
+\subsubsection{Example: Absolute value fraction}
+Consider $f(x)=\frac{x}{|x|}$. It's easy to see that
+\[f(x)=\begin{cases}
+    -1 & \text{if } x<0\\
+    1 & \text{if } x>0\\
+\end{cases}\]
+
+We will show there is no limit of $f(x)$ near $0$.
+
+\paragraph{Weak version.}
+
+First, let's prove a weak version first-- that $\lim_{x\to 0}f(x)\neq 0$. That is easy. Pick some reasonably small epsilon, say $\epsilon=\frac{1}{10}$. We must show that for any $\delta$ there exists an $x$ in $0<|x-a|<\delta$ such that $|f(x)-0|\geq \frac{1}{10}$.
+
+\vs
+
+Let's pick some arbitrary $x$ out of our permitted interval, say $x=\delta/2$. Then
+\[|f(x)-0|=|f(\delta/2)|=\left|\frac{\delta/2}{|\delta/2|}\right|=1\geq\frac{1}{10}\]
+
+
+\paragraph{Strong version.}
+
+Now we prove that $\lim_{x\to 0}f(x)\neq L$ for \textit{any} $L$. Sticking with $\epsilon=\frac{1}{10}$ we proceed as follows.
+
+\vs
+
+If $L<0$ take $x=\delta/2$. Then
+\[|f(x)-L|=|f(\delta/2)-L|=\left|\frac{\delta/2}{|\delta/2|}-L\right|=|1-L|>\frac{1}{10}\]
+
+Similarly if $L\geq 0$ take $x=-\delta/2$. Then
+\[|f(x)-L|=|f(-\delta/2)-L|=\left|\frac{-\delta/2}{|-\delta/2|}-L\right|=|-1-L|>\frac{1}{10}\]
+
+%%% Local Variables:
+%%% TeX-master: "notes"
+%%% End:
