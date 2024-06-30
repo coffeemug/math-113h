@@ -171,11 +171,8 @@ $\lim_{x\to a}f(x)=M$. We prove that $L=M$.
 \vs
 
 Suppose for contradiction $L\neq M$. Assume without loss of generality
-$L>M$. Let $\epsilon\in\R$. Recall that we can pick any arbitrarily small (or
-large) epsilon. Here, fix $\epsilon=(L-M)/4$ because it will be convenient to
-work out the equations below (note we assumed $L>M$, thus
-$\epsilon>0$). By limit definition there is a positive $\delta\in\R$ such that
-$0<|x-a|<\delta$ implies
+$L>M$. By limit definition, for all $\epsilon>0$ there exists a positive
+$\delta\in\R$ such that $0<|x-a|<\delta$ implies
 
 \begin{itemize}
 \item $|f(x)-L|<\epsilon\implies L-\epsilon<f(x)$
@@ -187,6 +184,14 @@ for all $x$. Thus
 \begin{align*}
     &L-\epsilon<f(x)<M+\epsilon\\
     &\implies L-\epsilon<M+\epsilon\\
+    &\implies L-M<2\epsilon\\
+\end{align*}
+
+The above is true for all $\epsilon$. Now let's narrow our attention and
+consider a concrete $\epsilon=(L-M)/4$, which we easily find leads to a
+contradiction\footnote{note we assumed $L>M$, thus $\epsilon=(L-M)/4>0$}:
+
+\begin{align*}
     &\implies L-M<2\epsilon\\
     &\implies (L-M)/4<\epsilon/2&&\text{dividing both sides by 4}\\
     &\implies \epsilon<\epsilon/2&&\text{recall we set $\epsilon=(L-M)/4$}
