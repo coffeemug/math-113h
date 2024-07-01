@@ -202,19 +202,21 @@ We have a contradiction, and so $L=M$ as desired.
 \subsubsection*{Half-Value Continuity Lemma}
 
 This lemma will come in handy later, so we may as well prove it now.
-Intuitively, when a function $g$ approaches a nonzero limit $M$ near a
-point, there exists an interval in which the values of $g$ are closer
-to $M$ than to zero.
+Suppose $M\neq0$ and $\lim_{x\to a}g(x)=M$. We show that there exists some
+$\delta$ such that $0<|x-a|<\delta$ implies $|g(x)|\geq|M|/2$ for all $x$.
 
 \vs
 
-More formally, suppose $\lim_{x\to a}g(x)=M$. We show that there exists
-some $\delta$ such that $0<|x-a|<\delta$ implies for all $x$:
+Intuitively, the lemma states the following: when a function $g$
+approaches a nonzero limit $M$ near a point, there exists an interval
+in which the values of $g$ are closer to $M$ than to zero.
+
+\paragraph{Proof.} The claim that $|g(x)|\geq|M|/2$ hopefully breaks down
+to (TODO prove this):
 
 \begin{enumerate}
 \item If $M>0$ then $g(x)\geq M/2$
 \item If $M<0$ then $g(x)\leq M/2$
-\item If $M\neq 0$ then $|g(x)|\geq|M|/2$ and $g(x)\neq 0$
 \end{enumerate}
 
 Let's prove each of the three claims individually.
@@ -224,7 +226,6 @@ Let's prove each of the three claims individually.
 \textbf{Claim 1} is easy to prove. Suppose $M>0$. Fix $\epsilon=M/2$. By
 limit definition there is some $\delta$ such that $0<|x-a|<\delta$ implies for
 all $x$
-
 \begin{align*}
     &|g(x)-M|<M/2\\
     &\implies -M/2<g(x)-M\\
@@ -233,15 +234,13 @@ all $x$
 \end{align*}
 
 \textbf{Claim 2} is similar. Suppose $M<0$. Fix $\epsilon=-M/2$. Then
-
 \begin{align*}
     &|g(x)-M|<-M/2\\
     &\implies g(x)-M<-M/2\\
     &\implies g(x)<M/2&&\text{add $M$ to both sides}\\
-    & &&\text{note $\geq$ is correct but not tight}
+    & &&\text{note $\leq$ is correct but not tight}
 \end{align*}
-
-\textbf{Claim 3} follows from claims 1 and 2.
+QED.
 
 \subsection{Theorems that make evaluation work}
 
