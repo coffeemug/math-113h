@@ -211,21 +211,18 @@ Intuitively, the lemma states the following: when a function $g$
 approaches a nonzero limit $M$ near a point, there exists an interval
 in which the values of $g$ are closer to $M$ than to zero.
 
-\paragraph{Proof.} The claim that $|g(x)|\geq|M|/2$ hopefully breaks down
-to (TODO prove this):
+\paragraph{Proof.} The claim that $|g(x)|\geq|M|/2$ is equivalent to
+\[g(x)\leq-|M|/2 \text{\ \ \ or\ \ \ }g(x)\geq|M|/2\]
 
-\begin{enumerate}
-\item If $M>0$ then $g(x)\geq M/2$
-\item If $M<0$ then $g(x)\leq M/2$
-\end{enumerate}
-
-Let's prove each of the three claims individually.
+There are two possibilities: either $M>0$ or $M<0$. Let's consider
+each possibility separately.
 
 \vs
 
-\textbf{Claim 1} is easy to prove. Suppose $M>0$. Fix $\epsilon=M/2$. By
-limit definition there is some $\delta$ such that $0<|x-a|<\delta$ implies for
-all $x$
+\textbf{Case 1}. Suppose $M>0$. Then to show $|g(x)|\geq|M|/2$ it is
+sufficient to show \textit{either} $g(x)\leq-M/2$ or $g(x)\geq M/2$. We will
+show $g(x)\geq M/2$. Fix $\epsilon=M/2$. By limit definition there is some
+$\delta$ such that $0<|x-a|<\delta$ implies for all $x$
 \begin{align*}
     &|g(x)-M|<M/2\\
     &\implies -M/2<g(x)-M\\
@@ -233,11 +230,12 @@ all $x$
     &\implies g(x)>M/2&&\text{note $\geq$ is correct but not tight}
 \end{align*}
 
-\textbf{Claim 2} is similar. Suppose $M<0$. Fix $\epsilon=-M/2$. Then
+\textbf{Case 2}. Suppose $M<0$. We must show either $g(x)\leq M/2$ or
+$g(x)\geq -M/2$. We will show $g(x)\leq M/2$. Fix $\epsilon=-M/2$. Then
 \begin{align*}
     &|g(x)-M|<-M/2\\
     &\implies g(x)-M<-M/2\\
-    &\implies g(x)<M/2&&\text{add $M$ to both sides}\\
+    &\implies g(x)<M/2&&\text{add $M$ to both sides;}\\
     & &&\text{note $\leq$ is correct but not tight}
 \end{align*}
 QED.
