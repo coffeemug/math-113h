@@ -243,38 +243,36 @@ QED.
 \subsection{Theorems that make evaluation work}
 
 Armed with the formal definition, we can use it to rigorously prove
-the five building blocks useful for evaluating limits (constants,
-identity, addition, multiplication, reciprocal). Let's do that now.
+the five theorems useful for evaluating limits (constants, identity,
+addition, multiplication, reciprocal). Let's do that now.
 
 \subsubsection*{Constants}
-Let $f(x)=c$, where $c\in\R$. We prove that $\lim_{x\to a}f(x)=c$ for all $a\in\R$.
+Let $f(x)=c$. We prove that $\lim_{x\to a}f(x)=c$ for all $a$.
 
 \vs
 
-Let $\epsilon\in\R$ such that $\epsilon>0$. Pick any positive
-$\delta\in\R$. Then for all $x$ such that $0<|x-a|<\delta$,
-$|f(x)-c|=|c-c|=0<\epsilon$. QED.
+Let $\epsilon>0$ be given. Pick any positive $\delta$. Then for all
+$x$ such that $0<|x-a|<\delta$, $|f(x)-c|=|c-c|=0<\epsilon$. QED.
 
 \vs
 
-(Note that we can pick any positive $\delta$, e.g.
-$1, 10, \frac{1}{10}$. Thus we say any positive $\delta\in\R$.)
+(Note that we can pick any positive $\delta>0$, e.g.
+$1, 10, \frac{1}{10}$.)
 
 \subsubsection*{Identity}
 
-Let $f(x)=x$. We prove that $\lim_{x\to a}f(x)=a$ for all $a\in\R$.
+Let $f(x)=x$. We prove that $\lim_{x\to a}f(x)=a$ for all $a$.
 
 \vs
 
-Let $\epsilon\in\R$ such that $\epsilon>0$. We need to find a positive
-$\delta\in\R$ such that for all $x$ in $0<|x-a|<\delta$,
-$|f(x)-a|=|x-a|<\epsilon$. I.e. we need to find a $\delta$ such that
-$|x-a|<\delta$ implies $|x-a|<\epsilon$. This obviously works for any $\delta\leq\epsilon$. QED.
+Let $\epsilon>0$ be given. We need to find $\delta>0$ such that for all
+$x$ in $0<|x-a|<\delta$, $|f(x)-a|=|x-a|<\epsilon$. I.e. we need to find a
+$\delta$ such that $|x-a|<\delta$ implies $|x-a|<\epsilon$. This obviously works for
+any $\delta\leq\epsilon$. QED.
 
 \vs
 
-(Note that we have many options of for $\delta$, e.g.
-$\delta=\epsilon$, $\delta=\frac{\epsilon}{2}$, etc.)
+(Note the many options for $\delta$, e.g. $\delta=\epsilon$, $\delta=\frac{\epsilon}{2}$, etc.)
 
 \subsubsection*{Addition}
 
@@ -283,29 +281,16 @@ Let $f,g\in\R\to\R$. We prove that
 \[\lim_{x\to a}(f+g)(x)=\lim_{x\to a}f(x)+\lim_{x\to a}g(x)\]
 
 Let $L_f=\lim_{x\to a}f(x)$ and let $L_g=\lim_{x\to a}g(x)$. Let
-$\epsilon\in\R$ such that $\epsilon>0$. We must now show there exists
-$\delta\in\R$ such that for all $x$ bounded by $0<|x-a|<\delta$ the following
-inequality holds:
+$\epsilon>0$ be given. We must show there exists $\delta>0$ such that for all
+$x$ bounded by $0<|x-a|<\delta$ the following inequality holds:
 
-\begin{equation}
+\begin{equation*}
 |(f+g)(x)-(L_f+L_g)|<\epsilon    
-\end{equation}
+\end{equation*}
 
-(i.e. we're trying to show $\lim_{x\to a}(f+g)(x)$ equals to $L_f+L_g$, the sum of the other two limits.)
-
-\vs
-
-By limit definition there exist positive $\delta_f, \delta_g\in\R$ such that for all $x$
-
-\begin{itemize}
-    \item $0<|x-a|<\delta_f$ implies $|f(x)-L_f|<\epsilon/2$
-    \item $0<|x-a|<\delta_g$ implies $|g(x)-L_g|<\epsilon/2$
-\end{itemize}
-
-(Recall that we can make $\epsilon$ as small as we like. Here we pick deltas
-for $\epsilon/2$ because it's convenient to make the equations below work
-out.) Let's first convert the left side of inequality (1) into a more
-convenient form:
+I.e. we're trying to show $\lim_{x\to a}(f+g)(x)$ equals to $L_f+L_g$,
+the sum of the other two limits. Let's convert the left side of this
+inequality into a more convenient form:
 
 \begin{align*}
     |(f+g)(x)-(L_f+L_g)|&=|f(x)+g(x)-(L_f+L_g)|\\
@@ -313,11 +298,23 @@ convenient form:
     &\leq |(f(x)-L_f)|+|(g(x)-L_g)|&&\text{by triangle inequality}
 \end{align*}
 
-Observe that for all $x$ bounded by $0<|x-a|<\min(\delta_f, \delta_g)$ we have
+\vs
+
+By limit definition there exist positive $\delta_f, \delta_g$ such that for all $x$
+
+\begin{itemize}
+    \item $0<|x-a|<\delta_f$ implies $|f(x)-L_f|<\epsilon/2$
+    \item $0<|x-a|<\delta_g$ implies $|g(x)-L_g|<\epsilon/2$
+\end{itemize}
+
+Recall that we can make $\epsilon$ as small as we like. Here we pick deltas
+for $\epsilon/2$ because it's convenient to make the equations work, as you
+will see in a second. For all $x$ bounded by
+$0<|x-a|<\min(\delta_f, \delta_g)$ we have
 
 \[|(f(x)-L_f)|<\epsilon/2 \ \ \ \text{ and }\ \ \  |(g(x)-L_g)|<\epsilon/2\]
 
-Thus fix $\delta=\min(\delta_f, \delta_g)$. Then for all $x$ bounded by
+Fix $\delta=\min(\delta_f, \delta_g)$. Then for all $x$ bounded by
 $0<|x-a|<\delta$ we have
 
 \begin{align*}
