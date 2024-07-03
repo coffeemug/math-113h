@@ -199,7 +199,7 @@ contradiction\footnote{note we assumed $L>M$, thus $\epsilon=(L-M)/4>0$}:
 
 We have a contradiction, and so $L=M$ as desired.
 
-\subsubsection*{Half-Value Continuity Lemma}
+\subsubsection*{Half-Value Continuity Lemma} \label{subsubsec:half-value-lemma}
 
 This lemma will come in handy later, so we may as well prove it now.
 Suppose $M\neq0$ and $\lim_{x\to a}g(x)=M$. We show that there exists some
@@ -331,9 +331,8 @@ Let $f,g\in\R\to\R$. We prove that
 \[\lim_{x\to a}(fg)(x)=\lim_{x\to a}f(x)\cdot\lim_{x\to a}g(x)\]
 
 Let $L_f=\lim_{x\to a}f(x)$ and let $L_g=\lim_{x\to a}g(x)$. Let
-$\epsilon\in\R$ such that $\epsilon>0$. We must now show there exists
-$\delta\in\R$ such that for all $x$ bounded by $0<|x-a|<\delta$ the following
-inequality holds:
+$\epsilon>0$ be given. We must show there exists $\delta>0$ such that for all
+$x$ bounded by $0<|x-a|<\delta$ the following inequality holds:
 
 \[|(fg)(x)-(L_fL_g)|<\epsilon\]
 
@@ -345,42 +344,43 @@ this inequality into a more convenient form:
     |(fg)(x)-(L_fL_g)|&=|f(x)g(x)-L_fL_g|\\
     &=|f(x)g(x)-L_fg(x)+L_fg(x)-L_fL_g|\\
     &=|g(x)(f(x)-L_f)+L_f(g(x)-L_g)|\\
-    &\leq |g(x)||f(x)-L_f|+|L_f||g(x)-L_g|
+    &\leq|g(x)(f(x)-L_f)|+|L_f(g(x)-L_g)|&&\text{by triangle inequality}\\
+    &=|g(x)||f(x)-L_f|+|L_f||g(x)-L_g|&&\text{in general } |ab|=|a||b|
 \end{align*}
 
-(Note that in general $|ab|=|a||b|$, and thus
-$|g(x)(f(x)-L_f)|=|g(x)||f(x)-L_f|$ and
-$|L_f(g(x)-L_g)|=|L_f||g(x)-L_g|$.)
-
-\vs
-
-We now need to show that
+We now need to show there exists $\delta$ such that $0<|x-a|<\delta$ implies
 
 \[|g(x)||f(x)-L_f|+|L_f||g(x)-L_g|<\epsilon\]
 
-We will do that by proving
+We will do that by finding $\delta$ such that
 
 \begin{enumerate}
     \item $|g(x)||f(x)-L_f|<\epsilon/2$
     \item $|L_f||g(x)-L_g|<\epsilon/2$
 \end{enumerate}
 
-First, we show $|g(x)||f(x)-L_f|<\epsilon/2$. By limit definition we can find
-$\delta_1$ to make $|f(x)-L_f|$ as small as we like. But how small? To make
-$|g(x)||f(x)-L_f|<\epsilon/2$ we must find a delta such that
-$|f(x)-L_f|<\epsilon/2g(x)$. But to do that we need to get a bound on
-$g(x)$. Fortunately we know there is $\delta_2$ such that
+\textbf{First}, we show $|g(x)||f(x)-L_f|<\epsilon/2$.
+
+\vs
+
+By limit definition we can find $\delta_1$ to make $|f(x)-L_f|$ as small as
+we like. But how small? To make $|g(x)||f(x)-L_f|<\epsilon/2$ we must find a
+delta such that $|f(x)-L_f|<\epsilon/2g(x)$. But to do that we need to get a
+bound on $g(x)$. Fortunately we know there exists $\delta_2$ such that
 $|g(x)-L_g|<1$ (we pick $1$ because we must pick some bound, and $1$
 is as good as any). Thus $|g(x)|<|L_g|+1$. And so, we can pick
 $\delta_1$ such that $|f(x)-L_f|<\epsilon/2(|L_g|+1)$.
 
 \vs
 
-Second, we show $|L_f||g(x)-L_g|<\epsilon/2$. That is easy. By limit
-definition there exists a $\delta_3$ such that $0<|x-a|<\delta_3$ implies
-$|g(x)-L_g|<\epsilon/2|L_f|$ for all $x$. Actually, we need a
-$\delta_3$ such that $0<|x-a|<\delta_3$ implies
-$|g(x)-L_g|<\epsilon/2|L_f+1|$ for all $x$ to avoid divide by zero, and of
+\textbf{Second}, we show $|L_f||g(x)-L_g|<\epsilon/2$.
+
+\vs
+
+That is easy. By limit definition there exists a $\delta_3$ such that
+$0<|x-a|<\delta_3$ implies $|g(x)-L_g|<\epsilon/2|L_f|$ for all $x$. Actually, we
+need a $\delta_3$ such that $0<|x-a|<\delta_3$ implies
+$|g(x)-L_g|<\frac{\epsilon}{2(|L_f|+1)}$ for all $x$ to avoid divide by zero, and of
 course that exists too.
 
 \vs
@@ -400,28 +400,37 @@ Let $\lim_{x\to a}f(x)=L$. We prove $\lim_{x\to a}\left(\frac{1}{f}\right)(x)=1/
 
 \vs
 
-By Half-Value Continuity Lemma, $f(x)\neq 0$ near $a$, and thus
-$\frac{1}{f}$ near $a$ is defined. All we must do is find a delta such
-that $\left|\frac{1}{f}(x)-\frac{1}{L}\right|<\epsilon$. Let's make the
-equation more convenient:
+First we show $\frac{1}{f}$ is defined near $a$. By half-value
+continuity lemma (see \ref{subsubsec:half-value-lemma}) there exists
+$\delta_{1}$ such that $0<|x-a|<\delta_{1}$ implies $|f(x)|\geq |L|/2$ where
+$L\neq0$. Therefore $f(x)\neq 0$ near $a$, and thus $\frac{1}{f}$ near
+$a$ is defined.
+
+\vs
+
+
+Now all we must do is find a delta such that
+$\left|\frac{1}{f}(x)-\frac{1}{L}\right|<\epsilon$. Let's make the equation
+more convenient:
 
 \begin{align*}
-    \left|\frac{1}{f}(x)-\frac{1}{L}\right|&=\left|\frac{1}{f(x)}-\frac{1}{L}\right|\\
-    &=\left|\frac{L-f(x)}{Lf(x)}\right|\\
-    &=\frac{|f(x)-L|}{|L||f(x)|}
+  \left|\frac{1}{f}(x)-\frac{1}{L}\right|&=\left|\frac{1}{f(x)}-\frac{1}{L}\right|\\
+                                         &=\left|\frac{L-f(x)}{Lf(x)}\right|\\
+                                         &=\frac{|f(x)-L|}{|L||f(x)|}\\
+                                         &=\frac{|f(x)-L|}{|L|}\cdot\frac{1}{|f(x)|}
 \end{align*}
 
-We know by half value continuity lemma there exists $\delta_1$ such that
-$|f(x)|\geq |L|/2$. Raising both sides to $-1$ we get
-$|\frac{1}{f(x)}|\leq \frac{2}{|L|}$. Continuing the chain of reasoning
-above we get
+Above we showed there exists $\delta_{1}$ such that
+$0<|x-a|<\delta_{1}$ implies $|f(x)|\geq |L|/2$. Raising both sides to
+$-1$ we get $|\frac{1}{f(x)}|\leq \frac{2}{|L|}$. Continuing the chain of
+reasoning above we get
 
 \begin{align*}
-    \frac{|f(x)-L|}{|L||f(x)|}&=\frac{|f(x)-L|}{|L|}\cdot\frac{1}{|f(x)|}\\
-    &\leq\frac{|f(x)-L|}{|L|}\cdot\frac{2}{|L|}=\frac{2}{|L|^2}|f(x)-L|\\
+  \frac{|f(x)-L|}{|L|}\cdot\frac{1}{|f(x)|}&\leq\frac{|f(x)-L|}{|L|}\cdot\frac{2}{|L|}\\
+                                       &=\frac{2}{|L|^2}|f(x)-L|
 \end{align*}
 
-(if you're confused about the above, left-multiply both sides of
+(if you're confused about why this inequality works, left-multiply both sides of
 $|\frac{1}{f(x)}|\leq \frac{2}{|L|}$ by $\frac{|f(x)-L|}{|L|}$.) Thus we
 must find $\delta_2$ such that
 
