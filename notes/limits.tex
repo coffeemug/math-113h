@@ -505,41 +505,41 @@ We will often need to make an inequality of the following form work out:
 \[|n||m|<\epsilon\]
 
 Here $\epsilon$ is given to us, we have complete control over the upper bound
-of $|n|$, and $|m|$ can take on any value outside our control.
+of $|n|$, and $|m|$ can take on values outside our direct control.
 Obviously we can't make the inequality work without knowing
 \textit{something} about $|m|$, so we'll try to find a bound for it in
-terms of $|a|$ (that's the $a$ from $\lim_{x\to a}f(x)$, the value of
-which we know precisely).
+terms of other fixed values, or values we control.
 
 \vs
 
-Suppose we've discovered that $|m|<3|a|+4$. What does it tell us about
-$|n||m|<\epsilon$? More precisely, since we control $|n|$, how do we express
-it in terms of $\epsilon$ and $|a|$ in order to make the inequality work?
+For example, suppose $\lim_{x\to a}f(x)=L$ and we've discovered that
+$|m|<3|a|+4$. Given that we control $|n|$, how do we bound it in terms
+of $\epsilon$ and $|a|$ in such a way that the inequality $|n||m|<\epsilon$ holds?
 
 \vs
 
-Well, if the upper bound of $|m|$ is $3|a|+4$, we can rewrite the
-inequality as follows
+Since we control $|n|$ and $(3|a|+4)$ is fixed, we can find $|n|$
+small enough so that $|n|(3|a|+4)<\epsilon$ holds. Then certainly any
+inequality whose left side is smaller, e.g. $|n|(3|a|+3)<\epsilon$, will also
+hold. And since $|m|$ is always smaller than $3|a|+4$, it follows
+$|n||m|<\epsilon$ will hold as well.
 
-\[|n|(3|a|+4)<\epsilon\]
+\vs
 
-The reason for this is that if we can make $|n|(3|a|+4)<\epsilon$ true, then
-certainly anything smaller, e.g. $|n|(3|a|+3)<\epsilon$ will also be true.
-And $|m|$ is always smaller than $3|a|+4$. Since $|n|$ is in our
-control, we can set it as follows
+All we have left to do is find a bound for $|n|$ such that
+$|n|(3|a|+4)<\epsilon$ holds, which is of course easy:
 
 \[|n|<\frac{\epsilon}{3|a|+4}\]
 
-The above is true (as we can make any bound on $|n|$ true).
-Multiplying both sides by $3|a|+4$ it's then easy to see that our
-desired inequality is also true.
+Having bound $|n|$ in this way, we can verify that
+$|n|(3|a|+4)<\epsilon$ holds by multiplying both sides of the above
+inequality by $3|a|+4$.
 
 \subsubsection*{Limits of quadratic functions}
 
-We will show from the definition that $\lim_{x\to a}x^2=a^2$. Let
-$\epsilon\in\R$ be positive. We must show there exists $\delta$ such that
-$|x^2-a^2|<\epsilon$ for all $x$ in $0<|x-a|<\delta$.
+We will show that $\lim_{x\to a}x^2=a^2$ directly from the limit
+definition. Let $\epsilon>0$ be given. We must show there exists
+$\delta$ such that $|x^2-a^2|<\epsilon$ for all $x$ in $0<|x-a|<\delta$.
 
 \vs
 
