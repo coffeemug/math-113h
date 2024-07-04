@@ -537,24 +537,25 @@ inequality by $3|a|+4$.
 
 \subsubsection*{Limits of quadratic functions}
 
-We will show that $\lim_{x\to a}x^2=a^2$ directly from the limit
-definition. Let $\epsilon>0$ be given. We must show there exists
+We will prove directly from the limits definition that
+$\lim_{x\to a}x^2=a^2$. Let $\epsilon>0$ be given. We must show there exists
 $\delta$ such that $|x^2-a^2|<\epsilon$ for all $x$ in $0<|x-a|<\delta$.
 
 \vs
 
-Observe that $|x^2-a^2|=|(x-a)(x+a)|=|x-a||x+a|$. Thus we must pick
-$\delta$ such that $|x-a||x+a|<\epsilon$. We can make $|x-a|$ arbitrarily small by
-picking $\delta$ of our choice-- that comes from the limit definition. But
-how small? For all we know $|x+a|$ could take on any value. There is
-nothing we can say about the inequality if that's the case. Thus we
-need to find an upper bound on $|x+a|$. We can do it as follows.
+Observe that
+\[|x^2-a^2|=|(x-a)(x+a)|=|x-a||x+a|\]
+
+Thus we must pick $\delta$ such that $|x-a||x+a|<\epsilon$. Since
+$0<|x-a|<\delta$, picking $\delta$ conveniently happens to bound
+$|x-a|$, letting us make it as small as we want. But to know how
+small, we need to find an upper bound on $|x+a|$. We can do it as
+follows.
 
 \vs
 
-Start by setting $|x-a|<1$. (This is arbitrary; we may pick $1/10$ or
-$10$ just as well). Then
-
+Pick an arbitrary $\delta=1$ (we may pick any arbitrary delta, e.g. $1/10$,
+$10$, etc.) Then since $|x-a|<\delta$:
 \begin{align*}
     &|x-a|<1\\
     &\implies -1<x-a<1\\
@@ -564,7 +565,6 @@ $10$ just as well). Then
 We now have a bound on $x+a$, but we need one on $|x+a|$. It's easy to
 see $|x+a|<\max(|2a-1|, |2a+1|)$. By triangle inequality
 ($|a+b|\leq|a|+|b|$):
-
 \begin{align*}
     &|2a-1|\leq|2a|+|-1|=|2a|+1\\
     &|2a+1|\leq|2a|+|1|=|2a|+1
@@ -582,10 +582,10 @@ Putting these together, $\delta=\min(1, \frac{\epsilon}{|2a|+1})$.
 
 \subsubsection*{Limits of fractions}
 
-We will show from the definition that
-$\lim_{x\to 2}\frac{3}{x}=\frac{3}{2}$. Let $\epsilon\in\R$ be positive. We must
-show there exists $\delta$ such that
-$|\frac{3}{x}-\frac{3}{2}|<\epsilon$ for all $x$ in $0<|x-2|<\delta$.
+We will prove directly from the limits definition that
+$\lim_{x\to 2}\frac{3}{x}=\frac{3}{2}$. Let $\epsilon>0$ be given. We must show
+there exists $\delta>0$ such that $|\frac{3}{x}-\frac{3}{2}|<\epsilon$ for all
+$x$ in $0<|x-2|<\delta$.
 
 \vs
 
@@ -599,9 +599,17 @@ Thus we need to find $\delta$ such that
 &\implies \frac{|x-2|}{|x|}<\frac{2\epsilon}{3}\\
 \end{align*}
 
-We need to find a bound for $|x|$. Let's arbitrarily pick delta so
-that $|x-2|<1$ (we could as well pick $\frac{1}{10}$ or $10$). Then
+Conveniently $0<|x-2|<\delta$ bounds $|x-2|$. But now we need to find a
+bound for $|x|$. It would be extra convenient if we could show
+$|x|>1$. Then we could set $\delta=\frac{2\epsilon}{3}$ (and thus bound
+$|x-2|<\frac{2\epsilon}{3}$). A denominator greater than $1$ would only make
+the fraction smaller than $\frac{2\epsilon}{3}$, ensuring
+$\frac{|x-2|}{|x|}<\frac{2\epsilon}{3}$ holds.
 
+\vs
+
+We will do exactly that. Pick an arbitrary $\delta=1$ (we may pick any
+arbitrary delta, e.g. $1/10$, $10$, etc.) Then since $|x-2|<\delta$
 \begin{align*}
     &|x-2|<1\\
     &\implies -1<x-2<1\\
@@ -609,9 +617,10 @@ that $|x-2|<1$ (we could as well pick $\frac{1}{10}$ or $10$). Then
     &\implies 1<|x|<3
 \end{align*}
 
-Since $|x|>1$, it take a moment of thought to see that
-\[|x-2|<\frac{2\epsilon}{3}\implies\frac{|x-2|}{|x|}<\frac{2\epsilon}{3}\]
-(if $|x-2|$ is less than some number, certainly $|x-2|$ divided by something greater than $1$ is less than that number.) Coming back to our original goal, $|\frac{3}{x}-\frac{3}{2}|<\epsilon$ provided that $|x-2|<1$ and $|x-2|<\frac{2\epsilon}{3}$. Putting these together, we get $\delta=\min(1, \frac{2\epsilon}{3})$.
+Yes!! Luckily $\delta=1$ implies $|x|>1$! Thus, provided that
+$|x-2|<1$ and $|x-2|<\frac{2\epsilon}{3}$, the inequality
+$|\frac{3}{x}-\frac{3}{2}|<\epsilon$ holds. Putting the two constraints
+together, we get $\delta=\min(1, \frac{2\epsilon}{3})$.
 
 %%% Local Variables:
 %%% TeX-master: "index"
