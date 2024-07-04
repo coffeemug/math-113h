@@ -6,16 +6,17 @@ A function $f$ is \textbf{continuous} at $a$ when
 
 \[\lim_{x\to a}f(x)=f(a)\]
 
-Inlining $\epsilon-\delta$ definition, $f$ is continuous at $a$ if for all
-$\epsilon>0$ there exists $\delta>0$ such that $|x-a|<\delta$ implies
-$|f(x)-f(a)|<\delta$. Note:
+Inlining the limits definition, $f$ is continuous at $a$ if for all
+$\epsilon>0$ there exists $\delta>0$ such that $0<|x-a|<\delta$ implies
+$|f(x)-f(a)|<\epsilon$.
 
-\begin{itemize}
-    \item $|f(x)-f(a)|<\delta$ simply says $f(a)$ is the limit.
-    \item we drop "$0<$" from $|x-a|<\delta$ because when $x=a$ in
-      continuous functions, $f(x)-f(a)=0$ and thus we're free to
-      examine the value of $f(a)$.
-\end{itemize}
+\vs
+
+We can simplify this definition slightly. Observe that in continuous
+functions $f(a)$ exists, and at $x=a$ we get $f(x)-f(a)=0$. Thus we
+can relax the constraint $0<|x-a|<\delta$ to $|x-a|<\delta$.
+
+\vs
 
 A function $f$ is \textbf{continuous on an interval} $(a, b)$ if it's
 continuous at all $c\in(a,b)$\footnote{Closed intervals are a tiny bit
