@@ -492,6 +492,39 @@ Similarly if $L\geq 0$ take $x=-\delta/2$. Then
 
 \[|f(x)-L|=|f(-\delta/2)-L|=\left|\frac{-\delta/2}{|-\delta/2|}-L\right|=|-1-L|>\frac{1}{10}\]
 
+\subsubsection*{Example: Dirichlet function}
+The \textit{dirichlet} function $f$ is defined as follows:
+\[
+f(x) = 
+\begin{cases} 
+0 & \text{for irrational } x, \\
+1 & \text{for rational } x.
+\end{cases}
+\]
+
+We prove $\lim_{x\to a}f(x)$ does not exist for any $a$.
+
+\paragraph{Proof.} Let $\epsilon=\frac{1}{10}$. Suppose for contradiction
+there exists $L$ such that $\lim_{x\to a}f(x)=L$. There are two
+possibilities: either $L\leq\frac{1}{2}$ or $L>\frac{1}{2}$.
+
+\vs
+
+First suppose $L\leq\frac{1}{2}$. Pick any rational $x$ from the interval
+$0<|x-a|<\delta$. Then $|f(x)-L|=|1-L|\geq\frac{1}{2}$. Thus
+$|f(x)-L|\geq\frac{1}{10}$.
+
+\vs
+
+Similarly, suppose $L>\frac{1}{2}$. Pick any irrational $x$ from the
+interval $0<|x-a|<\delta$. Then $|f(x)-L|=|0-L|>\frac{1}{2}$. Thus
+$|f(x)-L|\geq\frac{1}{10}$.
+
+\vs
+
+Thus $\lim_{x\to a}f(x)$ does not exist for any $a$, as desired.
+
+
 \subsection{Appendix: low-level proofs}
 
 While high level theorems allow us to easily compute complicated
@@ -621,11 +654,6 @@ Yes!! Luckily $\delta=1$ implies $|x|>1$! Thus, provided that
 $|x-2|<1$ and $|x-2|<\frac{2\epsilon}{3}$, the inequality
 $|\frac{3}{x}-\frac{3}{2}|<\epsilon$ holds. Putting the two constraints
 together, we get $\delta=\min(1, \frac{2\epsilon}{3})$.
-
-\subsection{Appendix: example functions}
-
-\subsubsection*{Dirichlet function}
-
 
 %%% Local Variables:
 %%% TeX-master: "index"
