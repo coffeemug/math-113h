@@ -1,0 +1,219 @@
+\section{Limits}
+\subsection*{Problem 2}
+Find the following limits.
+
+\subsubsection*{Solution}
+(i)
+
+\[\lim_{x\to 1}\frac{1-\sqrt{x}}{1-x}=\lim_{x\to 1}\frac{1-\sqrt{x}}{(1-\sqrt{x})(1+\sqrt{x})}=\lim_{x\to 1}\frac{1}{1+\sqrt{x}}=\frac{1}{2}\]
+
+(ii)
+\begin{align*}
+\lim_{x\to 0}\frac{1-\sqrt{1-x^2}}{x}&=\lim_{x\to 0}\frac{(1-\sqrt{1-x^2})(1+\sqrt{1-x^2})}{x(1+\sqrt{1-x^2})}\\
+&=\lim_{x\to 0}\frac{1-(1-x^2)}{x(1+\sqrt{1-x^2})}\\
+&=\lim_{x\to 0}\frac{x^2}{x(1+\sqrt{1-x^2})}\\
+&=\lim_{x\to 0}\frac{x}{1+\sqrt{1-x^2}}=0
+\end{align*}
+
+(iii)
+\begin{align*}
+    \lim_{x\to0}\frac{1-\sqrt{1-x^2}}{x^2}&=\lim_{x\to 0}\frac{(1-\sqrt{1-x^2})(1+\sqrt{1-x^2})}{x^2(1+\sqrt{1-x^2})}\\
+    &=\lim_{x\to 0}\frac{1-(1-x^2)}{x^2(1+\sqrt{1-x^2})}\\
+    &=\lim_{x\to 0}\frac{x^2}{x^2(1+\sqrt{1-x^2})}\\
+    &=\lim_{x\to 0}\frac{1}{1+\sqrt{1-x^2}}=\frac{1}{2}
+\end{align*}
+
+\subsection*{Problem 3i, ii}
+In each of the following cases, find a $\delta$ such that $|f(x)-l|<\epsilon$ for all $x$ satisfying $0<|x-a|<\delta$.
+
+\subsubsection*{Solution}
+(i) $f(x)=x^4; l=a^4$
+
+\vs
+
+Let $\epsilon>0$ be given. We must find $\delta$ such that $0<|x-a|<\delta$ implies $|x^4-a^4|<\epsilon$ for all $x$. Observe that
+\[|x^4-a^4|=|(x^2+a^2)(x+a)(x-a)|=|x^2+a^2||x+a||x-a|\]
+
+We must find a bound on $|x+a|$ and $|x^2+a^2|$. Start by arbitrarily fixing $|x-a|<1$. Then
+\begin{align*}
+    &-1<x-a<1\\
+    &\implies 2a-1<x+a<2a+1&&\text{add $2a$ to both sides}
+\end{align*}
+We now have a bound on $x+a$, but we need one on $|x+a|$. It's easy to see $|x+a|<\max(|2a-1|, |2a+1|)$. By triangle inequality ($|a+b|\leq|a|+|b|$):
+\begin{align*}
+    &|2a-1|\leq|2a|+|-1|=|2a|+1\\
+    &|2a+1|\leq|2a|+|1|=|2a|+1
+\end{align*}
+Thus $|x+a|<|2a|+1$, provided $|x-a|<1$. Similarly, we find a bound for $|x^2+a^2|$:
+\begin{align*}
+    &-1<x-a<1\\
+    &\implies a-1<x<a+1\\
+    &\implies (a-1)^2<x^2<(a+1)^2&&\text{square each side}\\
+    &\implies (a-1)^2+a^2<x^2+a^2<(a+1)^2+a^2
+\end{align*}
+Observe that $x^2+a^2=|x^2+a^2|$, thus $|x^2+a^2|<(a+1)^2+a^2$. Thus to make $|x^4-a^4|<\epsilon$ we must set
+\[|x-a|<\frac{\epsilon}{(|2a|+1)((a+1)^2+a^2)}\]
+provided $|x-a|<1$. Therefore
+\[\delta=\min(1, \frac{\epsilon}{(|2a|+1)(2a^2+2a+1)})\]
+
+\vs
+
+(ii) $f(x)=\frac{1}{x}; a=1, l=1$
+
+\vs
+
+Let $\epsilon>0$ be given. We must find $\delta$ such that $0<|x-1|<\delta$ implies $|\frac{1}{x}-1|<\epsilon$ for all $x$. Observe that
+\[\left|\frac{1}{x}-1\right|=\left|\frac{1}{x}-\frac{x}{x}\right|=\left|\frac{1-x}{x}\right|=\frac{|x-1|}{|x|}\]
+
+Fix $|x-1|<\frac{1}{10}$. Then
+\begin{align*}
+    &-\frac{1}{10}<x-1<\frac{1}{10}\\
+    &\implies \frac{9}{10}<x<\frac{11}{10}
+\end{align*}
+Thus we must set
+\[|x-1|<\frac{\epsilon}{10}\] provided $|x-1|<\frac{1}{10}$. Therefore
+\[\delta=\min(\frac{1}{10}, \frac{\epsilon}{10})\]
+
+\subsection*{Problem 8}
+\subsubsection*{Solution}
+(a) If $\lim_{x\to a}f(x)$ and $\lim_{x\to a}g(x)$ do not exist, can $\lim_{x\to a}[f(x)+g(x)]$ or $\lim_{x\to a}f(x)g(x)$ exist?
+
+\vs
+
+Yes. Consider
+\[\begin{array}{cc}
+f(x)=\begin{cases}
+    -1 & \text{if } x\leq0\\
+    1 & \text{if } x>0\\
+\end{cases}
+&
+g(x)=\begin{cases}
+    1 & \text{if } x\leq0\\
+    -1 & \text{if } x>0\\
+\end{cases}
+\end{array}\]
+
+Then $(g+f)(x)=0$ and $(gf)(x)=-1$, both of which have limits for all $a$.
+
+\vs
+
+(b) If $\lim_{x\to a}f(x)$ exists and $\lim_{x\to a}[f(x)+g(x)]$ exists, must $\lim_{x\to a}g(x)$ exist?
+
+\vs
+
+Yes. Let $\epsilon>0$ be given. Then there exists $\delta$ such that for all $x$ in $0<|x-a|<\delta$ the following inequalities hold:
+\[\begin{array}{cc}
+M-\epsilon/2<f(x)+g(x)<M+\epsilon/2\text{,} & L-\epsilon/2<f(x)<L+\epsilon/2
+\end{array}\]
+
+Then:
+\begin{align*}
+    &M-\epsilon/2<f(x)+g(x)<M+\epsilon/2\\
+    &\implies M-\epsilon/2-f(x)<g(x)<M+\epsilon/2-f(x)\\
+    &\implies M-\epsilon/2-L-\epsilon/2<g(x)<M+\epsilon/2-L+\epsilon/2\\
+    &(M-L)-\epsilon<g(x)<(M-L)+\epsilon\\
+    &-\epsilon<g(x)-(M-L)<\epsilon\\
+    &|g(x)-(M-L)|<\epsilon\\
+\end{align*}
+Therefore $\lim_{x\to a}g(x)=M-L$ and must exist.
+
+\vs
+
+(c) If $\lim_{x\to a}f(x)$ exists and $\lim_{x\to a}g(x)$ does not exist, can $\lim_{x\to a}[f(x)+g(x)]$ exist?
+
+\vs
+
+No. Let $\lim_{x\to a}f(x)=L$. Since $\lim_{x\to a}g(x)$ does not exist, there exists $\epsilon$ such that $|g(x)-M|\geq\epsilon$ for all $M$. Suppose for contradiction $\lim_{x\to a}[f(x)+g(x)]=M$ exists. Then
+\begin{align*}
+    &M-\epsilon/2<f(x)+g(x)<M+\epsilon/2\\
+    &\implies M-\epsilon/2-f(x)<g(x)<M+\epsilon/2-f(x)\\
+    &\implies M-\epsilon/2-L-\epsilon/2<g(x)<M+\epsilon/2-L+\epsilon/2\\
+    &(M-L)-\epsilon<g(x)<(M-L)+\epsilon\\
+    &-\epsilon<g(x)-(M-L)<\epsilon\\
+    &|g(x)-(M-L)|<\epsilon\\
+\end{align*}
+We have a contradiction, thus $\lim_{x\to a}[f(x)+g(x)]$ does not exist.
+
+\vs
+
+(d) If $\lim_{x\to a}f(x)$ exists and $\lim_{x\to a}f(x)g(x)$ exists, does it follow that $\lim_{x\to a}g(x)$ exists?
+
+\vs
+
+No. Consider $g(x)=1/x$ which has no limit at $0$, and $f(x)=0$. Then $f(x)g(x)=0$ which has a limit of $0$ as $x\to 0$.
+
+\subsection*{Problem 13}
+Suppose that $f(x)\leq g(x)\leq h(x)$ and that $\lim_{x\to a}f(x)=\lim_{x\to a} h(x)$. Prove that $\lim_{x\to a}g(x)$ exists, and that $\lim_{x\to a}g(x)=\lim_{x\to a}f(x)=\lim_{x\to a} h(x)$. (Draw a picture!)
+
+\subsubsection*{Solution}
+Let $L=\lim_{x\to a}f(x)=\lim_{x\to a} h(x)$. Let $\epsilon>0$ be given. We must find $\delta$ such that $0<|x-a|<\delta$ implies $|g(x)-L|<\epsilon$.
+
+\vs
+
+By limit definition there exists $\delta_1$ such that for all $x$ in $0<|x-a|<\delta_1$
+\begin{align*}
+    &|f(x)-L|<\epsilon\\
+    &-\epsilon<f(x)-L<\epsilon\\
+    &L-\epsilon<f(x)<L+\epsilon\\
+\end{align*}
+
+Similarly there exists $\delta_2$ such that for all $x$ in $0<|x-a|<\delta_2$
+\begin{align*}
+    &|h(x)-L|<\epsilon\\
+    &-\epsilon<h(x)-L<\epsilon\\
+    &L-\epsilon<h(x)<L+\epsilon\\
+\end{align*}
+
+By problem statement $f(x)\leq g(x)\leq h(x)$. Fix $\delta=\min(\delta_1, \delta_2)$. Then
+\[L-\epsilon<f(x)\leq g(x)\leq h(x)<L+\epsilon\]
+
+Therefore $L-\epsilon<g(x)<L+\epsilon$ which implies $|g(x)-L|<\epsilon$, as desired.
+
+\subsection*{Problem 15}
+Evaluate the following limits in terms of the number $\alpha=\lim_{x\to0}(\sin x)/x$.
+
+\subsubsection*{Solution}
+
+(i)
+
+\[\lim_{x\to 0}\frac{\sin 2x}{x}=\lim_{x\to 0}\frac{2\sin x\cos x}{x}=2 \alpha \cos x=2\alpha\]
+
+(iv)
+\begin{align*}
+\lim_{x\to 0}\frac{\sin^2 2x}{x^2}&=\lim_{x\to 0}\frac{(2\sin x\cos x)^2}{x^2}\\
+&=\lim_{x\to 0}\frac{4\sin^2x\cos^2x}{x^2}\\
+&=\lim_{x\to 0}4\alpha^2\cos^2x\\
+&=4\alpha^2
+\end{align*}
+
+(vii)
+
+\begin{align*}
+    \lim_{x\to 0}\frac{x\sin x}{1-\cos x}&=\lim_{x\to 0}\frac{x\sin x(1+\cos x)}{(1-\cos x)(1+\cos x)}\\
+    &=\lim_{x\to 0}\frac{x\sin x(1+\cos x)}{\sin^2 x}\\
+    &=\lim_{x\to 0}\frac{x(1+\cos x)}{\sin x}\\
+    &=\lim_{x\to 0}\frac{1+\cos x}{\alpha}=\frac{2}{\alpha}
+\end{align*}
+
+(ix)
+
+\begin{align*}
+    \lim_{x\to 1}\frac{\sin(x^2-1)}{x-1}&=\lim_{x\to 1}\frac{\sin(x^2-1)(x+1)}{(x-1)(x+1)}\\
+    &=\lim_{x\to 1}\frac{\sin(x^2-1)(x+1)}{x^2-1}
+\end{align*}
+Let $u=x^2-1$. Observe that as $x\to 1, u\to 0$. Thus
+\[\lim_{x\to 1}\frac{\sin(x^2-1)(x+1)}{x^2-1}=\lim_{u\to 0}\frac{\sin u}{u}\cdot \lim_{x\to 1} x+1=2\alpha\]
+
+\subsection*{Problem 19}
+Prove that if $f(x)=0$ for irrational $x$ and $f(x)=1$ for rational $x$, then $\lim_{x\to a}f(x)$ does not exist for any $a$.
+
+\subsubsection*{Solution}
+Let $\epsilon=\frac{1}{10}$. We handle two cases. First suppose $L<\frac{1}{2}$. Pick any rational $x$ from the interval $0<|x-a|<\delta$. Then $|f(x)-L|=|1-L|>\frac{1}{2}$. Thus $|f(x)-L|\geq\frac{1}{10}$.
+
+\vs
+
+Similarly, suppose $L>\frac{1}{2}$. Pick any irrational $x$ from the interval $0<|x-a|<\delta$. Then $|f(x)-L|=|0-L|>\frac{1}{2}$. Thus $|f(x)-L|\geq\frac{1}{10}$.
+
+%%% Local Variables:
+%%% TeX-master: "index"
+%%% End:

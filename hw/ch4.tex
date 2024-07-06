@@ -1,0 +1,116 @@
+\section{Chapter 4}
+\subsection*{Problem 1iv}
+Indicate on a straight line the set of all x satisfying the following condition. Name the set, using the notation for intervals.
+\[|x^2-1|<\frac{1}{2}\]
+
+\subsubsection*{Solution}
+\begin{align*}
+    &-\frac{1}{2}<x^2-1<\frac{1}{2}\\
+    &\implies\frac{1}{2}<x^2<\frac{3}{2}\\
+    &\implies x\in((-\infty, -\frac{1}{\sqrt{2}})\cup(\frac{1}{\sqrt{2}}, \infty))\cap(-\sqrt{\frac{3}{2}}, \sqrt{\frac{3}{2}})\\
+    &\implies (-\sqrt{\frac{3}{2}}, -\frac{1}{\sqrt{2}})\cup(\frac{1}{\sqrt{2}}, \sqrt{\frac{3}{2}})
+\end{align*}
+
+\subsection*{Problem 4}
+Draw the set of all points $(x,y)$ satisfying the following conditions:
+
+\subsubsection*{Solution}
+(i) $|x|+|y|=1$
+
+(ii) $|x|-|y|=1$
+
+\vs
+
+I nailed the answers to these in my notebook (I used a red pen on top of the page so I can find the page easily by looking at the closed notebook). There is a way to plot in latex but it sounds like a pain to learn. I'll do it later if it keeps coming up.
+
+\subsection*{Problem 8a}
+Prove that the graphs of the functions
+\begin{align*}
+    &f(x)=mx+b\\
+    &g(x)=nx+c
+\end{align*}
+are perpendicular if $mn=-1$ by computing the squares of the lengths of the sides of the triangle in Figure 29. (Why is this special case, where the lines intersect at the origin, as good as the general case?)
+
+\subsubsection*{Solution}
+Figure 29 assumes $b=0,c=0$, fixes $x=1$, and draws two orthogonal lines from the origin-- one to $(1, m)$, the other to $(1, n)$. To pull in a little linear algebra
+\[\langle(1,m), (1,n)\rangle=1+mn\]
+thus $\langle(1,m), (1,n)\rangle=0$ when $mn=-1$ as desired. Since we didn't cover orthogonality in the book, another way to approach this problem is to recall the Pythagorean theorem. Observe that the hypotenuse is equal to $m+(-n)=m-n$ and the squares of the sides are equal to $1+m^2$ and $1+n^2$. Thus:
+\begin{align*}
+    &(m-n)^2=(1+m^2)+(1+n^2)\\
+    &\implies m^2-2mn+n^2=2+m^2+n^2\\
+    &\implies -2mn=2\\
+    &\implies mn=-1
+\end{align*}
+
+Suppose the two lines intersect at a point $(x', y')$ that isn't the origin. Observe that translation of the lines such that $(x',y')=(0,0)$ (i.e. translation to the origin) doesn't change the slope of the lines, and thus doesn't change the angles. Therefore the special case here applies to the more general case in which the lines don't intersect at the origin.
+
+\subsection*{Problem 8b}
+Prove that the two straight lines consisting of all $(x,y)$ satisfying the conditions
+\begin{align*}
+    Ax+By+C=0&\\
+    A'x+B'y+C'=0&
+\end{align*}
+are perpendicular if and only if $AA'+BB'=0$.
+
+\subsubsection*{Solution}
+We can define two functions $f, g$ that represent each line as follows:
+\begin{align*}
+    &f(x)=-\frac{A}{B}x-C\\
+    &g(x)=-\frac{A'}{B'}-C'
+\end{align*}
+
+From 8a we know $f$ and $g$ are perpendicular when
+\begin{align*}
+&\frac{A}{B}\cdot\frac{A'}{B'}=-1\\
+&\implies AA'=-1BB'\\
+&\implies AA'+BB'=0
+\end{align*}
+as desired.
+
+\subsection*{Problem 10}
+Sketch the graphs of the following functions, plotting enough points to get a good idea of the general appearance. (Part of the problem is to make a reasonable decision how many is "enough"; the queries posed below are meant to show that a little thought will often be more valuable than hundreds of individual points.)
+
+\subsubsection*{Solution}
+(i) $f(x)=x+\frac{1}{x}$. (What happens for $x$ near 0, and for large $x$? Where does the graph lie in relation to the graph of the identity function? Why does it suffice to consider only positive $x$ at first?)
+
+\vs
+
+I started with three points, $x=1, x=100, x=0.01$. It's obvious that in the first quadrant $f(1)=2$. From there it stays above the diagonal/identity function $x=y$ and gets closer and closer to it the larger $x$ gets. Similarly, as $x$ gets smaller and smaller, $f$ approaches the $y$ axis but never crosses it. The function is smooth around $f(1)$, which I unfortunately didn't nail. It's mirror image is in the third quadrant.
+
+\vs
+
+(ii) $f(x)=x-\frac{1}{x}$
+
+\vs
+
+Here $f(1)=0$. As $x$ gets larger, $f(x)$ approaches the diagonal, but always stays below it. As $x$ gets smaller, $f(x)$ approaches $-\infty$ on the $y$ axis. It's mirror image is on the 2nd and 3rd quadrants when $x$ is negative.
+
+\subsection*{Problem 14}
+Describe the graph $g$ in terms of the graph of $f$.
+
+\subsubsection*{Solution}
+(vii) $g(x)=|f(x)|$
+
+When $f(x)\geq 0, g(x)=f(x)$. When $f(x)<0, g(x)=-f(x)$, i.e. any part of $f(x)$ under the $x$ axis gets drawn as a mirror image above the $x$ axis.
+
+\vs
+
+(viii) $g(x)=\max(f,0)$
+
+Above the $x$ axis $g(x)=f(x)$. Below the $x$ axis $g(x)=0$, i.e. it gets squashed as a line onto the $x$ axis.
+
+\vs
+
+(ix) $g(x)=\min(f,0)$
+
+Below the $x$ axis $g(x)=f(x)$. Above the $x$ axis $g(x)=0$ (i.e. above the $x$ axis everything gets squashed as a line onto the $x$ axis).
+
+\vs
+
+(x) $g(x)=\max(f, 1)$
+
+Similar to viii, but instead of $x$ axis everything below $y=1$ line gets squashed as a line onto $y=1$. I.e. nothing gets drawn below that line.
+
+%%% Local Variables:
+%%% TeX-master: "index"
+%%% End:

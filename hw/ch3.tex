@@ -1,0 +1,87 @@
+\section{Chapter 3}
+\subsection*{Problem 3ii}
+Find the domain of the function defined by the following formula
+\[f(x)=\sqrt{1-\sqrt{1-x^2}}\]
+
+\subsubsection*{Solution}
+There are two constraints: $x^2\leq1$ and $\sqrt{1-x^2}\leq1$. Taking a square root of the first constraint we get $x\leq1$ and $x\geq-1$. With the second constraint:
+\begin{align*}
+    &\sqrt{1-x^2}\leq1\\
+    &\implies 1-x^2\leq1\\
+    &\implies x^2\geq0\\
+\end{align*}
+
+Observe that $x^2\geq 0$ is true for all $x$. Thus the domain of $f$ is $[-1,1]$.
+
+\subsection*{Problem 9a}
+If $A$ is any set of real numbers, define a function $C_A$ as follows:
+\[C_A(x)=\begin{cases}
+    1, x\in A\\
+    2, x\not\in A
+\end{cases}\]
+
+Find expressions for $C_{A\cap B}$ and $C_{A\cup B}$ and $C_{\R-A}$, in terms of $C_A$ and $C_B$. 
+
+\subsubsection*{Solution}
+\begin{align*}
+    &C_{A\cap B}=C_A\cdot C_B\\
+    &C_{A\cup B}(x)=C_A+C_B-C_A\cdot C_B\\
+    &C_{\R-A}=1-C_A
+\end{align*}
+
+\subsection*{Problem 12a,b,c}
+A function $f$ is \textbf{even} if $f(x)=f(-x)$ and \textbf{odd} if $f(x)=-f(-x)$. For example, $f$ is even if $f(x)=x^2$ or $f(x)=|x|$ or $f(x)=\cos x$, while $f$ is odd if $f(x)=x$ or $f(x)=\sin x$.
+
+\subsubsection*{Solution}
+(a) Determine whether $f+g$ is even, odd, or not not necessarily either, in the four cases obtained by choosing $f$ even or odd and $g$ even or odd.
+
+\vs
+
+Suppose both $f,g$ are even. Then $f+g$ is even:
+\[(f+g)(x)=f(-x)+g(-x)=(f+g)(-x)\]
+
+Suppose both $f,g$ are odd. Then $f+g$ is odd:
+\[(f+g)(x)=-f(-x)-g(-x)=-(f+g)(-x)\]
+
+Suppose $f$ is even, $g$ is odd. Then $f+g$ is neither:
+\[(f+g)(x)=f(-x)-g(-x)=(f-g)(-x)\]
+
+Suppose $f$ is odd, $g$ is even. Then $f+g$ is neither:
+\[(f+g)(x)=-f(-x)+g(-x)=(g-f)(-x)\]
+
+(b) Do the same for $f\cdot g$.
+
+\vs
+
+Suppose both $f,g$ are even. Then $f\cdot g$ is even:
+\[(f\cdot g)(x)=f(-x)\cdot g(-x)=(f\cdot g)(-x)\]
+
+Suppose both $f,g$ are odd. Then $f\cdot g$ is even:
+\[(f\cdot g)(x)=-f(-x)\cdot -g(-x)=(f\cdot g)(-x)\]
+
+Suppose $f$ is even, $g$ is odd. Then $f\cdot g$ is odd:
+\[(f\cdot g)(x)=f(-x)\cdot -g(-x)=-(f\cdot g)(-x)\]
+
+Suppose $f$ is odd, $g$ is even. Then $f\cdot g$ is odd:
+\[(f\cdot g)(x)=-f(-x)\cdot g(-x)=-(f\cdot g)(-x)\]
+
+
+(c) Do the same for $f\circ g$.
+
+\vs
+
+Suppose both $f,g$ are even. Then $f\circ g$ is even:
+\[(f\circ g)(x)=f(g(x))=f(g(-x))=(f\circ g)(-x)\]
+
+Suppose both $f,g$ are odd. Then $f\circ g$ is odd:
+\[(f\circ g)(x)=f(g(x))=-f(g(-x))=(-f\circ g)(-x)=-(f\circ g)(-x)\]
+
+Suppose $f$ is even, $g$ is odd. Then $f\circ g$ is even:
+\[(f\circ g)(x)=f(g(x))=f(-g(-x))=f(g(-x))=(f\circ g)(-x)\]
+
+Suppose $f$ is odd, $g$ is even. Then $f\circ g$ is even:
+\[(f\circ g)(x)=f(g(x))=f(g(-x))=(f\circ g)(-x)\]
+
+%%% Local Variables:
+%%% TeX-master: "index"
+%%% End:

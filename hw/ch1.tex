@@ -1,0 +1,167 @@
+\section{Chapter 1}
+
+\subsection*{Problem 1v}
+Prove $x^n-y^n=(x-y)(x^{n-1}+x^{n-2}y+\ldots+xy^{n-2}+y^{n-1})$
+
+\subsubsection*{Solution}
+\begin{align*}
+    &(x-y)(x^{n-1}+x^{n-2}y+\ldots+xy^{n-2}+y^{n-1})\\
+    &=x(x^{n-1}+x^{n-2}y+\ldots+xy^{n-2}+y^{n-1})-y(x^{n-1}+x^{n-2}y+\ldots+xy^{n-2}+y^{n-1})\\
+    &=(x^n+x^{n-1}y+\ldots+x^2y^{m-2}+xy^{n-1})-(x^{n-1}y+x^{n-2}y^2+\ldots+xy^{n-1}+y^n)\\
+    &=x^n+(x^{n-1}y+\ldots+x^2y^{m-2}+xy^{n-1}-x^{n-1}y+x^{n-2}y^2+\ldots+xy^{n-1})+y^n\\
+    &=x^n-y^n
+\end{align*}
+
+\subsection*{Problem 1vi}
+Prove $x^3+y^3=(x+y)(x^2-xy+y^2)$
+
+\subsubsection*{Solution}
+\begin{align*}
+    (x+y)(x^2-xy+y^2)&=x(x^2-xy+y^2)+y(x^2-xy+y^2)\\
+    &=(x^3-x^2y+xy^2)+(x^2y-xy^2+y^3)\\
+    &=x^3+(-x^2y+xy^2+x^2y-xy^2)+y^3\\
+    &=x^3+y^3
+\end{align*}
+
+\subsection*{Problem 5iii}
+Prove that if $a<b$ and $c>d$ then $a-c<b-d$.
+
+\subsubsection*{Solution}
+Observe that $a<b\implies b-a>0$ and $c>d\implies c-d>0$. Then
+\begin{align*}
+    (b-d)-(a-c)&=b-d-a+c\\
+    &=(b-a)+(c-d)>0
+\end{align*}
+Thus $a-c<b-d$ as desired.
+
+\subsection*{Problem 5vii}
+Prove that if $0<a<1$ then $a^2<a$.
+
+\subsubsection*{Solution}
+Observe that $a-a^2=a(1-a)$. Further $a>0$ and $1-a>0$, thus $a(1-a)>0$. Therefore $a-a^2>0$ and thus $a^2<a$ as desired.
+
+\subsection*{Problem 5viii}
+Prove that if $0\leq a<b$ and $0\leq c<d$, then $ac<bd$.
+
+\subsubsection*{Solution}
+Suppose $c=0$. Then $ac=0$. Since $b>0$ and $d>0$, $bd>0$, and thus $ac<bd$.
+
+\vs
+
+Alternatively, suppose $c>0$. Since $a<b$  and $c>0$, it follows $ac<bc$. Similarly since $c<d$ and $b>0$ it follows $bc<bd$. So, $ac<bc, bc<bd$, therefore $ac<bd$ as desired.
+
+\subsection*{Problem 11}
+Find all numbers $x$ for which
+
+\subsubsection*{Solution}
+(i) $|x-3|=8$
+
+\begin{itemize}
+    \item $x-3=8\implies x=11$
+    \item $x-3=-8\implies x=-5$    
+\end{itemize}
+
+\vs
+
+(ii) $|x-3|<8$
+
+\begin{align*}
+    -8<x-3<8\\
+    -5<x<11
+\end{align*}
+
+\vs
+
+(iii) $|x+4|<2$
+
+\begin{align*}
+    -2<x+4<2\\
+    -6<x<-2
+\end{align*}
+
+\vs
+
+(iv) $|x-1|+|x-2|>1$
+
+Checking the intervals $(-\infty, 1), (1, 2), (2, \infty)$, the two intervals that work are $x<1$ and $x>2$.
+
+\vs
+
+(v) $|x-1|+|x+1|<2$
+
+Checking the intervals $(-\infty, 1), (-1, 1), (1, \infty)$, there is no solution that satisfies the equation.
+
+\vs
+
+(vi) $|x-1|+|x+1|<1$
+
+Since there is no solution for (v), there is certainly no solution for (vi) as it's a stricter inequality.
+
+\vs
+
+(vii) $|x-1|\cdot|x+1|=0$
+
+$x=1, x=-1$
+
+\vs
+
+(viii) $|x-1|\cdot|x+2|=3$
+
+There are three cases:
+\begin{itemize}
+    \item $x<-2$: The equation becomes $(1-x)(-x-2)=3$.
+    \item $-2<x<1$: The equation becomes $(1-x)(x+2)=3$
+    \item $x>1$ The equation becomes $(x-1)(x+2)=3$.
+\end{itemize}
+
+The first and last equations simplify to $x^2+x-5=0$ and have two obvious roots (based on quadratic formula). The middle equation has no solutions. Plotting confirms this.
+
+\subsection*{Problem 13}
+Prove that
+\[\max(x,y)=\frac{x+y+|y-x|}{2}\]
+\[\min(x,y)=\frac{x+y-|y-x|}{2}\]
+
+Derive a formula for $\max(x,y,z)$ and $\min(x,y,z)$.
+
+\subsubsection*{Solution}
+First we prove $\max(x,y)=\frac{x+y+|y-x|}{2}$. Suppose $x>y$, i.e. $\max(x,y)=x$. Then $|y-x|=x-y$. Therefore
+\[\frac{x+y+|y-x|}{2}=\frac{x+y+x-y}{2}=x\]
+as desired. Conversely suppose $x<y$, i.e. $\max(x,y)=y$. Then $|y-x|=y-x$. Therefore
+\[\frac{x+y+|y-x|}{2}=\frac{x+y+y-x}{2}=y\]
+as desired.
+
+\vs
+
+Similarly we prove $\min(x,y)=\frac{x+y-|y-x|}{2}$. Suppose $x>y$, i.e. $\min(x,y)=y$. Then $|y-x|=x-y$. Therefore
+\[\frac{x+y-|y-x|}{2}=\frac{x+y-x+y}{2}=y\]
+as desired. Conversely suppose $x<y$, i.e. $\min(x,y)=x$. Then $|y-x|=y-x$. Therefore
+\[\frac{x+y-|y-x|}{2}=\frac{x+y-y+x}{2}=x\]
+as desired.
+
+\vs
+
+It's easy to see that if $x=y$, both formulas compute the correct result
+\[\min(x,y)=\max(x,y)=x=y\]
+
+\vs
+
+We now derive $\max(x,y,z)$:
+\begin{align*}
+    \max(x,y,z)&=\max(x, \max(y, z))\\
+    &=\frac{x+\max(y,z)+|\max(y,z)-x|}{2}\\
+    &=\frac{x+\frac{y+z+|z-y|}{2}+|\frac{y+z+|z-y|}{2}-x|}{2}\\
+    &=\frac{\frac{2x+y+z+|z-y|}{2}+|\frac{y+z+|z-y|-2x}{2}|}{2}\\
+    &=\frac{2x+y+z+|z-y|+|y+z+|z-y|-2x|}{4}\\
+\end{align*}
+
+Similarly
+\begin{align*}
+    \min(x,y,z)&=\min(x,\min(y,z))\\
+    &=\frac{x+\frac{y+z-|z-y|}{2}-|\frac{y+z-|z-y|}{2}-x|}{2}\\
+    &=\frac{\frac{2x+y+z-|z-y|}{2}-|\frac{y+z-|z-y|-2x}{2}|}{2}\\
+    &=\frac{2x+y+z-|z-y|-|y+z-|z-y|-2x|}{4}
+\end{align*}
+
+%%% Local Variables:
+%%% TeX-master: "index"
+%%% End:
