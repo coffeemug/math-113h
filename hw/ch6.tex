@@ -41,6 +41,12 @@ x-a & \text{for rational } x,\\
 Suppose that $f$ is continuous at $a$ and $f(a)=0$. Prove that if $\alpha\neq 0$, then $f+\alpha$ is nonzero in some open interval containing $a$.
 
 \subsubsection*{Solution}
+Since $f$ is continous at $a$, by continuity theorems (addition of
+identity and constant functions) $f+\alpha$ is also continuous. Also
+$(f+\alpha)(a)=\alpha$, and thus $\lim_{x\to a}(f+\alpha)(x)=\alpha$. We can set
+$\epsilon=\alpha$, and by limit definition there exists an interval in which
+$|(f+\alpha)(x)-\alpha|<\alpha$. In another words within the interval $f+\alpha$ is less
+than $\alpha$ away from $\alpha$, and thus cannot be zero.
 
 %%% Local Variables:
 %%% TeX-master: "index"
