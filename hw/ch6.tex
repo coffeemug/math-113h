@@ -16,6 +16,26 @@ There is no such function $F$. Observe that if we define $F$ such that $F(x)=f(x
 For each number $a$, find a function which is continuous at $a$, but not at any other points.
 
 \subsubsection*{Solution}
+As per textbook, the following modification of the Dirichlet function
+is continuous at $0$ but nowhere else:
+\[
+f(x) = 
+\begin{cases} 
+x & \text{for rational } x,\\
+0 & \text{for irrational } x.
+\end{cases}
+\]
+
+Shifting horizontally by $a$ creates a function continous at $a$ but
+nowhere else:
+\[
+g(x) = 
+\begin{cases} 
+x-a & \text{for rational } x,\\
+0 & \text{for irrational } x.
+\end{cases}
+\]
+
 
 \subsection*{Problem 8}
 Suppose that $f$ is continuous at $a$ and $f(a)=0$. Prove that if $\alpha\neq 0$, then $f+\alpha$ is nonzero in some open interval containing $a$.
