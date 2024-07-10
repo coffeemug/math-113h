@@ -1,39 +1,168 @@
-\section{Completness property}
+\section{Complete ordered fields}
+
+%SEE!! https://connect.gonzaga.edu/asset/file/1485/ch01_7_real_field_v03.html
 
 \subsection{Motivation}
-The set $\mathcal{Q}$ of rational numbers satisfies the twelve ordered field
-properties. This is sufficient to define limits, continuity, and prove
-all the theorems in previous sections. However, we are about to start
-proving slightly more sophisticated theorems about continous
-functions, where $\mathcal{Q}$ quickly breaks our intuition.
+The twelve ordered field axioms are sufficient to define limits,
+continuity, and prove all the theorems in the previous sections. Since
+the set $\mathcal{Q}$ of rational numbers is an ordered field\footnote{The proof
+  is straightforward, so I'm not including it here.}, rationals have
+been sufficient for the work we've done so far. However, we are about
+to start proving slightly more sophisticated theorems about continous
+functions, and ordered fields will quickly start breaking our
+intuitions.
 
 \vs
 
 For example, consider the function $f(x)=x^{2}-2$ (a parabola shifted
 down two units). It's easy to see $f$ is a continuous function, and
 thus our intuition is that we should be able to draw it without
-``lifting the tip of the pencil off the paper''. Upon reflection
-however, it becomes obvious that in the universe of $\mathcal{Q}$ this is
-impossible. $f$ crosses the x-axis when $x^{2}=2$, but we know
-$\sqrt{2}$ is not a rational number, i.e. $\sqrt{2}\notin\mathcal{Q}$. Thus there is
-no $x\in\mathcal{Q}$ such that $f(x)=0$.
+``lifting the tip of the pencil off the sheet of paper''. Upon
+reflection however, it becomes obvious that in the universe limited to
+ordered fields this is impossible. $f$ intersects the x-axis when
+$x^{2}=2$, but every high school student knows
+$\sqrt{2}\notin\mathcal{Q}$ (see \ref{sqrt2proof} for proof). Thus there is no
+$x\in\mathcal{Q}$ such that $f(x)=0$. And since $\mathcal{Q}$ is an ordered field, it
+follows ordered fields alone aren't sufficient to resolve this
+problem.
 
 \vs
 
 The \textit{intermediate value theorem} (see \ref{ivt}) formalizes the
-claim that a continuous function stretch that starts below the x-axis
-and ends above the x-axis crosses the x-axis. But as we see from the
-example above, this is not possible to prove with ordered field
-properties alone. Before we proceed we need one more property called
-\textit{the completeness property}, which we introduce in this
-chapter. We will see that $\mathcal{Q}$ does not satisfy this property, whereas
-$\mathcal{R}$ does.
+claim that a continuous function segment that starts below the x-axis
+and ends above the x-axis intersects the x-axis. But as we can see
+from the example above, this is not possible to prove with ordered
+field axioms alone. So before we proceed with further study of
+continuity, we need one more axiom called \textit{the completeness
+  axiom}, which we introduce in this chapter.
 
+\vs
 
+Combined with the twelve ordered field axioms, the completeness axiom
+forms \textit{complete ordered fields}. These objects are sufficient
+to proceed with our study of calculus. We will see that rational
+numbers $\mathcal{Q}$ are not a complete ordered field, whereas real numbers
+$\mathcal{R}$ are.\footnote{Proof that $\mathcal{R}$ is a complete ordered field requires
+  construction of $\mathcal{R}$, which doesn't happen in Spivak until the last
+  chapters. Thus I will not be delving into that here and ask the
+  reader (i.e., currently myself) to take this on faith.} Thus from
+here $\mathcal{R}$-valued functions will become our primary object of study.
 
 \subsection{Least upper bound}
-\subsection{Appendix: completeness consequences}
-\subsection{Appendix: square root of two irrationality}
+\textbf{Definition:} $b$ is an \textbf{upper bound} for $S$ if
+$s\leq b$ for all $s\in S$.
+
+\vs
+
+For example:
+\begin{itemize}
+\item Any $b\geq1$ is an upper bound for $S=\{x:0\leq x<1\}$. E.g. $1, 2,
+  10$ are all upper bounds of $S$.
+\item By convention, \textit{every} number is an upper bound for $\emptyset$.
+\item The set $\mathcal{N}$ of natural numbers has no natural upper bound. The
+  proof is easy. Suppose $b\in\mathcal{N}$ is an upper bound for
+  $\mathcal{N}$. But $b+1\in\mathcal{N}$, and $b+1>b$, which is a contradiction. Thus
+  $b$ isn't an upper bound for $\mathcal{N}$.\footnote{We need to do a little
+    more work to show $\mathcal{N}$ has no upper bound, natural or not. Be
+    patient! We will prove this by the end of the section.}
+\end{itemize}
+
+\vs
+
+\textbf{Definition:} $x$ is a \textbf{least upper bound} of $A$, if
+\begin{enumerate}
+\item $x$ is an upper bound of $A$,
+\item \textit{and} if $y$ is an upper bound of $A$, then $x\leq y$.
+\end{enumerate}
+
+A set can have only one least upper bound. The proof is easy. Suppose
+$x$ and $x'$ are both least upper bounds of $S$. Then $x\leq x'$ and
+$x'\leq x$. Thus $x=x'$. Consequently, we can use a convenient notation
+$\sup A$ to denote the least upper bound of $A$.
+
+\vs
+
+Obligatory examples:
+\begin{itemize}
+\item Let $S=\{x:0\leq x<1\}$. Then $\sup S=1$.
+\item By convention, the empty set $\emptyset$ has no least upper bound.
+\end{itemize}
+
+\subsection{Completeness axiom}
+We are now ready to state the completeness axiom.
+
+\vs
+
+\textbf{Completeness [P13]:} If $A$ is a non-empty set of numbers that
+has an upper bound, then it has a least upper bound.
+
+\vs
+
+\textbf{Claim:} rational numbers are not complete.
+
+\textbf{Proof:} Let $C=\{x:x^{2}<2\text{ and }x\in\mathcal{Q}\}$. Suppose for
+contradiction there exists $b\in\mathcal{R}$ such that $b=\sup C$. Observe that
+\begin{itemize}
+\item $b^{2}\neq2$ as that would imply $b=\sqrt{2}$ and thus $b\notin\mathcal{Q}$.
+\item $b^{2}\not<2$ as there exists some $x\in C$ such that
+  $b^{2}<x^{2}<2$. Thus $x>b$ and $b$ is not the upper bound.
+\end{itemize}
+
+Therefore $b^{2}>2$. But then there exists some $x\in\mathcal{Q}$ such that
+$2<x^{2}<b^{2}$. Thus $x<b$ and $b\neq\sup C$. We have a contradiction,
+therefore $\sup C$ does not exist as desired.
+
+\vs
+
+\textbf{Claim:} completeness cannot be derived from ordered fields.
+
+\textbf{Proof:} $\mathcal{Q}$ is not complete and $\mathcal{Q}$ is an ordered field. Thus
+completeness is not a property of ordered fields.
+
+\vs
+
+\textbf{Claim:} real numbers are complete.
+
+\textbf{Proof [deferred]:} The completeness property can be derived
+from the construction of real numbers $\mathcal{R}$, which makes reals a
+\textbf{complete ordered field}. The proof requires we study the
+actual construction of $\mathcal{R}$, which Spivak leaves until the last
+chapters. Thus for the moment the proof will be taken on faith. In any
+case, it is better to build calculus upon abstract complete ordered
+fields than upon concrete real numbers.
+
+\subsection{Consequences of completeness}
+\textbf{Claim 1:} let $S$ be a complete ordered field. Then $\sqrt{2}\in
+S$.
+
+\textbf{Proof:} TBD
+
+\vs
+
+\textbf{Claim 2:} $\mathcal{N}$ is not bounded above.
+
+\textbf{Proof:} TBD
+
+\subsubsection*{Archimedean property}
+
+\subsection{Density}
+
+\subsection{Appendix: sqrt(2) is irrational}\label{sqrt2proof}
+Suppose $\sqrt{2}\in\mathcal{Q}$. Then there exist $a,b\in\mathcal{N}$ such that
+$\left(\frac{a}{b}\right)^{2}=2$. Assume $a, b$ have no common divisor
+(since we can obviously keep simplifying until this is the case).
+Observe that both $a$ and $b$ cannot be even, otherwise we could
+simplify further.
+
+\vs
+
+Now we have $a^{2}=2b^{2}$. Thus $a^{2}$ is even, $a$ must be
+even\footnote{Even numbers have even squares because
+  ${(2k)}^{2}=4k^{2}=2\cdot(2k^{2})$}, and there exists
+$k\in\mathcal{N}$ such that $a=2k$. Then $a^{2}=4k^{2}=2b^{2}$ so
+$2k^{2}=b^{2}$. Thus $b^{2}$ is even and so $b$ is even. Since both
+$a$ and $b$ cannot be even, this is a contradiction. Thus
+$\sqrt{2}\notin\mathcal{Q}$ as desired.
 
 
 %%% Local Variables:
