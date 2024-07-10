@@ -141,7 +141,20 @@ S$.
 
 \textbf{Claim 2:} $\mathcal{N}$ is not bounded above.
 
-\textbf{Proof:} TBD
+\textbf{Proof:} We've shown $\mathcal{N}$ has no upper bound in $\mathcal{N}$. Now we
+show $\mathcal{N}$ has no upper bound in $\mathcal{R}$.
+
+\vs
+
+Suppose for contradiction $\mathcal{N}$ has an upper bound. Since $\mathcal{N}\neq\emptyset$ then by
+completeness $\mathcal{N}$ has a least upper bound. Let $\alpha=\sup \mathcal{N}$. Then:
+\begin{align*}
+  &\alpha\geq n \text{ for all } n\in\mathcal{N}\\
+  \implies &\alpha\geq n+1 \text{ for all } n\in\mathcal{N}&&\text{since $n+1\in\mathcal{N}$ if $n\in\mathcal{N}$}\\
+  \implies &\alpha-1\geq n \text{ for all } n\in\mathcal{N}
+\end{align*}
+Thus $\alpha-1$ is \textit{also} an upper bound for $\mathcal{N}$. This contradicts
+that $\alpha=\sup \mathcal{N}$. Therefore $\mathcal{N}$ is not bounded above, as desired.
 
 \subsubsection*{Archimedean property}
 
