@@ -99,16 +99,19 @@ has an upper bound, then it has a least upper bound.
 \textbf{Claim:} rational numbers are not complete.
 
 \textbf{Proof:} Let $C=\{x:x^{2}<2\text{ and }x\in\mathcal{Q}\}$. Suppose for
-contradiction there exists $b\in\mathcal{R}$ such that $b=\sup C$. Observe that
+contradiction rational numbers are complete. Then there exists
+$b\in\mathcal{Q}$ such that $b=\sup C$. Observe that
 \begin{itemize}
 \item $b^{2}\neq2$ as that would imply $b=\sqrt{2}$ and thus $b\notin\mathcal{Q}$.
-\item $b^{2}\not<2$ as there exists some $x\in C$ such that
-  $b^{2}<x^{2}<2$. Thus $x>b$ and $b$ is not the upper bound.
+\item $b^{2}\not<2$ as there would exist some $x\in C$ such that
+  $b^{2}<x^{2}<2$. Thus $b<x$ and $b$ is not the upper bound.
 \end{itemize}
 
-Therefore $b^{2}>2$. But then there exists some $x\in\mathcal{Q}$ such that
-$2<x^{2}<b^{2}$. Thus $x<b$ and $b\neq\sup C$. We have a contradiction,
-therefore $\sup C$ does not exist as desired.
+Therefore $b^{2}>2$. But this implies there exists some
+$x\in\mathcal{Q}$ such that $2<x^{2}<b^{2}$. Thus $x$ is greater than every
+element in $C$, and $x<b$. So $b$ is not the \textit{least} upper
+bound. We have a contradiction, therefore rational numbers are not
+complete, as desired.
 
 \vs
 
