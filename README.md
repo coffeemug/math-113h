@@ -4,10 +4,8 @@ syllabus][]. Also following David Galvin's [Math 10850/10851 notes
 (pdf)][] for supplemental materials. My own notes and homework
 assignments go here.
 
-Repo:
-- `notes/` has tex files for notes I'm generating as I go through each
-  chapter
-- `notes/index.pdf` is the compiled version.
+Note: `hw-ch1-4/` contains homework for the first four chapters
+(before I started taking notes and putting homework inline.)
 
 
 [Math 113H syllabus]: https://math.jhu.edu/~js/Math113/

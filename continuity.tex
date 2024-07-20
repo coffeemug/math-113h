@@ -95,6 +95,58 @@ Stars over Babylon is a modification of the Dirichlet function (see
 
 \textbf{TODO}: come back and study this.
 
+\subsection{Problems}
+
+\subsubsection*{Problem 1}
+For which of the following functions $f$ is there a continuous function $F$ with domain $\R$ such that $F(x)=f(x)$ for all $x$ in the domain of $f$?
+
+\subsubsection*{Solution}
+(i) $f(x)=\frac{x^2-4}{x-2}$
+\[\frac{x^2-4}{x-2}=\frac{(x-2)(x+2)}{(x-2)}=x+2\]
+when $x\neq 2$. Thus let $F(x)=x+2$. It follows $F(x)=f(x)$ for all $x$ in the domain of $f$, as $2$ is not in the domain of $f$. Further, $F$ is continuous in $R$ as
+\[\lim_{x\to a}x+2=a+2\]
+
+(ii) $f(x)=\frac{|x|}{x}$
+
+There is no such function $F$. Observe that if we define $F$ such that $F(x)=f(x)$ for all $x$ in the domain of $f$, the only point we have left to manipulate is $0$. It's easy to see that no definition of $F(0)$ will allow $F$ to have a limit at $0$, and thus $F$ cannot be continuous.
+
+\subsubsection*{Problem 5}
+For each number $a$, find a function which is continuous at $a$, but not at any other points.
+
+\subsubsection*{Solution}
+As per textbook, the following modification of the Dirichlet function
+is continuous at $0$ but nowhere else:
+\[
+f(x) = 
+\begin{cases} 
+x & \text{for rational } x,\\
+0 & \text{for irrational } x.
+\end{cases}
+\]
+
+Shifting horizontally by $a$ creates a function continous at $a$ but
+nowhere else:
+\[
+g(x) = 
+\begin{cases} 
+x-a & \text{for rational } x,\\
+0 & \text{for irrational } x.
+\end{cases}
+\]
+
+
+\subsubsection*{Problem 8}
+Suppose that $f$ is continuous at $a$ and $f(a)=0$. Prove that if $\alpha\neq 0$, then $f+\alpha$ is nonzero in some open interval containing $a$.
+
+\subsubsection*{Solution}
+Since $f$ is continous at $a$, by continuity theorems (addition of
+identity and constant functions) $f+\alpha$ is also continuous. Also
+$(f+\alpha)(a)=\alpha$, and thus $\lim_{x\to a}(f+\alpha)(x)=\alpha$. We can set
+$\epsilon=\alpha$, and by limit definition there exists an interval in which
+$|(f+\alpha)(x)-\alpha|<\alpha$. In another words within the interval $f+\alpha$ is less
+than $\alpha$ away from $\alpha$, and thus cannot be zero.
+
+
 
 %%% Local Variables:
 %%% TeX-master: "notes"
