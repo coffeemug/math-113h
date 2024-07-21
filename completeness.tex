@@ -133,13 +133,7 @@ case, it is better to build calculus upon abstract complete ordered
 fields than upon concrete real numbers.
 
 \subsection{Consequences of completeness}
-\textbf{Claim 1:} $\sqrt{2}\in\mathcal{R}$.
-
-\textbf{Proof:} TBD
-
-\vs
-
-\textbf{Claim 2:} $\mathcal{N}$ is not bounded above.
+\textbf{Claim 1:} $\mathcal{N}$ is not bounded above.
 
 \textbf{Proof:} We've shown $\mathcal{N}$ has no upper bound in $\mathcal{N}$. Now we
 show $\mathcal{N}$ has no upper bound in $\mathcal{R}$.
@@ -155,6 +149,55 @@ completeness $\mathcal{N}$ has a least upper bound. Let $\alpha=\sup \mathcal{N}
 \end{align*}
 Thus $\alpha-1$ is \textit{also} an upper bound for $\mathcal{N}$. This contradicts
 that $\alpha=\sup \mathcal{N}$. Therefore $\mathcal{N}$ is not bounded above, as desired.
+
+\vs
+
+\textbf{Claim 2:} $\sqrt{2}\in\mathcal{R}$.
+
+\textbf{Proof:} Let $S=\{y\in\mathcal{R} : y^{2}<2\}$. Obviously $S$ is non-empty
+and has an upper bound. Thus by completeness property it has a least
+upper bound. Let $x=\sup S$. Note that $1\in S$ and $2$ is an upper
+bound of $S$. Thus $1\leq x\leq2$. We show $x^{2}=2$ by showing
+$x^{2}\not<2$ and $x^{2}\not>2$.
+
+\vs
+
+\textit{Case 1}. Suppose for contradiction $x^{2}<2$. Let $0<\epsilon<1$ be a
+small number. Then
+\begin{align*}
+  {(x+\epsilon)}^{2}=&x^{2}+2\epsilon x+\epsilon^{2}\\
+              &\leq x^{2}+4\epsilon+\epsilon&&\text{since $x<2$ and $\epsilon<1$}\\
+              &=x^{2}+5\epsilon<2&&\text{since $x^{2}<2$ (by supposition), we
+                             can pick}\\
+              &&&\text{a small enough $\epsilon$ to make this true}
+\end{align*}
+Thus there exists $\epsilon$ such that ${(x+\epsilon)}^{2}<2$. By definition of
+$S$ it follows $x+\epsilon\in S$, which contradics that $x$ is the least upper
+bound. Therefore $x^{2}\not<2$
+
+\vs
+
+\textit{Case 2}. Suppose for contradiction $x^{2}>2$. Let $0<\epsilon<1$ be a
+small number. Then
+\begin{align*}
+  {(x-\epsilon)}^{2}=&x^{2}-2\epsilon x+\epsilon^{2}\\
+              &\geq x^{2}-2\epsilon x&&\text{since $\epsilon^{2}>0$}\\
+              &\geq x^{2}-4\epsilon&&\text{since $x\leq2$}\\
+              &>2&&\text{since $x^{2}>2$ (by supposition), we
+                             can pick}\\
+              &&&\text{a small enough $\epsilon$ to make this true}
+\end{align*}
+
+Thus ${(x-\epsilon)}^{2}>2$, which by definition of $S$ implies
+$x-\epsilon>y$ for all $y\in S$. So $x-\epsilon$ is an upper bound of
+$S$. We have a contradiction-- since $x-\epsilon<x$, it follows $x$ is not a
+least upper bound. Therefore $x^{2}\not>2$ as desired.
+
+\vs
+
+Since $x^{2}\not<2$ and $x^{2}\not>2$, it follows $x^{2}=2$ as
+desired.
+
 
 \subsubsection*{Archimedean property}
 
