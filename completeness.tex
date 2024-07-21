@@ -133,9 +133,9 @@ case, it is better to build calculus upon abstract complete ordered
 fields than upon concrete real numbers.
 
 \subsection{Consequences of completeness}
-\textbf{Claim 1:} $\mathcal{N}$ is not bounded above.
 
-\textbf{Proof:} We've shown $\mathcal{N}$ has no upper bound in $\mathcal{N}$. Now we
+\subsubsection*{$\mathcal{N}$ is not bounded above}
+We've shown $\mathcal{N}$ has no upper bound in $\mathcal{N}$. Now we
 show $\mathcal{N}$ has no upper bound in $\mathcal{R}$.
 
 \vs
@@ -152,13 +152,14 @@ that $\alpha=\sup \mathcal{N}$. Therefore $\mathcal{N}$ is not bounded above, as
 
 \vs
 
-\textbf{Claim 2:} $\sqrt{2}\in\mathcal{R}$.
+\subsubsection*{$\sqrt{2}$ exists}
 
-\textbf{Proof:} Let $S=\{y\in\mathcal{R} : y^{2}<2\}$. Obviously $S$ is non-empty
-and has an upper bound. Thus by completeness property it has a least
-upper bound. Let $x=\sup S$. Note that $1\in S$ and $2$ is an upper
-bound of $S$. Thus $1\leq x\leq2$. We show $x^{2}=2$ by showing
-$x^{2}\not<2$ and $x^{2}\not>2$.
+We show $\sqrt{2}\in\mathcal{R}$. Let
+$S=\{y\in\mathcal{R} : y^{2}<2\}$. Obviously $S$ is non-empty and has an upper
+bound. Thus by completeness property it has a least upper bound. Let
+$x=\sup S$. Note that $1\in S$ and $2$ is an upper bound of $S$. Thus
+$1\leq x\leq2$. We show $x^{2}=2$ by showing $x^{2}\not<2$ and
+$x^{2}\not>2$.
 
 \vs
 
@@ -200,6 +201,38 @@ desired.
 
 
 \subsubsection*{Archimedean property}
+Handwavy definition: the Archimedean property states that you can fill
+the universe with tiny grains of sand.
+
+\vs
+
+Formal defition: let $\epsilon>0$ be small and let $r>0$ be large. Then there
+exists $n\in\mathcal{N}$ such that $n\epsilon>r$.
+
+\vs
+
+\textbf{Proof:} suppose for contradiction the property is false. Then
+there exist $\epsilon, r$ such that for all $n\in\mathcal{N}$, $n\epsilon\leq r$. Therefore
+$n\leq\frac{r}{\epsilon}$. This implies $\mathcal{N}$ is bounded, which a contradiction.
+
+\vs
+
+A useful special case is when $r=1$. In this case the Archimedean
+property can be restated as follows. Let $\epsilon>0$ be small. Then there
+exists $n\in\mathcal{N}$ such that $n\epsilon>1$. Put differently, there exists
+$n\in\mathcal{N}$ such that $\frac{1}{n}<\epsilon$.
+
+A few more notes on the Archimedean property:
+\begin{itemize}
+\item Obviously the Archimedean property follows from completeness, as
+  shown above.
+\item The Archimedean property is true in $\mathcal{Q}$ and can be proven
+  without being assumed\footnote{Excluding the proof here, but it's
+    fairly simple}.
+\item Completeness does not follow from the Archimedean property. The
+  proof is easy: the Archimedean property holds on $\mathcal{Q}$, and we know
+  $\mathcal{Q}$ is not complete as shown above.
+\end{itemize}
 
 
 \subsubsection*{Density}
