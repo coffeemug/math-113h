@@ -236,6 +236,32 @@ A few more notes on the Archimedean property:
 
 
 \subsubsection*{Density}
+Let $x,y\in\mathcal{R}$. Then $S$ is a \textbf{dense subset} of
+$\mathcal{R}$ if there is an element of $S$ in $(x,y)$. Put differently, there
+is an element of $S$ between any two points in $\mathcal{R}$.
+\begin{itemize}
+\item Obviously $\mathcal{R}$ is a dense subset of itself.
+\item Integers are not a dense subset of $\mathcal{R}$. E.g. there is no integer
+  between $1.1$ and $1.9$.
+\item The set of positive numbers $\{x:x\in\mathcal{R}, x>0\}$ is not a dense
+  subset of $\mathcal{R}$. E.g. there is no positive number between
+  $-2$ and $-1$.
+\end{itemize}
+
+\textbf{Claim:} the set of rational numbers $\mathcal{Q}$ is dense.
+
+\textbf{Proof:} TBD
+
+\vs
+
+\textbf{Claim:} the set of irrational numbers $\mathcal{R}\setminus\mathcal{Q}$ is dense.
+
+\textbf{Proof:} let $x,y\in\mathcal{R}$ be given. By density of the rationals
+there exists $r\in\mathcal{Q}$ such that
+$\frac{x}{\sqrt{2}}<r<\frac{y}{\sqrt{2}}$. Multiplying each side by
+$\sqrt{2}$, we get $x<\sqrt{2}r<y$. We know $\sqrt{2}r$ is irrational.
+Thus there exists an irrational number between any two numbers in
+$\mathcal{R}$, and the set of irrationals $\mathcal{R}\setminus\mathcal{Q}$ is dense as desired.
 
 \subsection{Appendix: sqrt(2) is irrational}\label{sqrt2proof}
 Suppose $\sqrt{2}\in\mathcal{Q}$. Then there exist $a,b\in\mathcal{N}$ such that
