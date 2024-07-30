@@ -257,7 +257,7 @@ a rational in $(x, y)$ for $0\leq x<y$. Then:
 \begin{itemize}
 \item Given $x<y\leq0$, there is a rational $r$ in $(-y, -x)$. So $-r$ is
   in $(x,y)$.
-\item Given $x<0<y$, there is a rational $r$ in $(y,0)$. So $r$ is of
+\item Given $x<0<y$, there is a rational $r$ in $(0,y)$. So $r$ is of
   course also in $(x,y)$.
 \end{itemize}
 Thus all we must do is prove there exists a rational in $(x, y)$ for
@@ -265,8 +265,34 @@ $0\leq x<y$.
 
 \vs
 
-Let $0\leq x<y$ be given. 
+Let $0\leq x<y$ be given. By the Archimedean property there exists
+$n\in\mathcal{N}$ such that $\frac{1}{n}<y-x$. Because (a)
+$\mathcal{N}$ is unbounded and (b) $\mathcal{N}$ is well-ordered, there exists the least
+integer $m\in\mathcal{N}$ such that $m\geq ny$.
 
+\vs
+
+\textit{First}, observe that
+\begin{align*}
+&m-1<ny&&\text{or $m$ wouldn't be the \textit{least} integer $m\geq
+          ny$}\\
+&\implies\frac{m-1}{n}<y\\
+\end{align*}
+
+\textit{Second}, suppose for contradiction $\frac{m-1}{n}\leq x$. Then
+\begin{align*}
+  &\frac{m-1}{n}\leq x\\
+  &\implies \frac{m}{n}-\frac{1}{n}\leq x\\
+  &\implies -\frac{1}{n}\leq x-\frac{m}{n}\\
+  &\implies \frac{1}{n}\geq \frac{m}{n}-x\\
+  &\implies \frac{1}{n}\geq y-x&&\text{recall $m\geq ny$, thus $\frac{m}{n}\geq
+                               y$}
+\end{align*}
+This is a contradiction, thus $\frac{m-1}{n}>x$.
+
+\vs
+
+Therefore $\frac{m-1}{n}\in(x,y)$ as desired.
 
 \vs
 
