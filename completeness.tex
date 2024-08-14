@@ -329,6 +329,14 @@ $x<k<y$. Hint: let $l$ be the largest integer satisfying $l\leq x$, and
 consider $l+1$.
 
 \subsubsection*{Solution}
+Let $l$ be the largest integer such that $l\leq x$. Then
+\begin{itemize}
+\item $l+1>x$, otherwise $l$ wouldn't be the \textit{largest} integer
+  such that $l\leq x$.
+\item $l+1\leq x+1$. But $y>x+1$, thus $l+1<y$.
+\end{itemize}
+
+Therefore $x<l+1<y$ as desired.
 
 \subsubsection*{Problem 5b}
 Suppose $x<y$. Prove that there is a rational number $r$ such that
@@ -336,6 +344,14 @@ $x<r<y$. Hint: if $1/n<y-x$, then $ny-nx>1$. (Query: Why have parts
 (a) and (b) been postponed until this problem set?)
 
 \subsubsection*{Solution}
+In 5a we've proven there exists an integer $l$ such that $nx<l<ny$.
+Dividing each side by $n$ we get $x<\frac{l}{n}<y$, as desired.
+
+\vs
+
+For 5a we need the unboundedness of $\mathcal{N}$ and in 5b we need the
+Archimedean property for the existence of $n$ such that $1/n<y-x$.
+Both depend on least upper bound.
 
 \subsubsection*{Problem 5c}
 Suppose $r<s$ are rational numbers. Prove that there is an irrational
