@@ -394,6 +394,16 @@ in a dense set $A$, then $f(x)=0$ for all $x$.
 
 \vs
 
+Suppose for contradiction there exists $a\in\mathcal{R}$ such that
+$f(a)\neq0$. Fix $\epsilon=|f(a)|/2$. By continuity defition, there exists
+$\delta>0$ such that $|x-a|<\delta$ implies $|f(x)-f(a)|<\epsilon$. Since
+$A$ is dense, there exists $x\in(a-\delta, a+\delta)$ such that
+$x\in A$, and thus $f(x)=0$. But that would imply
+$|0-f(a)|=|f(a)|<|f(a)|/2$, which is a contradiction. Thus $f(x)=0$
+for all $x$ as desired.
+
+\vs
+
 (b) Prove that if $f$ and $g$ are continous and $f(x)=g(x)$ for all
 $x$ in a dense set $A$, then $f(x)=g(x)$ for all $x$.
 
