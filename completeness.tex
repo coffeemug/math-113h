@@ -331,8 +331,9 @@ consider $l+1$.
 \subsubsection*{Solution}
 \textbf{Lemma:} there exists the largest integer $l$ such that $l\leq x$.
 
-Since $\mathcal{N}$ is unbounded, there exists $n\in\mathcal{N}$ such that $-n<x<n$. There
-is a finite number of integers between $-n$ and $x$. Pick the largest.
+\textbf{Proof:} since $\mathcal{N}$ is unbounded, there exists
+$n\in\mathcal{N}$ such that $-n<x<n$. There is a finite number of integers between
+$-n$ and $x$. Pick the largest.
 
 \vs
 
@@ -366,6 +367,9 @@ number between $r$ and $s$. Hint: As a start, you know that there is
 an irrational number between $0$ and $1$.
 
 \subsubsection*{Solution}
+Let $x=r+\frac{\sqrt{2}(s-r)}{2}$. Obviously $x$ is irrational and
+$x>r$. Also $r+(s-r)/2<s$, and multiplying $(s-r)/2$ by $0<\sqrt{2}<1$
+will only make it smaller. Thus $x<s$.
 
 \subsubsection*{Problem 5d}
 Suppose that $x<y$. Prove that there is an irrational number between
@@ -373,6 +377,9 @@ $x$ and $y$. Hint: It is unnecessary to do any more work; this follows
 from (b) and (c).
 
 \subsubsection*{Solution}
+By 5b there exists a rational $x<r<y$, and by 5b again there exists a
+rational $r<s<y$. Then by 5c there exists an irrational $m$ such that
+$r<m<s$.
 
 \subsubsection*{Problems 6a, b}
 A set $A$ of real numbers is said to be \textbf{dense} if every open
