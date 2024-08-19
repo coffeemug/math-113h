@@ -387,7 +387,7 @@ interval contains a point of $A$. For example, Problem 5 shows that
 the set of rational numbers and the set of irrational numbers are each
 dense.
 
-\vs
+\subsubsection*{Solution}
 
 (a) Prove that if $f$ is continuous and $f(x)=0$ for all numbers $x$
 in a dense set $A$, then $f(x)=0$ for all $x$.
@@ -395,7 +395,7 @@ in a dense set $A$, then $f(x)=0$ for all $x$.
 \vs
 
 Suppose for contradiction there exists $a\in\mathcal{R}$ such that
-$f(a)\neq0$. Fix $\epsilon=|f(a)|/2$. By continuity defition, there exists
+$f(a)\neq0$. Fix $\epsilon=|f(a)|/2$. By continuity definition, there exists
 $\delta>0$ such that $|x-a|<\delta$ implies $|f(x)-f(a)|<\epsilon$. Since
 $A$ is dense, there exists $x\in(a-\delta, a+\delta)$ such that
 $x\in A$, and thus $f(x)=0$. But that would imply
@@ -407,7 +407,10 @@ for all $x$ as desired.
 (b) Prove that if $f$ and $g$ are continous and $f(x)=g(x)$ for all
 $x$ in a dense set $A$, then $f(x)=g(x)$ for all $x$.
 
-\subsubsection*{Solution}
+\vs
+
+Since $f,g$ are continuous, so is $f-g$. We can thus apply 6a to
+$f-g$, and we are done.
 
 \subsubsection*{Problem 11a}
 Suppose that $a_{1}, a_{2}, a_{3}, \ldots$ is a sequence of positive
