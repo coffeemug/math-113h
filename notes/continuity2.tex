@@ -1,6 +1,57 @@
 \section{Continuity, Part II}
 
-\subsection{Intermediate Value Theorem} \label{ivt}
+\subsection{Intermediate Value Theorem}\label{ivt}
+\textbf{Theorem:} if $f$ is continuous on $[a,b]$ and $f(a)<0<f(b)$,
+then there exists $x\in[a,b]$ such that $f(x)=0$.
+
+\vs
+
+Or intuitively, if $f(a)$ is below zero and $f(b)$ is above zero, $f$
+must cross the $x$-axis somewhere.
+
+\vs
+
+\textbf{Proof:} intuitively, we will locate the smallest number $x$ on
+the $x$-axis where $f(x)$ first crosses from negative to positive, and
+show that $f(x)$ must be zero.
+
+\vs
+
+First, we define a set $A$ that contains all inputs to $f$ before $f$
+crosses from negative to positive for the first time:
+\[A=\{x:a\leq x\leq b, \text{and $f$ is negative on the interval
+    $[a,x]$}\}\]
+
+We know $A\neq\emptyset$ since $a\in A$, and $b$ is an upper bound of
+$A$. Thus $A$ has a least upper bound $\alpha$ such that
+$a\leq\alpha\leq b$. By nonzero neighborhood lemma (see
+\ref{subsubsec:nonzero-lemma}) we know there is some interval around
+$a$ on which $f$ is negative, and some interval around $b$ on which
+$f$ is positive. Thus we can further refine the bound on $\alpha$ to
+$a<\alpha<b$.
+
+\vs
+
+We now show $f(\alpha)=0$ by eliminating the possibilities
+$f(\alpha)<0$ and $f(\alpha)>0$.
+
+\vs
+
+\textbf{Case 1.} Suppose for contradiction $f(\alpha)<0$. By nonzero
+neighborhood lemma there exists $\delta>0$ such $|x-\alpha|<\delta$ implies
+$f(x)<0$ for all $x$. But that means numbers in $[\alpha, \alpha+\delta)$ are in $A$,
+e.g. $\alpha+\delta/2\in A$. Thus $\alpha$ is not the least upper bound.
+
+\vs
+
+
+\textbf{Case 2.} Suppose for contradiction $f(\alpha)>0$. By nonzero
+neighborhood lemma there exists $\delta>0$ such $|x-\alpha|<\delta$ implies
+$f(x)>0$ for all $x$. But that means numbers in
+$(\alpha-\delta, \alpha]$ are \textit{not} in $A$, e.g.
+$\alpha-\delta/2\notin A$. Thus $\alpha$ is not the least upper bound.
+
+
 \subsection{Extreme Value Theorem}
 \subsection{Appendix: IVT and EVT consequences}
 

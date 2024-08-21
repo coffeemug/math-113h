@@ -22,6 +22,34 @@ A function $f$ is \textbf{continuous on an interval} $(a, b)$ if it's
 continuous at all $c\in(a,b)$\footnote{Closed intervals are a tiny bit
   harder, and I'm keeping them out for brevity.}.
 
+\subsubsection*{Nonzero Neighborhood Lemma} \label{subsubsec:nonzero-lemma}
+
+Armed with these definitions we can extend the half-value neighborhood
+lemma (see \ref{subsubsec:half-value-lemma}) in a useful way. The
+\textit{nonzero neighborhood lemma} will come in handy when we prove
+the intermediate value theorem (see \ref{ivt}), so we may as well
+prove the lemma now.
+
+\vs
+
+Suppose $f$ is continuous at $a$, and $f(a)\neq0$. Then there exists
+$\delta>0$ such that:
+\begin{enumerate}
+\item if $f(a)<0$ then $f(x)<0$ for all $x$ in $|x-a|<\delta$.
+\item if $f(a)>0$ then $f(x)>0$ for all $x$ in $|x-a|<\delta$.
+\end{enumerate}
+
+\textit{Intuitively} the lemma states that there is some interval
+around $a$ on which $f(x)\neq0$ and has the same sign as $f(a)$.
+
+\vs
+
+\textbf{Proof:} since $f$ is continuous at $a$,
+$\lim_{x\to a}f(x)=f(a)$. By half-value neighborhood lemma, there exists
+some $\delta$ such that $0<|x-a|<\delta$ implies $|f(x)|\geq|f(a)|/2$ for all $x$.
+There are two cases: \textbf{TODO}
+
+
 \subsection{Recognizing continuous functions}
 The following theorems allow us to tell at a glance that large classes
 of functions are continuous (e.g. polynomials, rational functions,
