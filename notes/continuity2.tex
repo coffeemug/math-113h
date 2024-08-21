@@ -39,8 +39,10 @@ $f(\alpha)<0$ and $f(\alpha)>0$.
 
 \textbf{Case 1.} Suppose for contradiction $f(\alpha)<0$. By nonzero
 neighborhood lemma there exists $\delta>0$ such $|x-\alpha|<\delta$ implies
-$f(x)<0$ for all $x$. But that means numbers in $[\alpha, \alpha+\delta)$ are in $A$,
-e.g. $\alpha+\delta/2\in A$. Thus $\alpha$ is not the least upper bound.
+$f(x)<0$ for all $x$. But that means numbers in
+$(\alpha-\delta, \alpha+\delta)$ are in $A$. E.g.
+$(\alpha+\delta/2)\in A$. Since $\alpha+\delta/2>\alpha$, $\alpha$ is not an upper bound of
+$A$, and is thus not the least upper bound.
 
 \vs
 
@@ -48,8 +50,13 @@ e.g. $\alpha+\delta/2\in A$. Thus $\alpha$ is not the least upper bound.
 \textbf{Case 2.} Suppose for contradiction $f(\alpha)>0$. By nonzero
 neighborhood lemma there exists $\delta>0$ such $|x-\alpha|<\delta$ implies
 $f(x)>0$ for all $x$. But that means numbers in
-$(\alpha-\delta, \alpha]$ are \textit{not} in $A$, e.g.
-$\alpha-\delta/2\notin A$. Thus $\alpha$ is not the least upper bound.
+$(\alpha-\delta, \alpha+\delta)$ are \textit{not} in $A$, and there exist many upper
+bounds of $A$ less than $\alpha$. E.g. $\alpha-\delta/2$ is an upper bound of
+$A$, and since $\alpha-\delta/2<\alpha$, $\alpha$ is not the \textit{least} upper bound.
+
+\vs
+
+Both cases lead to contradiction, therefore $f(\alpha)=0$. QED.
 
 
 \subsection{Extreme Value Theorem}
