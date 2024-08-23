@@ -58,9 +58,9 @@ $A$, and since $\alpha-\delta/2<\alpha$, $\alpha$ is not the \textit{least} uppe
 
 Both cases lead to contradiction, therefore $f(\alpha)=0$. QED.
 
-\vs
+\subsubsection*{IVT generalization}
 
-The \textbf{intermediate value theorem} is usually presented in a more
+The intermediate value theorem is usually presented in a more
 general way. If $f$ is continuous on $[a,b]$ and $f(a)<c<f(b)$ or
 $f(a)>c>f(b)$ then there is some $x$ in $[a,b]$ such that $f(x)=c$.
 
@@ -109,7 +109,7 @@ Thus $f$ does not attain a maximum value on the interval $[0,1]$.
 
 \vs
 
-\textbf{Claim 1:} if $f$ is continuous at $a$, then there is $\delta>0$
+\textbf{Claim 1 (bounded neighborhood lemma):} if $f$ is continuous at $a$, then there is $\delta>0$
 such that $f$ is bounded above on the interval $(a-\delta, a+\delta)$.
 
 \vs
@@ -127,10 +127,74 @@ $\epsilon=1$.)
 
 \vs
 
-\textbf{Claim 2:} if $f$ is continuous on $[a,b]$, then $f$ is bounded
-above on $[a,b]$.
+\textbf{Claim 2 (boundedness theorem):} if $f$ is continuous on $[a,b]$, then $f$ is bounded
+above on $[a,b]$. I.e. there is some numbers $N$ such that $f(x)\leq N$
+for all $x$ in $[a,b]$.
+
+\vs
+
+Intuitively, the claim means the graph of $f$ lies below some line.
+
+\vs
+
+\textbf{Proof:} TBD.
+
+\vs
+
+\textbf{Claim 3: (extreme value theorem):} If $f$ is continuous on
+$[a,b]$, then there is some number $y$ in $[a,b]$ such that
+$f(y)\geq f(x)$ for all $x$ in $[a,b]$.
+
+\vs
+
+\textbf{Proof:} TBD.
+
+\subsubsection*{EVT generalization}
+
 
 \subsection{Appendix: IVT and EVT consequences}
+
+\textbf{Claim 1:} Every positive number has a square root. I.e. if
+$\alpha>0$, then there is some number $x$ such that $x^{2}=\alpha$.
+
+\vs
+
+\textbf{Proof:} TBD.
+
+\vs
+
+\textbf{Claim 2:} If $n$ is odd, then any equation of the form
+\[x^{n}+a_{n-1}x^{n-1}+\ldots+a_{0}=0\]
+has a root.
+
+\vs
+
+\textbf{Proof:} TBD.
+
+\vs
+
+\textbf{Claim 3:} If $n$ is even and
+$f(x)=x^{n}+a_{n-1}x^{n-1}+\ldots+a_{0}$, then there is a number $y$ such
+that $f(y)\leq f(x)$ for all $x$.
+
+\vs
+
+\textbf{Proof:} TBD.
+
+\vs
+
+\textbf{Claim 4:} Consider the equation
+\[x^{n}+a_{n-1}x^{n-1}+\ldots+a_{0}=c\]
+and suppose $n$ is even. Then there is a number $m$ such that the
+equation has a solution for $c\geq m$ and has no solution for $c<m$.
+
+\vs
+
+\textbf{Proof:} TBD.
+
+\vs
+
+
 
 %%% Local Variables:
 %%% TeX-master: "notes"
