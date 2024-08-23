@@ -117,8 +117,7 @@ such that $f$ is bounded above on the interval $(a-\delta, a+\delta)$.
 \textbf{Proof:} The proof is trivial. Inlining the definition of
 continuity, for any $\epsilon>0$ there exists $\delta>0$ such that
 $|x-a|<\delta$ implies $|f(x)-f(a)|<\epsilon$ for all $x$. Thus
-$f(a)+\epsilon$ is the upper bound on $f$ within
-$(a-\delta, a+\delta)$, as desired.
+$f(a)+\epsilon$ is the upper bound on $f$ within $(a-\delta, a+\delta)$, as desired.
 
 \vs
 
@@ -127,9 +126,9 @@ $\epsilon=1$.)
 
 \vs
 
-\textbf{Claim 2 (boundedness theorem):} if $f$ is continuous on $[a,b]$, then $f$ is bounded
-above on $[a,b]$. I.e. there is some numbers $N$ such that $f(x)\leq N$
-for all $x$ in $[a,b]$.
+\textbf{Claim 2 (boundedness theorem):} if $f$ is continuous on
+$[a,b]$, then $f$ is bounded above on $[a,b]$. I.e. there is some
+numbers $N$ such that $f(x)\leq N$ for all $x$ in $[a,b]$.
 
 \vs
 
@@ -137,7 +136,52 @@ Intuitively, the claim means the graph of $f$ lies below some line.
 
 \vs
 
-\textbf{Proof:} TBD.
+\textbf{Proof:} intuitively, we will try to find the smallest number
+$x$ on the $x$-axis where $f(x)$ becomes unbounded above, and discover
+that there is no such number in $[a,b]$.
+
+\vs
+
+First, we define a set $A$ that contains all inputs to $f$ before $f$
+stops being bounded above:
+\[A=\{x:a\leq x\leq b \text{, and $f$ is bounded above on $[a,x]$}\}\]
+
+By bounded neighborhood lemma $f$ is bounded above in the neighborhood
+of $a$\footnote{We are being sloppy here as we actually need a
+  left-sided and right-sided version of the bounded neighborhood
+  lemma. I am papering over this for now, but will need to fix at some
+  point by giving proper one sided proofs}. Thus we know
+$A\neq\emptyset$ because $a\in A$. Further, $b$ is an upper bound of
+$A$. Thus $A$ has a least upper bound.
+
+\vs
+
+Let $\alpha=\sup A$. To prove the boundedness theorem we must prove two
+claims:
+\begin{enumerate}
+\item $\alpha=b$, i.e. $f$ does not ever stop being bounded above before
+  $b$.
+\item $(\alpha=b)\in A$, as $\sup A$ is not necessarily a member of $A$.
+\end{enumerate}
+
+\textit{First}, we prove $\alpha=b$. Suppose for contradiction $\alpha<b$. By
+bounded neighborhood lemma there is some $\delta>0$ such that $f$ is
+bounded above in $(\alpha-\delta, \alpha+\delta)$. But that means there are many upper
+bounds greater than $\alpha$, for example $\alpha+\delta/2$. Thus $\alpha$ is not the
+\textit{least} upper bound. We have a contradiction, and so $\alpha=b$.
+
+\vs
+
+\textit{Second}, we prove $(\alpha=b)\in A$. By bounded neighborhood lemma
+there is some $\delta>0$ such that $f$ is bounded above in $(b-\delta, b]$. Pick
+any $x_{0}$ such that $b-\delta<x_{0}<b$. Then:
+\begin{itemize}
+\item $x_{0}<b=\alpha$. Since $\alpha$ is the least upper bound it follows
+  $x_{0}\in A$. Thus $f$ is bounded above on $[a,x_{0}]$.
+\item $f$ is bounded above on $[x_{0}, b]$.
+\end{itemize}
+Since $f$ is bounded above on $[a,x_{0}]$ and on $[x_{0}, b]$, it
+follows $f$ is bounded above on $[a,b]$ as desired. QED.
 
 \vs
 
