@@ -58,8 +58,78 @@ $A$, and since $\alpha-\delta/2<\alpha$, $\alpha$ is not the \textit{least} uppe
 
 Both cases lead to contradiction, therefore $f(\alpha)=0$. QED.
 
+\vs
+
+The \textbf{intermediate value theorem} is usually presented in a more
+general way. If $f$ is continuous on $[a,b]$ and $f(a)<c<f(b)$ or
+$f(a)>c>f(b)$ then there is some $x$ in $[a,b]$ such that $f(x)=c$.
+
+\vs
+
+Intuitively, $f$ takes on any value between $f(a)$ and $f(b)$ at some
+point in the interval $[a,b]$.
+
+\vs
+
+\textbf{Proof.} This trivially follows from the the theorem as
+initially stated. There are two cases:
+
+\vs
+
+\textit{Case 1:} $f(a)<c<f(b)$. Let $g=f-c$. Then $g$ is continuous
+and $g(a)<0<g(b)$. Thus there is some $x$ in $[a,b]$ such that
+$g(x)=0$. But that means $f(x)=c$.
+
+\vs
+
+\textit{Case 2:} $f(a)>c>f(b)$. Observe that $-f$ is continuous on
+$[a,b]$ and $-f(a)<-c<-f(b)$. By case 1 there is some $x$ in $[a,b]$
+such that $-f(x)=-c$, which means $f(x)=c$.
+
+\vs
+
+QED.
 
 \subsection{Extreme Value Theorem}
+We will build up to the \textit{extreme value theorem} by proving
+three progressively more important claims (the last one being the
+theorem itself):
+\begin{enumerate}
+\item If $f$ is continuous at $a$ then there is some interval around
+  $a$ on which $f$ is bounded above.
+\item If $f$ is continuous on $[a,b]$, then $f$ is bounded above on
+  $[a,b]$.
+\item Finally, if $f$ is continuous on $[a,b]$, $f$ attains its
+  maximum on $[a,b]$.
+\end{enumerate}
+
+To see why we need the extreme value theorem, consider
+$f=\frac{1}{x}$. $f$ is discontinuous at $0$ and approaches infinity.
+Thus $f$ does not attain a maximum value on the interval $[0,1]$.
+
+\vs
+
+\textbf{Claim 1:} if $f$ is continuous at $a$, then there is $\delta>0$
+such that $f$ is bounded above on the interval $(a-\delta, a+\delta)$.
+
+\vs
+
+\textbf{Proof:} The proof is trivial. Inlining the definition of
+continuity, for any $\epsilon>0$ there exists $\delta>0$ such that
+$|x-a|<\delta$ implies $|f(x)-f(a)|<\epsilon$ for all $x$. Thus
+$f(a)+\epsilon$ is the upper bound on $f$ within
+$(a-\delta, a+\delta)$, as desired.
+
+\vs
+
+(Note that we can pick any $\epsilon$ to concretize the proof, for example
+$\epsilon=1$.)
+
+\vs
+
+\textbf{Claim 2:} if $f$ is continuous on $[a,b]$, then $f$ is bounded
+above on $[a,b]$.
+
 \subsection{Appendix: IVT and EVT consequences}
 
 %%% Local Variables:

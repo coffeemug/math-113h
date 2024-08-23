@@ -1,0 +1,89 @@
+\section{Limits, Part II (Edge Cases)}
+
+\subsection{Absence of limits}
+
+What does it mean to say $L$ is not a limit of $f(x)$ at $a$? It flows
+out of the definition-- there exist some $\epsilon$ such that for any
+$\delta$ there exists an $x$ in $0<|x-a|<\delta$ such that $|f(x)-L|\geq\epsilon$.
+
+\vs
+
+A stronger version is to say there is no limit of $f(x)$ at $a$. To do
+that we must prove that \textit{any} $L$ is not a limit of $f(x)$ at
+$a$.
+
+\subsubsection*{Example: Absolute value fraction}
+
+Consider $f(x)=\frac{x}{|x|}$. It's easy to see that
+
+\[f(x)=\begin{cases}
+    -1 & \text{if } x<0\\
+    1 & \text{if } x>0\\
+\end{cases}\]
+
+We will show there is no limit of $f(x)$ near $0$.
+
+\paragraph{Weak version.}
+
+First, let's prove a weak version-- that $\lim_{x\to 0}f(x)\neq 0$. That is
+easy. Pick some reasonably small epsilon, say $\epsilon=\frac{1}{10}$. We
+must show that for any $\delta$ there exists an $x$ in
+$0<|x-a|<\delta$ such that $|f(x)-0|\geq \frac{1}{10}$.
+
+\vs
+
+Let's pick some arbitrary $x$ out of our permitted interval, say $x=\delta/2$. Then
+\[|f(x)-0|=|f(\delta/2)|=\left|\frac{\delta/2}{|\delta/2|}\right|=1\geq\frac{1}{10}\]
+
+
+\paragraph{Strong version.}
+
+Now we prove that $\lim_{x\to 0}f(x)\neq L$ for \textit{any} $L$. Sticking
+with $\epsilon=\frac{1}{10}$ we proceed as follows.
+
+\vs
+
+If $L<0$ take $x=\delta/2$. Then
+
+\[|f(x)-L|=|f(\delta/2)-L|=\left|\frac{\delta/2}{|\delta/2|}-L\right|=|1-L|>\frac{1}{10}\]
+
+Similarly if $L\geq 0$ take $x=-\delta/2$. Then
+
+\[|f(x)-L|=|f(-\delta/2)-L|=\left|\frac{-\delta/2}{|-\delta/2|}-L\right|=|-1-L|>\frac{1}{10}\]
+
+\subsubsection*{Example: Dirichlet function} \label{subsubsec:dirichlet}
+The \textit{dirichlet} function $f$ is defined as follows:
+\[
+f(x) = 
+\begin{cases} 
+1 & \text{for rational } x,\\
+0 & \text{for irrational } x.
+\end{cases}
+\]
+
+We prove $\lim_{x\to a}f(x)$ does not exist for any $a$.
+
+\paragraph{Proof.} Let $\epsilon=\frac{1}{10}$. Suppose for contradiction
+there exists $L$ such that $\lim_{x\to a}f(x)=L$. There are two
+possibilities: either $L\leq\frac{1}{2}$ or $L>\frac{1}{2}$.
+
+\vs
+
+First suppose $L\leq\frac{1}{2}$. Pick any rational $x$ from the interval
+$0<|x-a|<\delta$. Then $|f(x)-L|=|1-L|\geq\frac{1}{2}$. Thus
+$|f(x)-L|\geq\frac{1}{10}$.
+
+\vs
+
+Similarly, suppose $L>\frac{1}{2}$. Pick any irrational $x$ from the
+interval $0<|x-a|<\delta$. Then $|f(x)-L|=|0-L|>\frac{1}{2}$. Thus
+$|f(x)-L|\geq\frac{1}{10}$.
+
+\vs
+
+Thus $\lim_{x\to a}f(x)$ does not exist for any $a$, as desired.
+
+
+%%% Local Variables:
+%%% TeX-master: "notes"
+%%% End:
