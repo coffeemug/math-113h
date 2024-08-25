@@ -90,27 +90,22 @@ such that $-f(x)=-c$, which means $f(x)=c$.
 
 QED.
 
-\subsection{Extreme Value Theorem}
-We will build up to the \textit{extreme value theorem} by proving
-three progressively more important claims (the last one being the
-theorem itself):
-\begin{enumerate}
-\item If $f$ is continuous at $a$ then there is some interval around
-  $a$ on which $f$ is bounded above.
-\item If $f$ is continuous on $[a,b]$, then $f$ is bounded above on
-  $[a,b]$.
-\item Finally, if $f$ is continuous on $[a,b]$, $f$ attains its
-  maximum on $[a,b]$.
-\end{enumerate}
+\subsection{Boundedness theorem}
 
-To see why we need the extreme value theorem, consider
-$f=\frac{1}{x}$. $f$ is discontinuous at $0$ and approaches infinity.
-Thus $f$ does not attain a maximum value on the interval $[0,1]$.
+The boundedness theorem states that if $f$ is continuous on $[a,b]$,
+then $f$ is bounded above (i.e. $f$ lies below some line). Before we
+prove this, we first prove a simple lemma.
 
-\sep
+\vs
 
-\textbf{Claim 1 (bounded neighborhood lemma):} if $f$ is continuous at $a$, then there is $\delta>0$
-such that $f$ is bounded above on the interval $(a-\delta, a+\delta)$.
+\textbf{Bounded neighborhood lemma:} if $f$ is continuous at $a$, then
+there is $\delta>0$ such that $f$ is bounded above on the interval
+$(a-\delta, a+\delta)$.
+
+\vs
+
+Intuitively, if $f$ is continuous at $a$ then there is some interval
+around $a$ on which $f$ is bounded above.
 
 \vs
 
@@ -124,15 +119,12 @@ $f(a)+\epsilon$ is the upper bound on $f$ within $(a-\delta, a+\delta)$, as desi
 (Note that we can pick any $\epsilon$ to concretize the proof, for example
 $\epsilon=1$.)
 
-\sep
-
-\textbf{Claim 2 (boundedness theorem):} if $f$ is continuous on
-$[a,b]$, then $f$ is bounded above on $[a,b]$. I.e. there is some
-numbers $N$ such that $f(x)\leq N$ for all $x$ in $[a,b]$.
-
 \vs
 
-Intuitively, the claim means the graph of $f$ lies below some line.
+
+\textbf{Boundedness theorem:} if $f$ is continuous on
+$[a,b]$, then $f$ is bounded above on $[a,b]$. I.e. there is some
+numbers $N$ such that $f(x)\leq N$ for all $x$ in $[a,b]$.
 
 \vs
 
@@ -183,15 +175,37 @@ any $x_{0}$ such that $b-\delta<x_{0}<b$. Then:
 Since $f$ is bounded above on $[a,x_{0}]$ and on $[x_{0}, b]$, it
 follows $f$ is bounded above on $[a,b]$ as desired. QED.
 
-\sep
-
-\textbf{Claim 3: (extreme value theorem):} If $f$ is continuous on
-$[a,b]$, then there is some number $y$ in $[a,b]$ such that
-$f(y)\geq f(x)$ for all $x$ in $[a,b]$.
+\subsubsection*{Boundedness theorem generalization}
+The \textit{boundedness theorem} is usually presented slightly more
+generally: it proves $f$ is bounded above \textit{and} below. We
+already proved the former. Put more formally, the latter states:
 
 \vs
 
-Intuitively, the theorem states that $f$ achieves its maximum.
+If $f$ is continuous on $[a,b]$, then $f$ is bounded \textit{below} on
+$[a,b]$. I.e. there is some numbers $N$ such that $f(x)\geq N$ for all
+$x$ in $[a,b]$.
+
+\vs
+
+\textbf{Proof:} observe that $-f$ is continuous on $[a,b]$. By claim 2
+there exists a number $M$ such that $-f(x)\leq M$ for all $x$ in
+$[a,b]$. But that means $f(x)\geq -M$ for all $x$ in $[a,b]$. QED.
+
+
+\subsection{Extreme Value Theorem}
+
+The \textit{extreme value theorem} states that is $f$ is continuous on
+$[a,b]$, then $f$ attains its maximum on $[a,b]$. To see why we need
+the extreme value theorem, consider $f=\frac{1}{x}$. $f$ is
+discontinuous at $0$ and approaches infinity. Thus $f$ does not attain
+a maximum value on the interval $[0,1]$.
+
+\vs
+
+\textbf{Extreme value theorem:} If $f$ is continuous on $[a,b]$, then
+there is some number $y$ in $[a,b]$ such that $f(y)\geq f(x)$ for all
+$x$ in $[a,b]$.
 
 \vs
 
@@ -225,35 +239,14 @@ $\alpha\in A$ as desired. QED.
 
 \subsubsection*{EVT generalization}
 
-Claim 2 above proves a continuous $f$ is bounded above. The
-\textit{boundedness theorem} is usually presented slightly more
-generally, i.e. it proves $f$ is bounded above \textit{and} below.
-This is easy to derive from claim 2.
-
-\vs
-
-\textbf{Claim 2a (boundedness theorem):} if $f$ is continuous on
-$[a,b]$, then $f$ is bounded \textit{below} on $[a,b]$. I.e. there is
-some numbers $N$ such that $f(x)\geq N$ for all $x$ in $[a,b]$.
-
-\vs
-
-\textbf{Proof:} observe that $-f$ is continuous on $[a,b]$. By claim 2
-there exists a number $M$ such that $-f(x)\leq M$ for all $x$ in
-$[a,b]$. But that means $f(x)\geq -M$ for all $x$ in $[a,b]$. QED.
-
-\sep
-
-Similarly, claim 3 above proves a continuous $f$ attains its maximum.
 The extreme value theorem is usually presented slightly more
-generally, i.e. it states a continuous $f$ attains both its maximum
-and its minimum. Again, this is easy to derive from claim 3.
+generally: a continuous $f$ attains both its maximum and its minimum.
+We already proved the former. Put more formally, the latter states:
 
 \vs
 
-\textbf{Cliam 3a (extreme value theorem)}: If $f$ is continuous on
-$[a,b]$, then there is some number $y$ in $[a,b]$ such that
-$f(y)\leq f(x)$ for all $x$ in $[a,b]$.
+If $f$ is continuous on $[a,b]$, then there is some number $y$ in
+$[a,b]$ such that $f(y)\leq f(x)$ for all $x$ in $[a,b]$.
 
 \vs
 
