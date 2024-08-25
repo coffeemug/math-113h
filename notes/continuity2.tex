@@ -262,27 +262,56 @@ $\alpha>0$, then there is some number $x$ such that $x^{2}=\alpha$.
 
 \vs
 
-\textbf{Proof:} TBD.
+\textbf{Proof:} Consider the function $f(x)=x^{2}$. If $f$ takes on
+the value of $\alpha$ as its output, then $x=\sqrt{\alpha}$ is the input (i.e.
+$x^{2}=\alpha$). Thus all we must show is that $f$ takes on the value of
+$\alpha$.
 
-\sep
+\vs
+
+We can do it as follows. Show there exist $a,b$ such that
+$f(a)<\alpha<f(b)$. Since $f$ is continuous, by intermediate value theorem
+there exists $x$ such that $f(x)=\alpha$. So, let's find $a$ and $b$:
+\begin{itemize}
+\item First, find $a$ such that $f(a)<\alpha$. Observe that
+  $f(0)=0<\alpha$, thus fix $a=0$.
+\item Second, find $b$ such that $\alpha<f(b)$.
+  \begin{itemize}
+  \item If $\alpha<1$ then $f(1)=1>\alpha$. Thus fix $b=1$.
+  \item If $\alpha>1$ then $f(\alpha)=\alpha^{2}>\alpha$. Thus fix $b=\alpha$.
+  \end{itemize}
+\end{itemize}
+
+By intermediate value theorem, there is some $x$ in $[0,b]$ such that
+$f(x)=\alpha$. QED.
+
+\vs
 
 \textbf{Claim 1b:} Every positive number has an $n$th root. I.e. if
 $\alpha>0$, then there is some number $x$ such that $x^{n}=\alpha$.
 
 \vs
 
-\textbf{Proof:} TBD.
+\textbf{Proof:} We can use the exact same argument as 1a, just
+consider $f(x)=x^{n}$.
 
-\sep
+\vs
 
 \textbf{Claim 1c:} Let $n$ be odd. Then every number has an $n$th
 root. I.e. there is some number $x$ such that $x^{n}=\alpha$ for all $\alpha$.
 
 \vs
 
-\textbf{Proof:} TBD.
+\textbf{Proof:} This is also easy:
+\begin{itemize}
+\item \textit{Case} $\alpha>0$. By claim 2b, there is an $x$ such that $x^{n}=\alpha$.
+\item \textit{Case} $\alpha<0$. By claim 2b, there is an $x$ such that
+  $x^{n}=-\alpha$. Then $(-x)^{n}=\alpha$.
+\end{itemize}
 
-\sep
+QED.
+
+\vs
 
 \textbf{Claim 2:} If $n$ is odd, then any equation of the form
 \[x^{n}+a_{n-1}x^{n-1}+\ldots+a_{0}=0\]
@@ -292,7 +321,7 @@ has a root.
 
 \textbf{Proof:} TBD.
 
-\sep
+\vs
 
 \textbf{Claim 3:} If $n$ is even and
 $f(x)=x^{n}+a_{n-1}x^{n-1}+\ldots+a_{0}$, then there is a number $y$ such
@@ -302,7 +331,7 @@ that $f(y)\leq f(x)$ for all $x$.
 
 \textbf{Proof:} TBD.
 
-\sep
+\vs
 
 \textbf{Claim 4:} Consider the equation
 \[x^{n}+a_{n-1}x^{n-1}+\ldots+a_{0}=c\]
