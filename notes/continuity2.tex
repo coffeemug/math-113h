@@ -191,7 +191,37 @@ $f(y)\geq f(x)$ for all $x$ in $[a,b]$.
 
 \vs
 
-\textbf{Proof:} TBD.
+Intuitively, the theorem states that $f$ achieves its maximum.
+
+\vs
+
+\textbf{Proof:} Let $A$ be the set of $f$'s outputs on $[a,b]$:
+\[A=\{f(x):x\text{ in }[a,b]\}\]
+
+Since $[a,b]$ isn't empty, $A\neq\emptyset$. By boundedness theorem,
+$f$ is bounded on $[a,b]$, and so $A$ has an upper bound. Thus $A$ has
+a least upper bound. Let $\alpha=\sup A$. By definition
+$\alpha\geq f(x)$ for $x$ in $[a,b]$. Thus it suffices to show
+$\alpha\in A$ (i.e. $\alpha=f(y)$ for some $y$ in $[a,b]$).
+
+\vs
+
+Let's consider a function $g$\footnote{$g$ is a bit of a rabbit pulled
+  out of a magic hat, but to quote a great British statesman, them's
+  the breaks}:
+\[g=\frac{1}{\alpha-f(x)},\ \ \ x \text{ in }\ [a,b]\]
+
+Suppose for contradiction $\alpha\notin A$. Then the denominator is never zero
+and $g$ is continuous. Therefore:
+\begin{align*}
+&\frac{1}{\alpha-f(x)}<M&&\text{by boundedness theorem}\\
+& &&\text{for some bound $M$}\\
+&\implies \alpha-f(x)>\frac{1}{M}&&\text{take reciprocal}\\
+&\implies -f(x)>\frac{1}{M}-\alpha\\
+&\implies f(x)<\alpha-\frac{1}{M}&&\text{times $-1$}
+\end{align*}
+But this contradicts that $\alpha$ is the \textit{least} upper bound. Thus
+$\alpha\in A$ as desired. QED.
 
 \subsubsection*{EVT generalization}
 
@@ -234,8 +264,26 @@ $[a,b]$. But that means that $f(y)\leq f(x)$ for all $x$ in $[a,b]$. QED.
 
 \subsection{Appendix: IVT and EVT consequences}
 
-\textbf{Claim 1:} Every positive number has a square root. I.e. if
+\textbf{Claim 1a:} Every positive number has a square root. I.e. if
 $\alpha>0$, then there is some number $x$ such that $x^{2}=\alpha$.
+
+\vs
+
+\textbf{Proof:} TBD.
+
+\sep
+
+\textbf{Claim 1b:} Every positive number has an $n$th root. I.e. if
+$\alpha>0$, then there is some number $x$ such that $x^{n}=\alpha$.
+
+\vs
+
+\textbf{Proof:} TBD.
+
+\sep
+
+\textbf{Claim 1c:} Let $n$ be odd. Then every number has an $n$th
+root. I.e. there is some number $x$ such that $x^{n}=\alpha$ for all $\alpha$.
 
 \vs
 
