@@ -319,7 +319,43 @@ has a root.
 
 \vs
 
-\textbf{Proof:} TBD.
+\textbf{Proof:} Let $f(x)=x^{n}+a_{n-1}x^{n-1}+\ldots+a_{0}$. Here is an
+intuitive outline of the proof:
+\begin{enumerate}
+\item We will show that $f$ must take on negative and positive values.
+  Thus by the intermediate value theorem, there exists some $x$ such
+  that $f(x)=0$.
+\item To do that we will show that as $|x|$ gets large, $x^{n}$
+  completely dominates other terms. (This is obvious if you consider
+  Big-Oh of each term.)
+\item Since $n$ is odd, $x^{n}$ takes on a negative value when $x$ is
+  negative, and a positive value when $x$ is positive. And since
+  $x^{n}$ dominates other terms, when $x$ is sufficiently large, $f$
+  takes on both negative and positive values.
+\end{enumerate}
+
+We must find a way to bound the magnitude of
+$a_{n-1}x^{n-1}+\ldots+a_{0}$ to show that for large enough $x$, it's
+smaller than the magnitude of $x^n$. This way we guarantee $f(x)$ has
+the same sign as $x^n$. Let's start with some obvious transformations
+we can make:
+\begin{align*}
+  |a_{n-1}x^{n-1}+\ldots+a_{0}| &\leq |a_{n-1}x^{n-1}|+\ldots+|a_{0}| &&\text{by
+                                                            triangle
+                                                            inequality}\\
+                           &=|a_{n-1}||x^{n-1}|+\ldots+|a_{0}|
+                                                         &&\text{in
+                                                            general } |ab|=|a||b|\\
+\end{align*}
+
+If we only consider behavior of $f$ on large $x$ (i.e. when $|x|>1$),
+we can further bound the expression. Observe that when $|x|>1$ then
+$x^{n-1}>x^{n-2}>\ldots>x>1$. Therefore:
+\begin{align*}
+  |a_{n-1}x^{n-1}+\ldots+a_{0}| &\leq |a_{n-1}||x^{n-1}|+\ldots+|a_{0}|\\
+                           &\leq |a_{n-1}||x^{n-1}|+\ldots+|a_{0}||x^{n-1}|\\
+                           &= x^{n-1}(|a_{n-1}|+\ldots+|a_0|)
+\end{align*}
 
 \vs
 
