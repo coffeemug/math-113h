@@ -337,8 +337,13 @@ intuitive outline of the proof:
 We must find a way to bound the magnitude of
 $a_{n-1}x^{n-1}+\ldots+a_{0}$ to show that for large enough $x$, it's
 smaller than the magnitude of $x^n$. This way we guarantee $f(x)$ has
-the same sign as $x^n$. Let's start with some obvious transformations
-we can make:
+the same sign as $x^n$. This is trivial to do by adopting Big-Oh
+notation, but both math books I looked at do it the old-fashioned way,
+so we will too.
+
+\vs
+
+Let's start with some obvious transformations we can make:
 \begin{align*}
   |a_{n-1}x^{n-1}+\ldots+a_{0}| &\leq |a_{n-1}x^{n-1}|+\ldots+|a_{0}| &&\text{by
                                                             triangle
@@ -356,6 +361,41 @@ $x^{n-1}>x^{n-2}>\ldots>x>1$. Therefore:
                            &\leq |a_{n-1}||x^{n-1}|+\ldots+|a_{0}||x^{n-1}|\\
                            &= x^{n-1}(|a_{n-1}|+\ldots+|a_0|)
 \end{align*}
+
+Let $M=|a_{n-1}|+\ldots+|a_0|+1$, i.e. a bound on the sum of the
+coefficients, plus a little extra to ensure $M>1$. Then
+\begin{align*}
+  |a_{n-1}x^{n-1}+\ldots+a_{0}| &\leq x^{n-1}(|a_{n-1}|+\ldots+|a_0|)\\
+                           &< M|x^{n-1}|
+\end{align*}
+
+Given this bound it follows that for all $|x|>1$:
+\[x^{n}-M|x^{n-1}|<x^{n}+(a_{n-1}x^{n-1}+\ldots+a_{0})<x^{n}+M|x^{n-1}|\]
+
+or put differently:
+\[x^{n}-M|x^{n-1}|<f(x)<x^{n}+M|x^{n-1}|\]
+
+We will now find $x_1$ and $x_2$ such that $f(x_1)<0$ and $f(x_2)>0$.
+Let $x_1=-2M$ (note that $x_1$ satisfies our condition $|x_1|>1$ since
+$M>1$). Then for all $x\leq x_1$:
+\begin{align*}
+  f(x)&<x^{n}+M|x^{n-1}|\\
+      &=x^n+Mx^{n-1}&&n \text{ is odd, thus } n-1\text{ is even, thus } x^{n-1}>0\\
+      &=x^{n-1}(x+M)&&\text{factor out } x^{n-1}\\
+      &\leq -2^{n-1}M^n&&\text{substitute $-2M$ and simplify}\\
+      &<0
+\end{align*}
+
+Similarly, let $x_2=2M$. Then for all $x\geq x_2$:
+\begin{align*}
+  f(x)&>x^{n}-M|x^{n-1}|\\
+      &=x^n-Mx^{n-1}\\
+      &=x^{n-1}(x-M)\\
+      &\geq 2^{n-1}M^n\\
+      &>0
+\end{align*}
+
+QE-fucking-D.
 
 \vs
 
