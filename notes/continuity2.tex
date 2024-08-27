@@ -470,11 +470,21 @@ equation has a solution for $c\geq m$ and has no solution for $c<m$.
 
 \vs
 
-\textbf{Proof:} TBD.
+\textbf{Proof:} In claim 3 we saw that even degree polynomials achieve
+a minimum. Let that be $m$. There are three cases:
+\begin{itemize}
+\item If $c<m$ there is no solution, as the polynomial doesn't take on
+  values less than $m$.
+\item If $c=m$ there is a solution, as the polynomial obviously takes
+  on the value $m$ (by claim 3).
+\item Suppose $c>m$. Let $y,z\in\mathcal{R}$ such that $f(y)=m$ and
+  $z>y, f(z)>c$.\footnote{Technically we have to prove such a $z$
+    exists, but somehow Spivak rolls right past this.} Then
+  $f(y)=m<c<f(z)$. By intermediate value theorem there is a number $k$
+  in $[y,z]$ such that $f(k)=c$.
+\end{itemize}
 
-\vs
-
-
+QED.
 
 %%% Local Variables:
 %%% TeX-master: "notes"
