@@ -395,7 +395,7 @@ Similarly, let $x_2=2M$. Then for all $x\geq x_2$:
       &>0
 \end{align*}
 
-QE-fucking-D.
+QED.
 
 \vs
 
@@ -405,7 +405,60 @@ that $f(y)\leq f(x)$ for all $x$.
 
 \vs
 
-\textbf{Proof:} TBD.
+Intuitively, even degree polynomials achieve their minimum on $\mathcal{R}$
+(consider the graph $f(x)=x^2$ as a simple example).
+
+\vs
+
+\textbf{Proof:} It's easy to intuitively see why the claim makes
+sense. $x^n$ dominates the rest of the terms when $x$ is very large.
+Since $n$ is even, $x^n>0$. Thus on very large $|x|$ the graph shoots
+up (i.e. it has a U shape).
+
+\vs
+
+Here is the outline for our proof:
+
+\begin{enumerate}
+\item Observe that $f(0)=a_0$.
+\item We will prove $f$ is U-shaped by proving there exist two points:
+  \begin{itemize}
+  \item $x_0<0$ such that $f(x)>a_0$ on $(-\infty, x_0]$.
+  \item $x_1>0$ such that $f(x)>a_0$ on $[x_1, \infty]$.
+  \end{itemize}
+\item By extreme value theorem $f$ achieves a minimum $m$ on
+  $[x_0, x_1]$. Note $m\leq a_{0}$ (otherwise it wouldn't be a minimum).
+\item Thus $f$ achieves a minimum $m$ on $\mathcal{R}$, as we've shown that
+  outside $[x_0, x_1]$, $f(x)>a_{0}$ (and thus $f(x)>m$) for all $x$.
+\end{enumerate}
+
+All we must do now to complete the proof is find $x_0<0<x_1$. Let
+$M=|a_{n-1}|+\ldots+|a_0|+1$, i.e. a bound on the sum of the coefficients,
+plus a little extra to ensure $M>1$. In Claim 2 we discovered that for
+$|x|>1$
+\[x^{n}-M|x^{n-1}|<f(x)<x^{n}+M|x^{n-1}|\]
+
+Let $x_1=-2M$. Note that $x_1$ satisfies our condition $|x_1|>1$ since
+$M>1$. Then for all $x<x_1$:
+\begin{align*}
+  f(x)&>x^{n}-M|x^{n-1}|\\
+      &=x^n+Mx^{n-1}&&\text{$x$ is negative, and $n-1$ is odd}\\
+      &=x^{n-1}(x+M)\\
+      &\geq 2^{n-1}M^n&&\text{substitute $-2M$ and simplify}
+\end{align*}
+
+Similarly let $x_2=2M$. Then for all $x>x_1$:
+\begin{align*}
+  f(x)&>x^{n}-M|x^{n-1}|\\
+      &=x^n+Mx^{n-1}\\
+      &=x^{n-1}(x+M)\\
+      &\geq 2^{n-1}M^n&&\text{substitute $2M$ and simplify}
+\end{align*}
+
+Since $M>1$ we have
+\[2^{n-1}M^n\geq M\geq |a_n+1|\geq a_n+1>a_n\]
+
+Therefore for all $x<x_1$ and $x>x_2$, $f(x)>a_{n}$ as desired.
 
 \vs
 
