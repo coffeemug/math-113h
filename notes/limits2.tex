@@ -134,7 +134,29 @@ $x$ large enough. Here we simply produce a large enough $N$ instead of
 $\delta$.
 
 \subsection{Infinite limits}
-TODO
+Consider the function $f(x)=\frac{1}{x^2}$. Near zero $f$ shoots up,
+and again, we want to be able to encode that. The notation for this
+property is
+\[\lim_{x\to0}f(x)=\infty\]
+
+This compiles down to the following definition. Given any $M>0$ there
+exists $\delta>0$ such that $0<|x-a|<\delta$ implies $f(x)>M$ for all
+$x$. Intuitively, given an arbitrarily large $f(x)=M$ we can produce a
+bound on the $x$-axis, within which $f(x)$ is never smaller than $M$.
+
+\vs
+
+Suppose we want to prove $\lim_{x\to0}\frac{1}{x^{2}}=\infty$. Let
+$M>0$ be given. We must produce $\delta>0$ such that $0<|x|<\delta$ implies
+$\frac{1}{x^2}>M$ for all $x$. Suppose we fix
+$|x|<\frac{1}{\sqrt{M}}$. Then:
+\begin{align*}
+  &|x|<\frac{1}{\sqrt{M}}&&\text{note $M>0$}\\
+  &\implies x^2<\frac{1}{M}\\
+  &\implies \frac{1}{x^2}>M
+\end{align*}
+
+Thus $\delta\leq \frac{1}{\sqrt{M}}$ implies $\frac{1}{x^2}>M$ as desired.
 
 %%% Local Variables:
 %%% TeX-master: "notes"
