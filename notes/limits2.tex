@@ -84,12 +84,43 @@ $|f(x)-L|\geq\frac{1}{10}$.
 Thus $\lim_{x\to a}f(x)$ does not exist for any $a$, as desired.
 
 \subsection{One-sided limits}
+We have seen that the following function has no limit approaching $0$:
+\[
+f(x) = 
+\begin{cases} 
+-1 & x<0,\\
+1 & x>0
+\end{cases}
+\]
+
+However, $f$ has properties around $0$ we may want to be able to
+formally describe. First, intuitively $f$ approaches $-1$ as we
+approach zero from the left (from ``below''). Not surprisingly, a
+notation for this exists:
+\[\lim_{x\to0^-}f(x)=-1\]
+
+If we take $l=-1$, this notation compiles down to the following
+definition. For every $\epsilon>0$ there exists $\delta>0$ such that
+$0<a-x<\delta$ implies $|f(x)-l|<\epsilon$ for all $x$. This is our usual limit
+definition, except instead of looking at both sides of $a$ we say
+$x<a$ (i.e. we look from left of $a$).
+
+\vs
+
+Second, intuitively $f$ approaches $11$ as we approach zero from the
+right (from ``above''). The notation for this is:
+\[\lim_{x\to0^+}f(x)=1\]
+
+If we take $l=1$, the definition is as follows. For every $\epsilon>0$ there
+exists $\delta>0$ such that $0<x-a<\delta$ implies $|f(x)-l|<\epsilon$ for all
+$x$. Again, this is our usual limit definition, except instead of
+looking at both sides of $a$ we say $x>a$ (i.e. we look from right of
+$a$).
+
+\subsection{Limits at infinity}
 TODO
 
 \subsection{Infinite limits}
-TODO
-
-\subsection{Limits at infinity}
 TODO
 
 %%% Local Variables:
