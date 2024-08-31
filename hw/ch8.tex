@@ -14,11 +14,16 @@ where $f(x)=0$ is $0$.
 
 \vs
 
-\textbf{TODO:} multiple $x$'s, but no \textit{smallest}.
+We want to find a function $g$ that varies from $b$ to $a$ the way $f$
+varies from $a$ to $b$. In particular, we want:
+\begin{itemize}
+\item g(a)=f(b)
+\item g(b)=f(a)
+\end{itemize}
 
-\vs
-
-\textbf{TODO}
+Observe that $g(x)=f(a+b-x)$ is such a function. By intermediate value
+theorem there is a smallest $x$ in $[a,b]$ with $g(x)=0$. But that's
+the largest $x$ in $[a,b]$ with $f(x)=0$.
 
 \subsection*{Problem 5a}
 Suppose that $y-x>1$. Prove that there is an integer $k$ such that
