@@ -115,11 +115,58 @@ Thus $|f(g(x))-f(g(a))|<\epsilon$, as desired.
 
 \subsection{Appendix: Stars over Babylon}
 Stars over Babylon is a modification of the Dirichlet function (see
-\ref{subsubsec:dirichlet}).
+\ref{subsubsec:dirichlet}), defined as follows:
+\[
+f(x) = 
+\begin{cases} 
+  0, & \text{$x$ irrational}, 0<x<1\\
+  1/q, & x=p/q \text{ in lowest terms}, 0<x<1.
+\end{cases}
+\]
+
+\textbf{Claim:} for $0<a<1$, $\lim_{x\to a}f(x)=0$.
 
 \vs
 
-\textbf{TODO}: come back and study this.
+\textbf{Proof.} Let $\epsilon>0$ be given. We must find $\delta>0$ such that
+$0<|x-a|<\delta$ implies $|f(x)-0|<\epsilon$. For \textit{any}
+$\delta>0$, $0<|x-a|<\delta$ implies one of two cases for all $x$: either
+$x$ is irrational or it is rational.
+
+\vs
+
+If $x$ is irrational, $|f(x)-0|=0<\epsilon$ for \textit{any} $\delta>0$.
+
+\vs
+
+Otherwise, if $x=p/q$ in the lowest terms is rational, $f(x)=1/q$. Let
+$n\in\mathcal{N}$ such that $1/n<\epsilon$. We will look for $\delta$ such that $f(x)<1/n<\epsilon$.
+
+\vs
+
+Observe that when $q>n$, $f(\frac{p}{q})=\frac{1}{q}<\frac{1}{n}$.
+Thus the only rationals that \textit{could} result in $f(\frac{p}{q})\geq1/n$ are
+ones where $q\leq n$:
+\[A=\{\frac{1}{2};\ \ \frac{1}{3},\frac{2}{3};\ \
+  \frac{1}{4},\frac{3}{4};\ \
+  \frac{1}{5},\frac{2}{5},\frac{3}{5},\frac{4}{5},\ \ \ldots,\ \ \frac{1}{n},\ldots,\frac{n-1}{n}\}\]
+
+This set has a finite length, and thus \textit{one} $p/q\in A$ is
+closest to $a$. Set $\delta=|a-p/q|$ (i.e. anything less than this
+distance). This guarantees $0<|x-a|<\delta$ implies $x\notin A$ for all $x$, and
+thus $f(x)<1/n<\epsilon$ for all $x$, as desired.
+
+\vs
+
+\textbf{Claim:} $f(x)$ is continuous at all irrationals, discontinuous
+at all rationals.
+
+\vs
+
+\textbf{Proof:} we've just proven for $0<a<1$, $\lim_{x\to a}f(x)=0$. By
+definition $f(x)$ is zero for all irrationals, and nonzero for all
+rationals. Thus $\lim_{x\to a}f(x)=f(x)$ for all irrationals, and
+$\lim_{x\to a}f(x)\neq f(x)$ for all rationals.
 
 %%% Local Variables:
 %%% TeX-master: "notes"
