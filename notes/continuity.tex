@@ -135,12 +135,13 @@ $x$ is irrational or it is rational.
 
 \vs
 
-If $x$ is irrational, $|f(x)-0|=0<\epsilon$ for \textit{any} $\delta>0$.
+If $x$ is irrational, $|f(x)-0|=0<\epsilon$.
 
 \vs
 
 Otherwise, if $x=p/q$ in the lowest terms is rational, $f(x)=1/q$. Let
-$n\in\mathcal{N}$ such that $1/n<\epsilon$. We will look for $\delta$ such that $f(x)<1/n<\epsilon$.
+$n\in\mathcal{N}$ such that $1/n<\epsilon$. We will look for $\delta$ such that:
+\[f\left(\frac{p}{q}\right)=\frac{1}{q}<\frac{1}{n}<\epsilon\]
 
 \vs
 
@@ -152,7 +153,7 @@ ones where $q\leq n$:
   \frac{1}{5},\frac{2}{5},\frac{3}{5},\frac{4}{5},\ \ \ldots,\ \ \frac{1}{n},\ldots,\frac{n-1}{n}\}\]
 
 This set has a finite length, and thus \textit{one} $p/q\in A$ is
-closest to $a$. Set $\delta=|a-p/q|$ (i.e. anything less than this
+closest to $a$. Fix $\delta=|a-p/q|$ (i.e. anything less than this
 distance). This guarantees $0<|x-a|<\delta$ implies $x\notin A$ for all $x$, and
 thus $f(x)<1/n<\epsilon$ for all $x$, as desired.
 
