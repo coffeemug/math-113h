@@ -1,0 +1,79 @@
+
+\section{Derivatives}
+
+\subsection{Formal definitions}
+
+\textbf{Definition:} the \textit{derivative} at $a$ of a function $f$,
+denoted $f'(a)$, is defined as:
+\[f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\]
+
+\textit{Intuitively}, draw a line through points $(a, f(a))$ and
+$(a+h, f(a+h))$ for some small $h$. Then make $h$ ``infinitely small''.
+Our $f'(a)$ is the slope of that line.
+
+\vs
+
+\textbf{Definition:} $f$ is called \textit{differentiable} at $a$ if
+the limit $f'(a)$ exists.
+
+\vs
+
+The notation $f'(a)$ suggests $f'$ is a function. Indeed, we define
+$f'$ as follows. Its domain is the set of all numbers $a$ where $f$ is
+differentiable, and its value at such a point $a$ is the limit above.
+Not surprisingly, we call $f'$ the \textit{derivative} of $f$. Note
+that the domain of $f'$ could be much smaller than the domain of $f$.
+
+\vs
+
+We can apply the definition of the derivative to $f'$ yielding the
+\textit{second derivative} $(f')'$, denoted $f''$ or $f^{(2)}$. The
+domain of $f''$ is all points $a$ such that $f'$ is differentiable at
+$a$. If $f''(a)$ exists, we say $f$ is \textit{twice differentiable}
+at $a.$
+
+\subsection{Leibniz notation}
+
+The notation $f'$ is called Lagrange's notation.\footnote{Wikipedia
+  claims the notation was invented by Euler and Lagrange only
+  popularized it.} It's supposed to be modern, and Spivak's book
+standardizes on it. Another convenient notation commonly in use is the
+older (but often convenient, instructive, but also confusing) Leibniz
+notation.
+
+\vs
+
+Leibniz didn't know about limits, and thought the derivative is the
+value of the quotient $\frac{f(a+h)-f(a)}{h}$ when $h$ is
+``infinitesimally small''. He denoted this infinitesimally small
+quantity by $dx$, and the corresponding difference $f(x+dx)-f(x)$ by
+$df(x)$. Thus for a given function $f$ the Leibniz notation for its
+derivative $f'$ is:
+\[\frac{df(x)}{dx}=f'\]
+
+Intuitively, we can think of $d$ in a historical context as ``delta''
+or ``change''. Then we can interpret this notation as Leibniz did-- a
+quotient of a tiny change in $f(x)$ and a tiny change in $x$. But
+formally we treat $\frac{df(x)}{dx}$ as a symbol denoting $f'$,
+\textit{not} as a quotient of numbers.
+
+\vs
+
+Leibniz notation for the second derivative is
+\[\frac{d\left(\frac{df(x)}{dx}\right)}{dx},\ \ \ \text{abbreviated
+    to}\ \ \ \frac{d^2f(x)}{(dx)^2}, \ \ \ \text{or more often to}\ \
+  \ \frac{d^2f(x)}{dx^2}.\]
+
+Finally, there are two more ambiguities associated with the Leibniz
+notation. First, $\frac{df(x)}{dx}$ is frequently abbreviated to
+$\frac{df}{dx}$. Second, $\frac{df(x)}{dx}$ sometimes means the
+function $f'$, and sometimes means the value $f'(x)$. The meaning of
+the symbol often must be deteremined from the specific context.
+
+\subsection{Differentiation}
+  
+\subsection{Examples of non-differentiable functions}
+  
+%%% Local Variables:
+%%% TeX-master: "notes"
+%%% End:
