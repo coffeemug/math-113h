@@ -1,5 +1,5 @@
 
-\section{Derivatives}
+\section{Derivatives, Part I (The Fundamentals)}
 
 \subsection{Formal definitions}
 
@@ -30,25 +30,40 @@ We can apply the definition of the derivative to $f'$ yielding the
 \textit{second derivative} $(f')'$, denoted $f''$ or $f^{(2)}$. The
 domain of $f''$ is all points $a$ such that $f'$ is differentiable at
 $a$. If $f''(a)$ exists, we say $f$ is \textit{twice differentiable}
-at $a.$
+at $a$.
 
 \vs
 
 \textbf{Theorem:} if $f$ is differentiable at $a$, then $f$ is
 continuous at $a$.
 
-\vs
+\textbf{Proof: TODO} we must show that:
+\[\lim_{x\to a}f(x)=f(a)\]
 
-\textbf{Proof: TODO}
+Observe that $\lim_{x\to a}f(x)$ is equivalent to $\lim_{h\to 0}f(a+h)$.
+\textbf{Todo.} The proof is now straightforward:
+\begin{align*}
+  \lim_{h\to0}[f(a+h)-f(a)]&=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\cdot h\\
+                         &=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\cdot \lim_{h\to
+                           0}h\\
+                         &=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\cdot 0\\
+                         &=0
+\end{align*}
+
+It follows that
+\begin{align*}
+  &\lim_{h\to0}[f(a+h)-f(a)]=0\\
+  &\implies \lim_{h\to0}f(a+h)-\lim_{h\to0}f(a)=0\\
+  &\implies \lim_{h\to0}f(a+h)=\lim_{h\to0}f(a)=f(a)
+\end{align*}
 
 \subsection{Leibniz notation}
 
 The notation $f'$ is called Lagrange's notation.\footnote{Wikipedia
   claims the notation was invented by Euler and Lagrange only
   popularized it.} It's supposed to be modern, and Spivak's book
-standardizes on it. Another convenient notation commonly in use is the
-older (but often convenient, instructive, but also confusing) Leibniz
-notation.
+standardizes on it. Another notation commonly in use is the older (but
+often convenient, instructive, but also confusing) Leibniz notation.
 
 \vs
 
@@ -79,10 +94,59 @@ $\frac{df}{dx}$. Second, $\frac{df(x)}{dx}$ sometimes means the
 function $f'$, and sometimes means the value $f'(x)$. The meaning of
 the symbol often must be deteremined from the specific context.
 
-\subsection{Differentiation}
-  
-\subsection{Examples of non-differentiable functions}
-  
+\subsection{Low-level proofs}
+
+In the next chapter we prove theorems that make finding derivatives
+for many classes of functions easy. But for now we show four low-level
+derivations directly from the definition. Here we will be looking at
+constant functions, linear functions, quadratic, and cubic functions.
+
+\subsubsection*{Constant functions}
+Let $f(x)=c$. Then:
+\[f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}=\lim_{h\to0}\frac{c-c}{h}=0\]
+
+Thus $f$ is differentiable at $a$ for every number $a$, and $f'(a)=0$.
+
+\subsubsection*{Linear functions}
+Let $f(x)=cx+d$. Then:
+\begin{align*}
+  f'(a)&=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\\
+       &=\lim_{h\to0}\frac{c(a+h)+d-(ca+d)}{h}\\
+       &=\lim_{h\to0}\frac{ch}{h}=c
+\end{align*}
+
+Thus $f$ is differentiable at $a$ for every number $a$, and $f'(a)=c$.
+
+\subsubsection*{Quadratic functions}
+Let $f(x)=x^2$. Then:
+\begin{align*}
+  f'(a)&=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\\
+       &=\lim_{h\to0}\frac{(a+h)^2-a^2}{h}\\
+       &=\lim_{h\to0}\frac{a^2+2ah+h^2-a^2}{h}\\
+       &=\lim_{h\to0}\frac{2ah+h^2}{h}\\
+       &=\lim_{h\to0}2a+h\\
+       &=\lim_{h\to0}2a
+\end{align*}
+
+Thus $f$ is differentiable at $a$ for every number $a$, and $f'(a)=2a$.
+
+\subsubsection*{Cubic functions}
+Let $f(x)=x^3$. Then:
+\begin{align*}
+  f'(a)&=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\\
+       &=\lim_{h\to0}\frac{(a+h)^3-a^3}{h}\\
+       &=\lim_{h\to0}\frac{a^3+3a^2h+3ah^2+h^3-a^3}{h}\\
+       &=\lim_{h\to0}\frac{3a^2h+3ah^2+h^3}{h}\\
+       &=\lim_{h\to0}3a^2+3ah+h^2\\
+       &=3a^2
+\end{align*}
+
+Thus $f$ is differentiable at $a$ for every number $a$, and $f'(a)=3a^2$.
+
+\subsection{Intersections}
+
+\subsection{Non-differentiability}
+
 %%% Local Variables:
 %%% TeX-master: "notes"
 %%% End:
