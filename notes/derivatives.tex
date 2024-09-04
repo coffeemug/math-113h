@@ -7,11 +7,13 @@
 denoted $f'(a)$, is defined as:
 \[f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\]
 
-\textit{Intuitively}, draw a line through points $(a, f(a))$ and
-$(a+h, f(a+h))$ for some small $h$. Then make $h$ ``infinitely small''.
-Our $f'(a)$ is the slope of that line.
-
-\vs
+There are two \textit{intuitions} to convey about the derivative:
+\begin{itemize}
+\item \textit{First}, draw a line through points $(a, f(a))$ and
+  $(a+h, f(a+h))$ for some small $h$. Then make $h$ ``infinitely
+  small''. Our $f'(a)$ is the slope of that line.
+\item \textit{Second}, \textbf{TODO:} physics intuition.
+\end{itemize}
 
 \textbf{Definition:} $f$ is called \textit{differentiable} at $a$ if
 the limit $f'(a)$ exists.
@@ -63,9 +65,10 @@ The notation $f'$ is called Lagrange's notation.\footnote{Wikipedia
   claims the notation was invented by Euler and Lagrange only
   popularized it.} It's supposed to be modern, and Spivak's book
 standardizes on it. Another notation commonly in use is the older (but
-often convenient, instructive, but also confusing) Leibniz notation.
+often convenient, instructive, but also initially confusing) Leibniz
+notation.
 
-\vs
+\subsubsection*{Historical interpretation}
 
 Leibniz didn't know about limits, and thought the derivative is the
 value of the quotient $\frac{f(a+h)-f(a)}{h}$ when $h$ is
@@ -77,9 +80,7 @@ derivative $f'$ is:
 
 Intuitively, we can think of $d$ in a historical context as ``delta''
 or ``change''. Then we can interpret this notation as Leibniz did-- a
-quotient of a tiny change in $f(x)$ and a tiny change in $x$. But
-formally we treat $\frac{df(x)}{dx}$ as a symbol denoting $f'$,
-\textit{not} as a quotient of numbers.
+quotient of a tiny change in $f(x)$ and a tiny change in $x$.
 
 \vs
 
@@ -88,7 +89,18 @@ Leibniz notation for the second derivative is
     to}\ \ \ \frac{d^2f(x)}{(dx)^2}, \ \ \ \text{or more often to}\ \
   \ \frac{d^2f(x)}{dx^2}.\]
 
-Finally, there are two more ambiguities associated with the Leibniz
+\subsubsection*{Modern interpretation}
+
+Complete ordered fields do not have a notion of infinitesimally small
+quantities. Thus in a modern interpretation we treat
+$\frac{df(x)}{dx}$ as a symbol denoting $f'$, \textit{not} as a
+quotient of numbers. Nothing here is being divided, nothing can be
+canceled out. In a modern interpretation $\frac{df(x)}{dx}$ is just
+one thing that \textit{happens to look} like a quotient.
+
+\vs
+
+There are two notable ambiguities associated with the Leibniz
 notation. First, $\frac{df(x)}{dx}$ is frequently abbreviated to
 $\frac{df}{dx}$. Second, $\frac{df(x)}{dx}$ sometimes means the
 function $f'$, and sometimes means the value $f'(x)$. The meaning of
@@ -143,9 +155,93 @@ Let $f(x)=x^3$. Then:
 
 Thus $f$ is differentiable at $a$ for every number $a$, and $f'(a)=3a^2$.
 
-\subsection{Intersections}
-
 \subsection{Non-differentiability}
+Continuous functions are ``nice''. Functions that are differentiable
+everywhere are ``nicer''. Functions that are differentiable everywhere
+and whose first derivative is differentiable everywhere are nicer
+still. Thus to fully understand the derivative we must understand
+examples where it does not exist.
+
+\vs
+
+We now turn our attention to functions that aren't differentiable at
+some points $a$. We first look at four simple examples where there
+isn't everywhere a first derivative. We then turn our attention to a
+more subtle example-- a function that's differentiable in the first,
+but not everywhere in the second derivative.
+
+\subsubsection*{First derivative}
+
+\textbf{Example 1}
+
+Let $f(x)=|x|$. Consider $f'(0)$:
+\[f'(0)=\lim_{h\to0}\frac{f(0+h)-f(0)}{h}=\lim_{h\to0}\frac{|h|}{h}\]
+
+Observe that $\lim_{h\to0^+}\frac{|h|}{h}=1$ and
+$\lim_{h\to0^-}\frac{|h|}{h}=-1$. This $\lim_{h\to0}\frac{|h|}{h}$ does
+not exist, and $f$ is not differentiable at $0$. Note that $f$ is
+differentiable at every other point: $f'(a)=-1$ for $a<0$ and
+$f'(a)=-1$ for $a>0$.
+
+\vs
+
+\textbf{Example 2}
+
+Let $f$ be defined as follows:
+\[f(x)=\begin{cases}
+  x^2,&x\leq 0\\
+  x,&x\geq 0
+\end{cases}\]
+
+Now consider $f'(0)$:
+\[f'(0)=\lim_{h\to0}\frac{f(0+h)-f(0)}{h}=\lim_{h\to0}\frac{f(h)}{h}\]
+
+Observe that
+\[\frac{f(h)}{h}=\begin{cases}
+  \frac{h^2}{h}=h,&h\leq0\\
+  \frac{h}{h}=1,&h\geq0
+\end{cases}\]
+
+Therefore $\lim_{h\to0^-}\frac{f(h)}{h}=0$ and
+$\lim_{h\to0^+}\frac{f(h)}{h}=1$. Thus $\lim_{h\to0}\frac{f(h)}{h}$ does
+not exist, and $f$ is not differentiable at $0$.
+
+\vs
+
+\textbf{Example 3}
+
+Let $f(x)=\sqrt{|x|}$. Consider $f'(0)$:
+\[f'(0)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}=\lim_{h\to0}\frac{\sqrt{|h|}}{h}\]
+
+Observe that
+\[\frac{\sqrt{|h|}}{h}=\begin{cases}
+  \frac{\sqrt{-h}}{h}=-\frac{1}{\sqrt{-h}},&h<0\\
+  \frac{\sqrt{h}}{h}=\frac{1}{\sqrt{h}},&h>0
+\end{cases}\]
+
+Therefore $\lim_{h\to0^+}\frac{\sqrt{|h|}}{h}=\infty$ and
+$\lim_{h\to0^-}\frac{\sqrt{|h|}}{h}=-\infty$. Thus
+$\lim_{h\to0}\frac{\sqrt{|h|}}{h}$ does not exist, and $f$ is not
+differentiable at $0$.
+
+\vs
+
+\textbf{Example 4}
+
+Let $f(x)=\sqrt[3]{x}$.
+
+
+\subsubsection*{Second derivative}
+We now come to our more subtle example-- a function that's
+differentiable in the first but not everywhere in the second
+derivative:
+
+\[f(x)=\begin{cases}
+  x^2,&x\geq0\\
+  -x^2,&x\leq0
+  \end{cases}\]
+
+\subsection{Intersections}
 
 %%% Local Variables:
 %%% TeX-master: "notes"
