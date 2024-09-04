@@ -7,12 +7,18 @@
 denoted $f'(a)$, is defined as:
 \[f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\]
 
-There are two \textit{intuitions} to convey about the derivative:
+There are \textit{two intuitions} to convey about the derivative:
 \begin{itemize}
-\item \textit{First}, draw a line through points $(a, f(a))$ and
-  $(a+h, f(a+h))$ for some small $h$. Then make $h$ ``infinitely
-  small''. Our $f'(a)$ is the slope of that line.
-\item \textit{Second}, \textbf{TODO:} physics intuition.
+\item \textit{Geometric interpretation}. Draw a line through points
+  $(a, f(a))$ and $(a+h, f(a+h))$ for some small $h$. Then make $h$
+  ``infinitely small''. Our $f'(a)$ is the slope of that line.
+\item \textit{Physics interpretation}. Suppose $f(t)$ maps time to
+  position of a car on a road (or of any object on a straight line).
+  Suppose you want to know the average velocity between any two points
+  in time $t_1, t_2$. If $h=t_2-t_1$ then the average velocity is
+  $\frac{f(t_1+h)-f(t_1)}{h}$. This is the quotient of the derivative!
+  Only with $h$ ``reduced to an infinitesimal'', producing
+  \textit{instantanious velocity}.
 \end{itemize}
 
 \textbf{Definition:} $f$ is called \textit{differentiable} at $a$ if
