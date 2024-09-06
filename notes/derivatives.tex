@@ -307,16 +307,59 @@ which we will now do. We'll then address the question of intersection
 for quadratic and cubic functions.
 
 \subsubsection*{Point-slope form}
+The slope $m$ of a line is determined by
+\[m=\frac{y-y_1}{x-x_1}\]
+
+For a function $f$ differentiable at $a$, the slope $m=f'(a)$. We also
+know one of the points on the line-- $(a, f(a))$ (the point where the
+tangent line intersects with $f$). Plugging that in we get
+\begin{align*}
+  &f'(a)=\frac{y-f(a)}{x-a}\\
+  &\implies y-f(a)=f'(a)(x-a)\\
+  &\implies y=f'(a)(x-a)+f(a)
+\end{align*}
+
+This gives us a linear equation for the tangent line-- a \textit{linear
+  approximation} of $f$ near $a$.
 
 \subsubsection*{Intersections}
 
 \textbf{Quadratic functions.} For $f(x)=x^2$ we've seen that
-$f'(a)=2a$. How many times do the graphs of $f$ and $f'(a)$ intersect
-for some $a$?
+$f'(a)=2a$. Plugging that into $y=f'(a)(x-a)+f(a)$ we get:
+\begin{align*}
+  y&=2a(x-a)+a^2\\
+   &=2ax-a^2
+\end{align*}
+
+Let $g(x)=2ax-a^2$. We can now solve for all $x$ such that
+$f(x)=g(x)$:
+\begin{align*}
+  &f(x)=g(x)\\
+  &\implies x^2=2ax-a^2\\
+  &\implies x^2-2ax+a^2=0\\
+  &\implies (x-a)^2=0\\
+  &\implies x=a
+\end{align*}
+
+So the only solution is $x=a$, therefore the only point of
+intersection is $(a, f(a)=g(a)=a^2$).
 
 \vs
 
-\textbf{Cubic functions.}
+\textbf{Cubic functions.} For $f(x)=x^3$ we've seen that
+$f'(a)=3a^2$. Plugging that into $y=f'(a)(x-a)+f(a)$ we get:
+\begin{align*}
+  y&=3a^2(x-a)+a^3\\
+   &=3a^2x-2a^3
+\end{align*}
+
+Let $g(x)=3a^2x-2a^3$. We can now solve for all $x$ such that
+$f(x)=g(x)$:
+\begin{align*}
+  &f(x)=g(x)\\
+  &x^3=3a^2x-2a^3\\
+  &x^3-3a^2x+2a^3=0
+\end{align*}
 
 %%% Local Variables:
 %%% TeX-master: "notes"
