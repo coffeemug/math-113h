@@ -3,11 +3,37 @@
 \subsection*{Problem 2}
 (a) Prove that if $f(x)=1/x^2$, then $f'(a)=-2/a^3$ for $a\neq0$.
 
+\begin{align*}
+  f'(a)&=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\\
+       &=\lim_{h\to0}\frac{\frac{1}{(a+h)^2}-\frac{1}{a^2}}{h}\\
+       &=\lim_{h\to0}\frac{\frac{1}{a^2+2ah+h^2}-\frac{1}{a^2}}{h}\\
+       &=\lim_{h\to0}\frac{h(-2a-h)}{a^2h(a^2+2ah+h^2)}\\
+       &=\lim_{h\to0}\frac{-2a-h}{a^2(a^2+2ah+h^2)}\\
+       &=\frac{-2a}{a^4}=\frac{-2}{a^3}
+\end{align*}
+
 (b) Prove that the tangent line to $f$ at $(a, 1/a^2)$ intersects $f$
 at one other point, which lies on the opposide side of the vertical
 axis.
 
-\subsection*{Solution}
+\vs
+
+The linear equation of a line tangent to $f$ at $a$ is
+\[g(x)=(-2/a^3)(x-a)+1/a^2\]
+
+Solving for $x$ such that $f(x)=g(x)$:
+\begin{align*}
+  &1/x^2=(-2/a^3)(x-a)+1/a^2\\
+  &\implies 1/x^2=-2x/a^3+2a/a^3+a/a^3\\
+  &\implies 1/x^2=\frac{-2x+3a}{a^3}\\
+  &\implies x^2=\frac{a^3}{3a-2x}\\
+  &\implies 2x^3-3ax^2+a^3=0\\
+  &\implies (x-a)(2x^2-ax-a^2)&\text{we know $a$ is a root}\\
+  &\implies (x-a)^2(2x+a)
+\end{align*}
+
+Thus $(-\frac{a}{2}, \frac{4}{a^2})$ is another solution, and
+$-\frac{a}{2}$ is on the opposide side of the vertical axis from $a$.
 
 \subsection*{Problem 3}
 Prove that if $f(x)=\sqrt{x}$, then $f'(a)=1/(2\sqrt{a})$, for $a>0$.
@@ -16,21 +42,58 @@ algebraic face lifting, but the answer should suggest the right
 trick.)
 
 \subsection*{Solution}
+\begin{align*}
+  f'(a)&=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\\
+       &=\lim_{h\to0}\frac{\sqrt{a+h}-\sqrt{a}}{h}\\
+       &=\lim_{h\to0}\frac{(\sqrt{a+h}-\sqrt{a})(\sqrt{a+h}+\sqrt{a})}{h(\sqrt{a+h}+\sqrt{a})}\\
+       &=\lim_{h\to0}\frac{h}{h(\sqrt{a+h}+\sqrt{a})}\\
+       &=\lim_{h\to0}\frac{1}{\sqrt{a+h}+\sqrt{a}}=\frac{1}{2\sqrt{a}}
+\end{align*}
 
 \subsection*{Problem 11}
 (a) Prove that Galileo was wrong: if a body falls a distance $s(t)$ in
 $t$ seconds, and $s'$ is proportional to $s$, then $s$ cannot be a
 function of the form $s(t)=ct^2$.
 
+\begin{align*}
+  s'(a)&=\lim_{h\to0}\frac{s(a+h)-s(a)}{h}\\
+       &=\lim_{h\to0}\frac{c(a+h)^2-ca^2}{h}\\
+       &=\lim_{h\to0}\frac{ca^2+2ach+ch^2-ca^2}{h}\\
+       &=\lim_{h\to0}2ac+ch=2ac
+\end{align*}
+i.e. $s'$ is clearly not proportional to $s$, as $s'$ is not a factor
+of $s$.
+
 \vs
 
 (b) Prove that the following facts are true about $s$ if
 $s(t)=(a/2)t^2$ (the first fact will show why we switched from $c$ to
-$a/2$):
-\begin{itemize}
-\item $s''(t)=a$ (the acceleration is constant).
-\item $[s'(t)]^2=2as(t)$.
-\end{itemize}
+$a/2$).
+
+\vs
+
+\textbf{1.} $s''(t)=a$ (the acceleration is constant).
+
+\vs
+
+We've already seen that $s'(t)=2(a/2)t=at$. Then
+\[s''(t)=\lim_{h\to0}\frac{s'(t+h)-s'(t)}{h}=\lim_{h\to0}\frac{at+ah-at}{h}=a\]
+
+\vs
+
+\textbf{2.} $[s'(t)]^2=2as(t)$.
+
+\vs
+
+First,
+\[[s'(t)]^2=(at)^2=a^2t^2\]
+
+Second,
+\[2as(t)=2a(a/2)t^2=a^2t^2\]
+
+Thus $[s'(t)]^2=2as(t)$ as desired.
+
+\vs
 
 (c) If $s$ is measured in feet, the value of $a$ is 32. How many
 seconds do you have to get out of the way of a chandelier which falls
@@ -38,7 +101,15 @@ from a 400-foot ceiling? If you don't make it, how fast will the
 chandelier be going when it hits you? Where was the chandelier when it
 was moving with half that speed?
 
-\subsection*{Solution}
+\begin{enumerate}
+\item Solving for $s(t)=16t^2=400$, we get $t=5$ seconds before the
+  chandelier hits the floor.
+\item Velocity at $5$ seconds is $s'(5)=at=32*5=160$ feet per second.
+\item We can solve for $t$ when speed is $80$ feet per second:
+  $s'(t)=at=32*t=80$, and so $t=2.5$ seconds. Plugging that back in we
+  get $s(2.5)=16*(2.5)^2=100$, and so the chandalier is at
+  $400-100=300$ feet.
+\end{enumerate}
 
 \subsection*{Problem 20}
 Let $f$ be any polynomial function; we will see in the next chapter
@@ -50,17 +121,23 @@ $d(x)=(x-a)^2(x+2a)$.
 
 \vs
 
-(a) Find $d(x)$ when $f(x)=x^{4}$, and show that it is divisible by
-$(x-a)^2$.
+\textbf{(a)} Find $d(x)$ when $f(x)=x^{4}$, and show that it is
+divisible by $(x-a)^2$.
 
 \vs
 
-(b) There certainly seems to be some evidence that $d(x)$ is always
-divisible by $(x-a)^2$. Figure 22 provides an intuitive argument:
-usually, lines parallel to the tangent line will intersect the graph
-at two points; the tangelnt line intersects the graph only once near
-the point, so the intersection should be a ``double intersection''. To
-give a rigorous proof, first note that
+We've seen that $f'(x)=4x^3$. Thus
+\[d(x)=x^4-4x^3(x-a)-a^4=-3x^4+4ax^3-a^4\]
+
+Indeed,
+\[(x-a)^2(-3x^2-2ax-a^2)=-3x^4+4ax^3-a^4\]
+
+\textbf{(b)} There certainly seems to be some evidence that $d(x)$ is
+always divisible by $(x-a)^2$. Figure 22 provides an intuitive
+argument: usually, lines parallel to the tangent line will intersect
+the graph at two points; the tangelnt line intersects the graph only
+once near the point, so the intersection should be a ``double
+intersection''. To give a rigorous proof, first note that
 \[\frac{d(x)}{x-a}=\frac{f(x)-f(a)}{x-a}-f'(a)\]
 
 Now answer the following questions. Why is $f(x)-f(a)$ divisible by
@@ -77,20 +154,55 @@ Find $f''(x)$ if
 
 (i) $f(x)=x^3$
 
+We already know $f'(x)=2x^2$. Thus
+\begin{align*}
+  f''(x)&=\lim_{h\to0}\frac{2(x+h)^2-2x^2}{h}\\
+        &=\lim_{h\to0}\frac{2x^2+4xh+2h^2-2x^2}{h}\\
+        &=4x
+\end{align*}
+
 \vs
 
 (ii) $f(x)=x^5$
+\begin{align*}
+  f'(x)&=\lim_{h\to0}\frac{(x+a)^5-x^5}{h}\\
+       &=\lim_{h\to0}\frac{h^5 + 5 h^4 x + 10 h^3 x^2 + 10 h^2 x^3 + 5
+  h x^4}{h}\\
+       &=5x^4
+\end{align*}
+
+We now find $f''(x)$:
+\begin{align*}
+  f''(x)&=\lim_{h\to0}\frac{5(x+h)^4-5x^4}{h}\\
+        &=\lim_{h\to0}\frac{5 h^4 + 20 h^3 x + 30 h^2 x^2 + 20 h
+          x^3}{h}\\
+        &=20x^3
+\end{align*}
 
 \vs
 
 (iii) $f'(x)=x^4$
 
+\begin{align*}
+  f''(x)&=\lim_{h\to0}\frac{(x+h)^4-x^4}{h}\\
+        &=\lim_{h\to0}\frac{h^4+4h^3x+6h^2x^2+4hx^3+x^4-x^4}{h}\\
+        &=\lim_{h\to0}h^3+4h^2x+6hx^2+4x^3\\
+        &=4x^3
+\end{align*}
+
 \vs
 
 (iv) $f(x+3)=x^5$
+\begin{align*}
+  f'(x)&=\lim_{h\to0}\frac{(x+h-3)^5-(x-3)^5}{h}\\
+       &=5(x-3)^4&\text{Ok, I used Mathematica}\\
+\end{align*}
 
-
-\subsection*{Solution}
+Then
+\begin{align*}
+  f''(x)&=\lim_{h\to0}\frac{5((x+h)-3)^4-5(x-3)^4}{h}\\
+        &=20(x-3)^3&\text{Ok, I used Mathematica again}
+\end{align*}
 
 
 %%% Local Variables:
