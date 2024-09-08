@@ -140,12 +140,46 @@ once near the point, so the intersection should be a ``double
 intersection''. To give a rigorous proof, first note that
 \[\frac{d(x)}{x-a}=\frac{f(x)-f(a)}{x-a}-f'(a)\]
 
-Now answer the following questions. Why is $f(x)-f(a)$ divisible by
-$(x-a)$? Why is there a polynomial function $h$ such that
-$h(x)=d(x)/(x-a)$ for $x\neq a$? Why is $\lim_{x\to a}h(x)=0$? Why is
-$h(a)=0$? Why does this solve the problem?
+Now answer the following questions.
 
-\subsection*{Solution}
+\vs
+
+\textbf{1.} Why is $f(x)-f(a)$ divisible by $(x-a)$?
+
+This is the slope of $f$ near $a$, and is equivalent to the quotient
+of the derivative. Since $f$ is differentiable at $a$ the limit must
+exist, and thus $\frac{f(x)-f(a)}{x-a}$ must be defined.
+
+\vs
+
+\textbf{2.} Why is there a polynomial function $h$ such that
+$h(x)=d(x)/(x-a)$ for $x\neq a$?
+
+Because for all $x$ such that $d(x)=0$ we have the tangent line $g$
+intersect $f$ at $(x, f(x))$. Since we know $(a, f(a))$ is a point of
+intersection, $d(a)=0$, and thus $x-a$ is a factor.
+
+\vs
+
+\textbf{3.} Why is $\lim_{x\to a}h(x)=0$? Why is $h(a)=0$?
+
+\begin{align*}
+  \lim_{x\to a}h(x)&=\lim_{x\to a}\left(\frac{f(x)-f(a)}{x-a}-f'(a)\right)\\
+                 &=\lim_{x\to
+                   a}\frac{f(x)-f(a)}{x-a}-\lim_{x\to
+                   a}f'(a)\\
+                 &=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}-f'(a)\\
+                 &=f'(a)-f'(a)=0
+\end{align*}
+
+Since $h$ is continuous, $h(a)=\lim_{x\to a}h(x)=0$.
+
+\vs
+
+\textbf{4.} Why does this solve the problem?
+
+Since $h(a)=0$, it follows $x-a$ is another factor. Thus $d(x)$ is
+divisible by $x-a$ twice.
 
 \subsection*{Problem 26}
 Find $f''(x)$ if
