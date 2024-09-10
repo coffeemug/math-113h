@@ -4,7 +4,7 @@
 We now prove theorems that make differentiation of a large class of
 functions easy.
 
-\vs
+\subsection{Basic proofs}
 
 \textbf{Theorem 1.} If $f(x)=c$ then $f'(a)=0$ for all $a$.
 
@@ -20,7 +20,7 @@ functions easy.
 \vs
 
 \textbf{Theorem 3.} If $f,g$ are differentiable at $a$, then
-$(f+g)'=f'(a)+g'(a)$.
+$(f+g)'(a)=f'(a)+g'(a)$.
 
 \textbf{Proof:}
 \begin{align*}
@@ -48,6 +48,53 @@ $(f+g)'=f'(a)+g'(a)$.
 \end{align*}
 Recall from \ref{diff-implies-cont} that $\lim_{h\to0}f(a+h)=f(a)$. Thus
 \[(f\cdot g)'(a)=f(a)\cdot g'(a)+g(a)\cdot f'(a)\]
+
+\vs
+
+\textbf{Theorem 5.} If $g(x)=cf(x)$ then $g'(a)=c\cdot f'(a)$.
+
+\textbf{Proof:} Let $h(x)=c$ so $g=h\cdot f$. Then by theorem 4:
+\begin{align*}
+  g'(x)&=h'(x)f(x)+f'(x)g(x)\\
+       &=0\cdot f(x)+cf'(x)\\
+       &=cf'(x)
+\end{align*}
+
+\vs
+
+\textbf{Note}, theorems 1-5 imply:
+\[(-f)'(a)=(-1\cdot f')(a)=-f'(a)\]
+\begin{center}and\end{center}
+\[(f-g)'(a)=(f+(-g))'(a)=f'(a)+(-g)'(a)=f'(a)-g'(a)\]
+
+\vs
+
+\textbf{Theorem 6.} If $f(x)=x^n$ for $n\in\mathcal{N}$, then $f'(a)=na^{n-1}$ for
+all $a$.
+
+\textbf{Proof.} We prove this by induction. For $n=1$, $f'(a)=1$ by
+theorem 2.
+
+\vs
+
+Assume if $f(x)=x^n$ then $f'(a)=na^{n-1}$ for all $a$.
+
+\vs
+
+Let $I(x)=x$ and let $g(x)=x^{n+1}=xx^n$. Then $g(x)=I(x)\cdot f(x)$, i.e.
+$g=I\cdot f$. By theorem 4:
+\begin{align*}
+  g'(a)&=(I\cdot f)'(a)\\
+       &=I'(a)f(a)+I(a)f'(a)\\
+       &=1\cdot a^n+a\cdot na^{n-1}\\
+       &=a^n+na^n\\
+       &=a^n(1+n)\\
+       &=(n+1)a^n
+\end{align*}
+
+\subsection{Chain rule}
+\subsection{Consequences}
+\subsection{Trig}
 
 %%% Local Variables:
 %%% TeX-master: "notes"
