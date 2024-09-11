@@ -91,10 +91,21 @@ $g=I\cdot f$. By theorem 4:
 \textbf{Theorem 7.} If $g$ is differentiable at $a$ and $g(a)\neq0$, then
 \[\left(\frac{1}{g}\right)'(a)=\frac{-g'(a)}{{[g(a)]}^2}\]
 
-\textbf{Proof.}
+\textbf{Proof.} We will prove this by using the derivative definition.
+However, we must first show $\left(\frac{1}{g}\right)(a+h)$ is defined
+for sufficiently small $h$. This is easy.
 
-\textbf{TODO:} prove $(1/g)(a+h)$ makes sense.
+\vs
 
+Since $g$ is differentiable at $a$ it is continuous at $a$. Thus by
+nonzero neighborhood lemma (see \ref{subsubsec:nonzero-lemma}) there
+exists $\delta>0$ such that $|h|<\delta$ implies $g(a+h)\neq0$ for all
+$h$. Thus $\left(\frac{1}{g}\right)(a+h)$ is defined for sufficiently
+small $h$.
+
+\vs
+
+We are now ready to prove the core of the theorem.
 \begin{align*}
   \lim_{h\to0}\frac{\left(\frac{1}{g}\right)(a+h)-\left(\frac{1}{g}\right)(a)}{h}
   &=\lim_{h\to0}\left(\frac{1}{g(a+h)}-\frac{1}{g(a)}\right)/h\\
