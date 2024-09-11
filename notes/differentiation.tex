@@ -46,7 +46,8 @@ $(f+g)'(a)=f'(a)+g'(a)$.
            &=\lim_{h\to0}f(a+h)\cdot\lim_{h\to0}\frac{g(a+h)-g(a)}{h}+\lim_{h\to0}g(a)\cdot\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\\
            &=\lim_{h\to0}f(a+h)\cdot g'(a)+g(a)\cdot f'(a)
 \end{align*}
-Recall from \ref{diff-implies-cont} that $\lim_{h\to0}f(a+h)=f(a)$. Thus
+Recall from \ref{diff-implies-cont} that if $f$ is differentiable at
+$a$, then $\lim_{h\to0}f(a+h)=f(a)$. Thus
 \[(f\cdot g)'(a)=f(a)\cdot g'(a)+g(a)\cdot f'(a)\]
 
 \vs
@@ -59,13 +60,6 @@ Recall from \ref{diff-implies-cont} that $\lim_{h\to0}f(a+h)=f(a)$. Thus
        &=0\cdot f(x)+cf'(x)\\
        &=cf'(x)
 \end{align*}
-
-\vs
-
-\textbf{Note}, theorems 1-5 imply:
-\[(-f)'(a)=(-1\cdot f')(a)=-f'(a)\]
-\begin{center}and\end{center}
-\[(f-g)'(a)=(f+(-g))'(a)=f'(a)+(-g)'(a)=f'(a)-g'(a)\]
 
 \vs
 
@@ -92,8 +86,43 @@ $g=I\cdot f$. By theorem 4:
        &=(n+1)a^n
 \end{align*}
 
+\vs
+
+\textbf{Theorem 7.} If $g$ is differentiable at $a$ and $g(a)\neq0$, then
+\[\left(\frac{1}{g}\right)'(a)=\frac{-g'(a)}{{[g(a)]}^2}\]
+
+\textbf{Proof.}
+
+\textbf{TODO:} prove $(1/g)(a+h)$ makes sense.
+
+\begin{align*}
+  \lim_{h\to0}\frac{\left(\frac{1}{g}\right)(a+h)-\left(\frac{1}{g}\right)(a)}{h}
+  &=\lim_{h\to0}\left(\frac{1}{g(a+h)}-\frac{1}{g(a)}\right)/h\\
+  &=\lim_{h\to0}\left(\frac{g(a)-g(a+h)}{g(a)\cdot g(a+h)}\right)/h\\
+  &=\lim_{h\to0}\frac{g(a)-g(a+h)}{h\cdot g(a)\cdot g(a+h)}\\
+  &=\lim_{h\to0}\frac{-[g(a+h)-g(a)]}{h}\cdot\frac{1}{g(a)\cdot g(a+h)}\\
+  &=\lim_{h\to0}\frac{-[g(a+h)-g(a)]}{h}\cdot\lim_{h\to0}\frac{1}{g(a)\cdot
+    g(a+h)}
+\end{align*}
+
+Recall from \ref{diff-implies-cont} that if $f$ is differentiable at
+$a$, then $\lim_{h\to0}f(a+h)=f(a)$. Thus:
+\begin{align*}
+  \lim_{h\to0}\frac{-[g(a+h)-g(a)]}{h}\cdot\lim_{h\to0}\frac{1}{g(a)\cdot g(a+h)}
+  &=-g'(a)\cdot \frac{1}{[g(a)]^2}
+\end{align*}
+
+as desired.
+
+\vs
+
 \subsection{Chain rule}
-\subsection{Consequences}
+\subsection{Implications}
+Theorems 1-5 imply:
+\[(-f)'(a)=(-1\cdot f')(a)=-f'(a)\]
+\begin{center}and\end{center}
+\[(f-g)'(a)=(f+(-g))'(a)=f'(a)+(-g)'(a)=f'(a)-g'(a)\]
+
 \subsection{Trig}
 
 %%% Local Variables:
