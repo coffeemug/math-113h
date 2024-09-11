@@ -127,6 +127,19 @@ as desired.
 
 \vs
 
+\textbf{Theorem 8.} If $f, g$ are differentiable at $a$ and $g(a)\neq0$, then
+\[\left(\frac{f}{g}\right)'(a)=\frac{g(a)\cdot f'(a)-f(a)\cdot g'(a)}{[g(a)]^2}\]
+
+\textbf{Proof.}
+\begin{align*}
+  \left(\frac{f}{g}\right)'(a)&=\left(f\cdot\frac{1}{g}\right)'(a)\\
+  &=f(a)\cdot
+    \left(\frac{1}{g}\right)'(a)+f'(a)\cdot\left(\frac{1}{g}\right)(a)\\
+  &=\frac{-g'(a)\cdot f(a)}{[g(a)]^2}+\frac{f'(a)}{g(a)}\\
+  &=\frac{-g'(a)\cdot f(a)\cdot g(a)+f'(a)\cdot [g(a)]^2}{[g(a)]^3}\\
+  &=\frac{f'(a)\cdot g(a)-g'(a)\cdot f(a)}{[g(a)]^2}\\
+\end{align*}
+
 \subsection{Chain rule}
 \subsection{Implications}
 Theorems 1-5 imply:
