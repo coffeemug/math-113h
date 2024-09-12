@@ -1,5 +1,243 @@
 
-\section{Derivatives, Part II (Consequences)}
+\section{Derivatives, Part II (Differentiation)}
+
+We now prove theorems that make differentiation of a large class of
+functions easy.
+
+\subsection{Basic proofs}
+
+\textbf{Theorem 1.} If $f(x)=c$ then $f'(a)=0$ for all $a$.
+
+\vs
+
+\textit{Intuitively} derivatives measure the rate of change. A
+constant function doesn't change, thus the derivative is zero.
+
+\vs
+
+\textbf{Proof:} we already proved this in the previous chapter.
+
+\vs---\vs
+
+\textbf{Theorem 2.} If $f(x)=x$ then $f'(a)=1$ for all $a$.
+
+\vs
+
+\textit{Intuitively} $f(x)$ grows at exactly the same rate as $x$,
+thus the derivative is $1$.
+
+\vs
+
+\textbf{Proof:}
+\[f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}=\lim_{h\to0}\frac{a+h-a}{h}=1\]
+
+\vs
+
+\textbf{Theorem 3.} If $f,g$ are differentiable at $a$, then
+$(f+g)'(a)=f'(a)+g'(a)$.
+
+\vs
+\textit{Examples:}
+\begin{itemize}
+\item You have two functions, each modeling growth of some bank
+  account. You want to understand the rate of growth of both accounts.
+\item You have two different assembly lines producing the same
+  product. $c_1(x)$ and $c_2(x)$ model the cost of producing $x$
+  units on each assembly line. You want to understand total cost
+  changes as production across both assembly lines increases.
+\end{itemize}
+
+\textbf{Proof:}
+\begin{align*}
+  (f+g)'(a)&=\lim_{h\to0}\frac{(f+g)(a+h)-(f+g)(a)}{h}\\
+           &=\lim_{h\to0}\frac{f(a+h)+g(a+h)-f(a)-g(a)}{h}\\
+           &=\lim_{h\to0}\frac{f(a+h)-f(a)}{h} +
+             \lim_{h\to0}\frac{g(a+h)-g(a)}{h}\\
+           &=f'(a)+g'(a)
+\end{align*}
+
+---\vs
+
+\textbf{Theorem 4.} If $f,g$ are differentiable at $a$, then
+\[(f\cdot g)'(a)=f'(a)\cdot g(a)+f(a)\cdot g'(a)\]
+
+\vs
+
+\textit{Examples:}
+\begin{itemize}
+\item Let $r_1(t), r_2(t)$ model the length of each side of a
+  rectangle over time. You want to understand the change in area at
+  time $t$.
+\end{itemize}
+
+\textbf{Proof:}
+\begin{align*}
+(f\cdot g)'(a)=&=\lim_{h\to0}\frac{(f\cdot g)(a+h)-(f\cdot g)(a)}{h}\\
+           &=\lim_{h\to0}\frac{f(a+h)g(a+h)-f(a)g(a)}{h}\\
+           &=\lim_{h\to0}\frac{f(a+h)g(a+h)-f(a)g(a) + f(a+h)g(a)-f(a+h)g(a)}{h}\\
+           &=\lim_{h\to0}\frac{f(a+h)(g(a+h)-g(a)) + g(a)(f(a+h) - f(a))}{h}\\
+           &=\lim_{h\to0}\left(f(a+h)\frac{g(a+h)-g(a)}{h}+g(a)\frac{f(a+h)-f(a)}{h}\right)\\
+           &=\lim_{h\to0}f(a+h)\cdot\lim_{h\to0}\frac{g(a+h)-g(a)}{h}+\lim_{h\to0}g(a)\cdot\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\\
+           &=\lim_{h\to0}f(a+h)\cdot g'(a)+g(a)\cdot f'(a)
+\end{align*}
+Recall from \ref{diff-implies-cont} that if $f$ is differentiable at
+$a$, then $\lim_{h\to0}f(a+h)=f(a)$. Thus
+\[(f\cdot g)'(a)=f(a)\cdot g'(a)+g(a)\cdot f'(a)\]
+
+---\vs
+
+\textbf{Theorem 5.} If $g(x)=cf(x)$ then $g'(a)=c\cdot f'(a)$.
+
+\vs
+
+\textit{Examples:}
+\begin{itemize}
+\item Let $h$ be a height of a rectangle that's constant, and let
+  $b(t)$ model the length of the base of a rectangle over time. You
+  want to understand the change in area at time $t$.
+\end{itemize}
+
+\textbf{Proof:} Let $h(x)=c$ so $g=h\cdot f$. Then by theorem 4:
+\begin{align*}
+  g'(x)&=h'(x)f(x)+f'(x)g(x)\\
+       &=0\cdot f(x)+cf'(x)\\
+       &=cf'(x)
+\end{align*}
+
+---\vs
+
+\textbf{Theorem 6.} If $f(x)=x^n$ for $n\in\mathcal{N}$, then $f'(a)=na^{n-1}$ for
+all $a$.
+
+\vs
+
+\textit{Examples:}
+\begin{itemize}
+\item Let $s(t)$ model the length of the side of a cube over time. You
+  want to understand the change in volume at time $t$.
+\end{itemize}
+
+\textbf{Proof.} We prove this by induction. For $n=1$, $f'(a)=1$ by
+theorem 2.
+
+\vs
+
+Assume if $f(x)=x^n$ then $f'(a)=na^{n-1}$ for all $a$.
+
+\vs
+
+Let $I(x)=x$ and let $g(x)=x^{n+1}=xx^n$. Then $g(x)=I(x)\cdot f(x)$, i.e.
+$g=I\cdot f$. By theorem 4:
+\begin{align*}
+  g'(a)&=(I\cdot f)'(a)\\
+       &=I'(a)f(a)+I(a)f'(a)\\
+       &=1\cdot a^n+a\cdot na^{n-1}\\
+       &=a^n+na^n\\
+       &=a^n(1+n)\\
+       &=(n+1)a^n
+\end{align*}
+
+---\vs
+
+\textbf{Theorem 7.} If $g$ is differentiable at $a$ and $g(a)\neq0$, then
+\[\left(\frac{1}{g}\right)'(a)=\frac{-g'(a)}{{[g(a)]}^2}\]
+
+\textit{Examples:}
+\begin{itemize}
+\item Let $i(d)=\frac{1}{d^2}$ model the intensity of light, which
+  is inversely proportional to the square of the distance from the
+  source. You want to know how intensity changes with distance.
+\end{itemize}
+
+\textbf{Proof.} We will prove this by using the derivative definition.
+However, we must first show $\left(\frac{1}{g}\right)(a+h)$ is defined
+for sufficiently small $h$. This is easy.
+
+\vs
+
+Since $g$ is differentiable at $a$ it is continuous at $a$. Thus by
+nonzero neighborhood lemma (see \ref{subsubsec:nonzero-lemma}) there
+exists $\delta>0$ such that $|h|<\delta$ implies $g(a+h)\neq0$ for all
+$h$. Thus $\left(\frac{1}{g}\right)(a+h)$ is defined for sufficiently
+small $h$.
+
+\vs
+
+We are now ready to prove the core of the theorem.
+\begin{align*}
+  \lim_{h\to0}\frac{\left(\frac{1}{g}\right)(a+h)-\left(\frac{1}{g}\right)(a)}{h}
+  &=\lim_{h\to0}\left(\frac{1}{g(a+h)}-\frac{1}{g(a)}\right)/h\\
+  &=\lim_{h\to0}\left(\frac{g(a)-g(a+h)}{g(a)\cdot g(a+h)}\right)/h\\
+  &=\lim_{h\to0}\frac{g(a)-g(a+h)}{h\cdot g(a)\cdot g(a+h)}\\
+  &=\lim_{h\to0}\frac{-[g(a+h)-g(a)]}{h}\cdot\frac{1}{g(a)\cdot g(a+h)}\\
+  &=\lim_{h\to0}\frac{-[g(a+h)-g(a)]}{h}\cdot\lim_{h\to0}\frac{1}{g(a)\cdot
+    g(a+h)}
+\end{align*}
+
+Recall from \ref{diff-implies-cont} that if $f$ is differentiable at
+$a$, then $\lim_{h\to0}f(a+h)=f(a)$. Thus:
+\begin{align*}
+  \lim_{h\to0}\frac{-[g(a+h)-g(a)]}{h}\cdot\lim_{h\to0}\frac{1}{g(a)\cdot g(a+h)}
+  &=-g'(a)\cdot \frac{1}{[g(a)]^2}
+\end{align*}
+
+as desired.
+
+\vs---\vs
+
+\textbf{Theorem 8.} If $f, g$ are differentiable at $a$ and $g(a)\neq0$, then
+\[\left(\frac{f}{g}\right)'(a)=\frac{g(a)\cdot f'(a)-f(a)\cdot g'(a)}{[g(a)]^2}\]
+
+\vs
+
+\textit{Examples:}
+\begin{itemize}
+\item Let $e(t), s(t)$ model the number of engineers and sales people
+  at a company over time. You want to understand the change in the
+  ratio between the two.
+\end{itemize}
+
+\textbf{Proof.}
+\begin{align*}
+  \left(\frac{f}{g}\right)'(a)&=\left(f\cdot\frac{1}{g}\right)'(a)\\
+  &=f(a)\cdot
+    \left(\frac{1}{g}\right)'(a)+f'(a)\cdot\left(\frac{1}{g}\right)(a)\\
+  &=\frac{-g'(a)\cdot f(a)}{[g(a)]^2}+\frac{f'(a)}{g(a)}\\
+  &=\frac{-g'(a)\cdot f(a)\cdot g(a)+f'(a)\cdot [g(a)]^2}{[g(a)]^3}\\
+  &=\frac{f'(a)\cdot g(a)-g'(a)\cdot f(a)}{[g(a)]^2}\\
+\end{align*}
+
+\subsection{Chain rule}
+The derivative of composed functions is slightly more complicated, and
+so deserves its own section. We will start with a handwavy proof to
+get a feel for the problem. Then we will properly formalize the proof.
+
+\vs
+
+\textbf{Theorem 9 (the chain rule).} If $g$ is differentiable at $a$,
+and $f$ is differentiable at $g(a)$, then
+\[(f\circ g)'(a)=f'(g(a))\cdot g'(a)\]
+
+\textit{Examples:}
+\begin{itemize}
+\item Let $a(t)$ model altitude of a rocket over time, and let $p(a)$
+  model air pressure at a particular altitude. You want to know how
+  air pressure changes over time.
+\end{itemize}
+
+\textbf{Handwavy proof.}
+
+\vs
+
+\textbf{Proper proof.}
+
+\subsection{Implications}
+Theorems 1-5 imply:
+\[(-f)'(a)=(-1\cdot f')(a)=-f'(a)\]
+\begin{center}and\end{center}
+\[(f-g)'(a)=(f+(-g))'(a)=f'(a)+(-g)'(a)=f'(a)-g'(a)\]
+
+\subsection{Trig}
 
 %%% Local Variables:
 %%% TeX-master: "notes"
