@@ -210,9 +210,8 @@ as desired.
 \end{align*}
 
 \subsection{Chain rule}
-The derivative of composed functions is slightly more complicated, and
-so deserves its own section. We will start with a handwavy proof to
-get a feel for the problem. Then we will properly formalize the proof.
+The derivative of composed functions is considerably more complicated,
+and so deserves its own section.
 
 \vs
 
@@ -227,11 +226,55 @@ and $f$ is differentiable at $g(a)$, then
   air pressure changes over time.
 \end{itemize}
 
-\textbf{Handwavy proof.}
+\textbf{First attempt at a proof.}
 
-\vs
+As usual, we start with the definition of the derivative:
+\begin{align*}
+  (f\circ g)'(a)&=\lim_{h\to0}\frac{(f\circ g)(a+h)-(f\circ g)(a)}{h}\\
+            &=\lim_{h\to0}\frac{f(g(a+h))-f(g(a))}{h}\\
+            &=\lim_{h\to0}\left(\frac{f(g(a+h))-f(g(a))}{g(a+h)-g(a)}\cdot\frac{g(a+h)-g(a)}{h}\right)\\
+            &=\lim_{h\to0}\frac{f(g(a+h))-f(g(a))}{g(a+h)-g(a)}\cdot\lim_{h\to0}\frac{g(a+h)-g(a)}{h}\\
+            &=\left(\lim_{h\to0}\frac{f(g(a+h))-f(g(a))}{g(a+h)-g(a)}\right)\cdot g'(a)
+\end{align*}
 
-\textbf{Proper proof.}
+This is a bit of a false start as we now have two problems:
+\begin{itemize}
+\item To get $f'(g(a))$ in the first term, we need
+  $\lim_{h\to0}\frac{f(g(a)+h)-f(g(a))}{h}$, but instead we have
+  $\lim_{h\to0}\frac{f(g(a+h))-f(g(a))}{g(a+h)-g(a)}$.
+\item $g(a+h)-g(a)$ may be zero for $h\neq 0$, so the division may be
+  illegal.
+\end{itemize}
+
+However it isn't a total waste. Our false start gives us an idea for
+how we may proceed. Let's hypothesize a function $\phi(h)$ with the
+following property (we will soon prove such a function exists):
+
+\[\frac{f(g(a+h))-f(g(a))}{h}=\phi(h)\cdot\frac{g(a+h)-g(a)}{h}\]
+
+We can then rewrite our initial equations as follows:
+\begin{align*}
+  (f\circ g)'(a)&=\lim_{h\to0}\frac{(f\circ g)(a+h)-(f\circ g)(a)}{h}\\
+            &=\lim_{h\to0}\frac{f(g(a+h))-f(g(a))}{h}\\
+            &=\lim_{h\to0}\left(\phi(h)\cdot\frac{g(a+h)-g(a)}{h}\right)\\
+            &=\lim_{h\to0}\phi(h)\cdot\lim_{h\to0}\frac{g(a+h)-g(a)}{h}\\
+            &=\lim_{h\to0}\phi(h)\cdot g'(a)
+\end{align*}
+
+To get to $(f\circ g)'(a)=f'(g(a))\cdot g'(a)$ we need $\phi(h)$ to possess one
+more property:
+\[\lim_{h\to0}\phi(h)=f'(g(a))\]
+
+We can now finish our reasoning:
+\[(f\circ g)'(a)=\lim_{h\to0}\phi(h)\cdot g'(a)=f'(g(a))\cdot g'(a)\]
+
+Thus proving the chain rule reduces to proving there exists a
+function $\phi(h)$ with two properties:
+\setcounter{equation}{0}
+\begin{gather}
+\frac{f(g(a+h))-f(g(a))}{h}=\phi(h)\cdot\frac{g(a+h)-g(a)}{h}\\
+\lim_{h\to0}\phi(h)=f'(g(a))
+\end{gather}
 
 \subsection{Implications}
 Theorems 1-5 imply:
