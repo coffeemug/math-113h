@@ -213,8 +213,8 @@ as desired.
 The derivative of composed functions is considerably more complicated,
 and so deserves its own section. We'll prove this in two stages.
 First, we'll attempt a proof with a few false starts that will point
-us in the direction of a real proof. Then, restart and write a clean
-proof from scratch.
+us in the direction of a real proof. Once the direction becomes clear,
+we'll abandon our first draft and write a clean proof from scratch.
 
 \vs
 
@@ -229,7 +229,7 @@ and $f$ is differentiable at $g(a)$, then
   air pressure changes over time.
 \end{itemize}
 
-\textbf{Attempt at a proof.}
+\textbf{Proof, first draft.}
 
 As usual, we start with the definition of the derivative:
 \begin{align*}
@@ -271,17 +271,19 @@ To get to $(f\circ g)'(a)=f'(g(a))\cdot g'(a)$ we need $\phi(h)$ to possess one
 more property:
 \[\lim_{h\to0}\phi(h)=f'(g(a))\]
 
-We can now finish our reasoning:
+Given this additional property, we can now finish our reasoning:
 \[(f\circ g)'(a)=\lim_{h\to0}\phi(h)\cdot g'(a)=f'(g(a))\cdot g'(a)\]
 
 Thus proving the chain rule reduces to proving there exists a function
-$\phi(h)$ with the two properties above. Let's restart our proof from
-scratch (for cleanliness) and demonstrate the existance of such a
+$\phi(h)$ with the two properties above. For cleanliness, let's start a
+new proof from scratch and demonstrate the existance of such a
 function.
 
 \vs
 
-\textbf{Proof.} Suppose there exists a function $\phi(h)$ with the
+\textbf{Proof.}
+
+Suppose there exists a function $\phi(h)$ with the
 following properties:
 \setcounter{equation}{0}
 \begin{gather}
@@ -310,8 +312,13 @@ follows:
 \end{cases}
 \end{align*}
 
+We will prove properties 1 and 2 hold for $\phi$.
+
 \vs
-\textit{Property 1.} We now show
+
+\textbf{Property 1 proof.}
+
+We now show
 $\frac{f(g(a+h))-f(g(a))}{h}=\phi(h)\cdot\frac{g(a+h)-g(a)}{h}$. There are
 two cases: either $g(a+h)-g(a)\neq0$ or $g(a+h)-g(a)=0$. Suppose
 $g(a+h)-g(a)\neq0$. Then
@@ -333,7 +340,30 @@ as desired.
 
 \vs
 
-\textit{Property 2.} We now show $\lim_{h\to0}\phi(h)=f'(g(a))$.
+\textbf{Property 2 proof.}
+
+We now show $\lim_{h\to0}\phi(h)=f'(g(a))$. Put differently:
+\begin{itemize}
+\item \textit{Intuitively}, we're trying to show that when $h$ is
+  small, the top part of $\phi$ piecewise definition approaches the
+  bottom part.
+\item Here is another way to frame it. Observe that
+  $\phi(0)=f'(g(a))$. Thus showing $\lim_{h\to0}\phi(h)=f'(g(a))$ is
+  equivalent to showing $\lim_{h\to0}\phi(h)=\phi(0)$, i.e. that
+  $\phi$ is continuous at $0$.
+\item Formally, we must show that given $\epsilon>0$ there exists
+  $\delta>0$ such that $|h|<\delta$ implies $|\phi(h)-f'(g(a))|<\epsilon$.
+\end{itemize}
+
+\vs
+
+Since $f$ is differentiable at $g(a)$, by definition of the
+derivative we have:
+\[f'(g(a))=\lim_{k\to0}\frac{f(g(a)+k)-f(g(a))}{k}\]
+
+Inlining the limit defition, for all $\epsilon>0$ there exists $\delta'>0$ such
+that, for all $k$, if $0<|k|<\delta'$ then
+\[\left|\frac{f(g(a)+k)-f(g(a))}{k}-f'(g(a))\right|<\epsilon\]
 
 \subsection{Implications}
 Theorems 1-5 imply:
