@@ -345,8 +345,8 @@ as desired.
 We now show $\lim_{h\to0}\phi(h)=f'(g(a))$. Put differently:
 \begin{itemize}
 \item \textit{Intuitively}, we're trying to show that when $h$ is
-  small, the top part of $\phi$ piecewise definition approaches the
-  bottom part.
+  small, the top piece of $\phi$ piecewise definition approaches the
+  bottom piece (which we chose to be $f'(g(a))$).
 \item Here is another way to frame it. Observe that
   $\phi(0)=f'(g(a))$. Thus showing $\lim_{h\to0}\phi(h)=f'(g(a))$ is
   equivalent to showing $\lim_{h\to0}\phi(h)=\phi(0)$, i.e. that
@@ -357,13 +357,20 @@ We now show $\lim_{h\to0}\phi(h)=f'(g(a))$. Put differently:
 
 \vs
 
-Since $f$ is differentiable at $g(a)$, by definition of the
-derivative we have:
+\textit{Firstly}, since $f$ is differentiable at $g(a)$, by definition
+of the derivative we have:
 \[f'(g(a))=\lim_{k\to0}\frac{f(g(a)+k)-f(g(a))}{k}\]
 
-Inlining the limit defition, for all $\epsilon>0$ there exists $\delta'>0$ such
-that, for all $k$, if $0<|k|<\delta'$ then
+Inlining the limit defition, for all $\epsilon>0$ there exists
+$\delta'>0$ such that $0<|k|<\delta'$ implies
 \[\left|\frac{f(g(a)+k)-f(g(a))}{k}-f'(g(a))\right|<\epsilon\]
+
+\textit{Secondly}, since $g$ is differentiable at $a$, it continuous
+at $a$. Thus:
+\[\lim_{h\to0}g(a+h)=g(a)\]
+
+Or put differently, there exists $\delta>0$ such that $|h|<\delta$ implies:
+\[|g(a+h)-g(a)|<\delta'\]
 
 \subsection{Implications}
 Theorems 1-5 imply:
