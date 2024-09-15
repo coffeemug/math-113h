@@ -229,7 +229,7 @@ and $f$ is differentiable at $g(a)$, then
   air pressure changes over time.
 \end{itemize}
 
-\textbf{Proof, first draft.}
+\subsubsection*{Proof, first draft.}
 
 As usual, we start with the definition of the derivative:
 \begin{align*}
@@ -279,9 +279,7 @@ $\phi(h)$ with the two properties above. For cleanliness, let's start a
 new proof from scratch and demonstrate the existance of such a
 function.
 
-\vs
-
-\textbf{Proof.}
+\subsubsection*{Proof.}
 
 Suppose there exists a function $\phi(h)$ with the
 following properties:
@@ -355,6 +353,8 @@ We now show $\lim_{h\to0}\phi(h)=f'(g(a))$. Put differently:
   $\delta>0$ such that $|h|<\delta$ implies $|\phi(h)-f'(g(a))|<\epsilon$.
 \end{itemize}
 
+So, let $\epsilon>0$ be given.
+
 \vs
 
 \textit{Firstly}, since $f$ is differentiable at $g(a)$, by definition
@@ -371,6 +371,24 @@ at $a$. Thus:
 
 Or put differently, there exists $\delta>0$ such that $|h|<\delta$ implies:
 \[|g(a+h)-g(a)|<\delta'\]
+
+\textit{Finally}, we now have everything we need to prove property 2.
+Consider any $h$ with $|h|<\delta$.
+\begin{itemize}
+\item If $g(a+h)-g(a)=0$ then $\phi(h)=f'(g(a))$ so $|\phi(h)-f'(g(a))|<\epsilon$.
+\item If $g(a+h)-g(a)\neq0$ we can fix $k=g(a+h)-g(a)$ as both aren't
+  $0$ and are less than $\delta'$. Thus we get:
+\end{itemize}
+
+\begin{align*}
+  \epsilon&>\left|\frac{f(g(a)+k)-f(g(a))}{g(a+h)-g(a)}-f'(g(a))\right|\\
+  &=\left|\frac{f(g(a)+g(a+h)-g(a))-f(g(a))}{g(a+h)-g(a)}-f'(g(a))\right|\\
+  &=\left|\frac{f(g(a+h))-f(g(a))}{g(a+h)-g(a)}-f'(g(a))\right|\\
+  &=\left|\phi(h)-f'(g(a))\right|
+\end{align*}
+
+I.e. $\left|\phi(h)-f'(g(a))\right|<\epsilon$ as desired.
+
 
 \subsection{Implications}
 Theorems 1-5 imply:
