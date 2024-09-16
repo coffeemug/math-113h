@@ -60,10 +60,18 @@ $(f+g)'(a)=f'(a)+g'(a)$.
 
 ---\vs
 
-\textbf{Theorem 4.} If $f,g$ are differentiable at $a$, then
-\[(f\cdot g)'(a)=f'(a)\cdot g(a)+f(a)\cdot g'(a)\]
+\textbf{Theorem 3a.} If $f_1,\ldots,f_n$ are differentiable at $a$, then:
+\[f_1+\ldots_+f_n)'(a)=f_1'(a)+\ldots_+f_n'(a)\]
 
 \vs
+
+\textbf{Proof.} This is a fairly straightforward proof by induction.
+Skipping it here as I've already spent enough time on this chapter.
+
+\vs---\vs
+
+\textbf{Theorem 4.} If $f,g$ are differentiable at $a$, then
+\[(f\cdot g)'(a)=f'(a)\cdot g(a)+f(a)\cdot g'(a)\]
 
 \textit{Examples:}
 \begin{itemize}
@@ -88,6 +96,16 @@ $a$, then $\lim_{h\to0}f(a+h)=f(a)$. Thus
 
 ---\vs
 
+\textbf{Theorem 4a.} If $f_1,\ldots,f_n$ are differentiable at $a$, then:
+\[f_1\cdot\ldots\cdot f_n)'(a)=\sum_{i=1}^n f_1(a)\cdot f_i'(a)\cdot f_n(a)\]
+
+\vs
+
+\textbf{Proof.} This is a fairly straightforward proof by induction.
+Skipping it here as I've already spent enough time on this chapter.
+
+\vs---\vs
+
 \textbf{Theorem 5.} If $g(x)=cf(x)$ then $g'(a)=c\cdot f'(a)$.
 
 \vs
@@ -109,7 +127,7 @@ $a$, then $\lim_{h\to0}f(a+h)=f(a)$. Thus
 ---\vs
 
 \textbf{Theorems 1-5 imply}:
-\[(-f)'(a)=(-1\cdot f')(a)=-f'(a)\]
+\[(-f)'(a)=(-1\cdot f)'(a)=-f'(a)\]
 \begin{center}and\end{center}
 \[(f-g)'(a)=(f+(-g))'(a)=f'(a)+(-g)'(a)=f'(a)-g'(a)\]
 
@@ -144,6 +162,22 @@ $g=I\cdot f$. By theorem 4:
        &=a^n+na^n\\
        &=a^n(1+n)\\
        &=(n+1)a^n
+\end{align*}
+
+---\vs
+
+\textbf{Theorem 6b.} If $f(x)=x^n$ for $n<0$, then $f'(a)=na^{n-1}$
+for all $a$. (In other words, we extend theorem 6 to negative
+exponents.)
+
+\vs
+
+\textbf{Proof.} We use theorem 7 below (putting 6b here for learning
+convenience).
+\begin{align*}
+  f'(a)&=\left(\frac{1}{a^{-n}}\right)'\\
+       &=\frac{nx^{-n-1}}{x^{-2n}}\\
+       &=nx^{n-1}
 \end{align*}
 
 ---\vs
@@ -393,6 +427,34 @@ Consider any $h$ with $|h|<\delta$.
 \end{align*}
 I.e. $\left|\phi(h)-f'(g(a))\right|<\epsilon$ as desired.
 \end{itemize}
+
+\vs---\vs
+
+\textbf{Theorem 9a.} Let $f_i$ be differentiable at
+$f_{i+1}(\dots f_n(x) \dots)$. Then:
+\[(f_1\circ \ldots\circ f_n)'(x) = \prod_{i=1}^{n} f_i' \left( f_{i+1}(\dots f_n(x) \dots) \right)\]
+
+\vs
+
+\textbf{Proof.} This is a fairly straightforward proof by induction.
+Skipping it here as I've already spent enough time on this chapter.
+
+\subsection{Appendix: polynomials}
+We can easily find derivatives of polynomials using theorems 1-6. It
+turns out to be an interesting enough form that it's worth mentioning
+explicitly. Consider
+\[f(x)=a_nx^n+a_{n-1}x^{n-1}+\ldots+a_2x^2+a_1x+a_0\]
+
+Then:
+\[f'(x)=na_nx^{n-1}+(n-1)a_{n-1}x^{n-2}+\ldots+2a_2x+a_1\]
+
+Continuing:
+\[f''(x)=n(n-1)a_nx^{n-2}+(n-1)(n-2)a_{n-1}x^{n-3}+\ldots+2a_2\]
+
+Repeatedly continuing this process we get:
+\[f^{(n)}(x)=n!a_n\]
+
+And of course for $m>n$ it's easy to see $f^{(m)}=0$.
 
 %%% Local Variables:
 %%% TeX-master: "notes"
