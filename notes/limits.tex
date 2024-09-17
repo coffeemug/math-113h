@@ -1,106 +1,6 @@
 \section{Limits, Part I (Blessed Path)}
 
-\subsection{Precalculus}
-
-I'll first do a hand-wavy definition of limits, and then use it to
-explain the mechanics of computing limits of functions in practice.
-Basically, pre-calculus stuff. After that I'll do a proper definition
-and use it to prove the theorems that make the mechanics work.
-
-\vs
-
-\textbf{A hand-wavy definition:} a limit of $f(x)$ at $a$ is the value
-$f(x)$ approaches close to (but not necessarily at) $a$.
-
-\vs
-
-\textbf{A slightly less hand-wavy definition:} let $f:\R\to\R$, let
-$a\in\R$ be some number on the x-axis, and let $l\in\R$ be some number on
-the y-axis. Then as $x$ gets closer to $a$, $f(x)$ gets closer to $l$.
-
-\vs
-
-The notation for this whole thing is
-
-\[\lim_{x\to a} f(x)=l\]
-
-So for example $\lim_{x\to5}x^2=25$ because the closer $x$ gets to
-$5$, the closer $x^2$ gets to $25$ (we'll prove all this properly
-soon). Now suppose you have some fancy pants function like this one:
-\begin{equation}
-\label{eq:1}
-\lim_{x\to 0}\frac{1-\sqrt{x}}{1-x}
-\end{equation}
-
-If you plot it, it's easy to see that as $x$ approaches $0$, the whole
-shebang approaches $1$. But how do you algebraically evaluate the
-limit of this thing? Can you just plug $0$ into the equation? It seems
-to work, but once we formally define limits, we'll have to prove
-somehow that plugging $a=0$ into $x$ gives us the correct result.
-
-\subsubsection*{Limits evaluation mechanics}
-
-It turns out that it does in fact work because of a few theorems that
-make practical evaluation of many limits easy. I'll first state these
-theorems as facts, and then go back and properly prove them once I
-introduce the formal definition of limits.
-
-\begin{enumerate}
-\item \textbf{Constants}. $\lim_{x\to a}c=c$, where $c\in\R$. In other
-  words if the function is a constant, e.g. $f(x)=5$, then
-  $\lim_{x\to a}f(x)=5$ for any $a$.
-\item \textbf{Identity}. $\lim_{x\to a}x=a$. In other words if the
-  function is an identity function $f(x)=x$, then
-  $\lim_{x\to 6}f(x)=6$. Meaning we simply plug $a$ into $x$.
-\item \textbf{Addition}\footnote{Spivak's book uses a slightly more
-    verbose definition that assumes the limits of $f$ and $g$ exist
-    near $a$, see p. 103}.
-  $\lim_{x\to a}(f+g)(x)=\lim_{x\to a}f(x)+\lim_{x\to a}g(x)$. For example
-  $\lim_{x\to a}(x+2)=\lim_{x\to a}x+\lim_{x\to a}2=a+2$.
-\item \textbf{Multiplication}.
-  $\lim_{x\to a}(f\cdot g)(x)=\lim_{x\to a}f(x)\cdot \lim_{x\to a}g(x)$. For example
-  $\lim_{x\to a}2x=\lim_{x\to a}2\cdot \lim_{x\to a}x=2a$.
-\item \textbf{Reciprocal}.
-  $\lim_{x\to a}\left(\frac{1}{f}\right)(x)=\frac{1}{\lim_{x\to a}f(x)}$
-  when the denominator isn't zero. For example
-  $\lim_{x\to a}\frac{1}{x}=\frac{1}{\lim_{x\to a}x}=\frac{1}{a}$ for
-  $a\neq0$.
-\end{enumerate}
-
-To come back to \ref{eq:1}, these theorems tells us that
-
-\[\lim_{x\to 0}\frac{1-\sqrt{x}}{1-x}=\frac{\lim_{x\to 0}1-(\lim_{x\to 0}x)^{\frac{1}{2}}}{\lim_{x\to 0}1-\lim_{x\to 0}x}=\frac{1-0^{\frac{1}{2}}}{1-0}=1\]
-
-\subsubsection*{Holes}
-
-What happens if we try to take a limit as $x\to 1$ rather than $x\to 0$?
-
-\[\lim_{x\to 1}\frac{1-\sqrt{x}}{1-x}\]
-
-We can't use the same trick and plug in $1$ because we get a
-nonsensical result $0/0$ as the function isn't defined at $0$. If we
-plot it, we clearly see the limit approaches $1/2$ at $0$, but how do
-we prove this algebraically? The answer is to do some trickery to find
-a way to cancel out the inconvenient term (in this case $1-\sqrt{x}$)
-
-\[\lim_{x\to 1}\frac{1-\sqrt{x}}{1-x}=\lim_{x\to 1}\frac{1-\sqrt{x}}{(1-\sqrt{x})(1+\sqrt{x})}=\lim_{x\to 1}\frac{1}{1+\sqrt{x}}=\frac{1}{2}\]
-
-\vs
-
-Why is it ok here to divide by $1-\sqrt{x}$? Good question! Recall
-that the limit is defined \textit{close to} $a$ (or \textit{around}
-$a$, or as $x$ \textit{approaches} $a$), but not \textbf{at} $a$. In
-other words $f(a)$ need not even be defined (as is the case here).
-This means that as we consider $1-\sqrt{x}$ at different values of $x$
-as it approaches $a$, the limit never requires us to evaluate the
-function at $x=a$. So we never have to consider $1-\sqrt{x}$ as $x=1$,
-$1-\sqrt{x}$ never takes on the value of $0$, and it is safe to divide
-it out.
-
 \subsection{Formal limits definition}
-
-Now we establish a rigorous definition of limits that formalizes the
-hand-wavy version above.
 
 \paragraph{Definition:} $\lim_{x\to a}f(x)=L$ when for any
 $\epsilon\in\R$ there exists $\delta\in\R$ such that for all $x$,
@@ -121,45 +21,6 @@ $\delta$ specifies the distance away from $a$ along the x-axis. Take any
 $x$ within $\delta$ of $a$, plug it into $f$, and the result is guaranteed
 to be within $\epsilon$ of $L$. $\lim_{x\to a}f(x)=L$ just means there exists
 such $\delta$ for any $\epsilon$.
-
-\vs
-
-This is quite simple, but the mechanics of the limit definition tend
-to confuse people. I think it's because absolute value inequalities
-are unfamiliar. Wtf is $0<|x-a|<\delta$ and $|f(x)-L|<\epsilon$?! Let's tease it
-apart\footnote{The best answer is to go to Khan academy and do a bunch
-  of absolute value inequalities until they become second nature.}
-
-\vs
-
-Here is the intuitive reading. $0<|x-a|<\delta$ means the difference
-between $x$ and $a$ is between $0$ and $\delta$. And
-$|f(x)-L|<\epsilon$ means the difference between $f(x)$ and $L$ is less than
-$\epsilon$. This is actually all this means, but still, let's look at the
-inequalities more closely.
-
-\vs
-
-First, consider $0<|x-a|<\delta$. There are two inequalities here. The left
-side, $0<|x-a|$ is equivalent to $|x-a|>0$. But $|x-a|$ is an absolute
-value, it's \textbf{always} true that $|x-a|\geq 0$. So this part of the
-inequality says $x-a\neq 0$, or $x\neq a$. (Remember, we said the limit is
-defined \textit{around} $a$ but not \textit{at} $a$). I don't know why
-mathematicians say $0<|x-a|$ instead of $x\neq a$, probably because
-confusing you brings them pleasure.
-
-\vs
-
-The right side is $|x-a|<\delta$. Intuitively this says that along the
-x-axis the difference between $x$ and $a$ should be less than
-$\delta$. Put differently, $x$ should be within $\delta$ of $a$. We can rewrite
-this as $a-\delta<x<a+\delta$.
-
-\vs
-
-The second equation, $|f(x)-L|<\epsilon$ should now be easy to understand.
-Intuitively, along the y-axis $f(x)$ should be within $\epsilon$ of
-$L$, or put differently $L-\epsilon<f(x)<L+\epsilon$.
 
 \subsubsection*{Limit uniqueness}
 
@@ -446,43 +307,6 @@ $\delta=\min(\delta_1, \delta_2)$. QED.
 While high level theorems allow us to easily compute complicated
 limits, it's instructive to compute a few limits for complicated
 functions straight from the definition. We do that here.
-
-\subsubsection*{Aside: inequalities}
-
-We will often need to make an inequality of the following form work out:
-
-\[|n||m|<\epsilon\]
-
-Here $\epsilon$ is given to us, we have complete control over the upper bound
-of $|n|$, and $|m|$ can take on values outside our direct control.
-Obviously we can't make the inequality work without knowing
-\textit{something} about $|m|$, so we'll try to find a bound for it in
-terms of other fixed values, or values we control.
-
-\vs
-
-For example, suppose $\lim_{x\to a}f(x)=L$ and we've discovered that
-$|m|<3|a|+4$. Given that we control $|n|$, how do we bound it in terms
-of $\epsilon$ and $|a|$ in such a way that the inequality $|n||m|<\epsilon$ holds?
-
-\vs
-
-Since we control $|n|$ and $(3|a|+4)$ is fixed, we can find $|n|$
-small enough so that $|n|(3|a|+4)<\epsilon$ holds. Then certainly any
-inequality whose left side is smaller, e.g. $|n|(3|a|+3)<\epsilon$, will also
-hold. And since $|m|$ is always smaller than $3|a|+4$, it follows
-$|n||m|<\epsilon$ will hold as well.
-
-\vs
-
-All we have left to do is find a bound for $|n|$ such that
-$|n|(3|a|+4)<\epsilon$ holds, which is of course easy:
-
-\[|n|<\frac{\epsilon}{3|a|+4}\]
-
-Having bound $|n|$ in this way, we can verify that
-$|n|(3|a|+4)<\epsilon$ holds by multiplying both sides of the above
-inequality by $3|a|+4$.
 
 \subsubsection*{Limits of quadratic functions}
 
