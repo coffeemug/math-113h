@@ -439,7 +439,7 @@ $f_{i+1}(\dots f_n(x) \dots)$. Then:
 \textbf{Proof.} This is a fairly straightforward proof by induction.
 Skipping it here as I've already spent enough time on this chapter.
 
-\subsection{Appendix: polynomials}
+\subsection{Derivatives polynomials}
 We can easily find derivatives of polynomials using theorems 1-6. It
 turns out to be an interesting enough form that it's worth mentioning
 explicitly. Consider
@@ -455,6 +455,35 @@ Repeatedly continuing this process we get:
 \[f^{(n)}(x)=n!a_n\]
 
 And of course for $m>n$ it's easy to see $f^{(m)}=0$.
+
+\subsection{Differentiation practice}
+Spivak spends a lot of the chapter covering concrete differentiation
+examples. I work through these here. First, a summary of the nine
+differentiation theorems proved above:
+\begin{enumerate}
+\item If $f(x)=c$ then $f'(a)=0$.
+\item If $f(x)=x$ then $f'(a)=1$.
+\item $(f+g)'(a)=f'(a)+g'(a)$.
+\item $(f\cdot g)'(a)=f'(a)\cdot g(a)+f(a)\cdot g'(a)$.
+\item If $g(x)=cf(x)$ then $g'(a)=c\cdot f'(a)$.
+\item If $f(x)=x^n$ for $n\in\mathcal{N}$, then $f'(a)=na^{n-1}$.
+\item $\left(\frac{1}{g}\right)'(a)=\frac{-g'(a)}{{[g(a)]}^2}$.
+\item $\left(\frac{f}{g}\right)'(a)=\frac{g(a)\cdot f'(a)-f(a)\cdot
+    g'(a)}{[g(a)]^2}$.
+\item $(f\circ g)'(a)=f'(g(a))\cdot g'(a)$.
+\end{enumerate}
+
+Second, two trig derivatives presented without proof (proper proofs
+will show up in a later chapter when $\sin$ and $\cos$ are properly
+defined):
+\begin{align*}
+  \sin'(a)&=\cos a\\
+  \cos'(a)&=-\sin a
+\end{align*}
+
+We are now ready to practice example problems.
+
+
 
 %%% Local Variables:
 %%% TeX-master: "notes"
