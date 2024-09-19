@@ -483,7 +483,45 @@ defined):
 
 We are now ready to practice example problems.
 
+\begin{align*}
+f(x)=\frac{x^2-1}{x^2+1}&\implies
+  f'(x)=\frac{(x^2+1)2x-(x^2-1)2x}{(x^2+1)^2}=\frac{4x}{(x^2+1)^2}\\
+f(x)=\frac{x}{x^2+1}&\implies f'(x)=\frac{1-x^2}{(x^2+1)^2}\\
+  f(x)=\frac{1}{x}=x^{-1}&\implies f'(x)=-\frac{1}{x^2}=(-1)x^{-2}\\
+  f(x)=x\sin x&\implies f'(x)=\sin x+x\cos x\\
+                        &\implies f''(x)=2\cos x-x\sin x\\
+  g(x)=\sin^2x=\sin x\sin x&\implies g'(x)=2\sin x\cos x\\
+                        &\implies g''(x)=2\cos^2 x-2\sin^2 x\\
+  h(x)=\cos^2 x=\cos x\cos x&\implies h'(x)=-2\sin x \cos x\\
+                        &\implies h''(x)=2\sin^2x-2\cos^2 x
+\end{align*}
 
+Note $g'(x)+h'(x)=0$. This is something we could have guessed--
+$(g+h)(x)=\sin^2x+\cos^2x=1$, thus by theorem 1, $(g+h)'(x)=0$.
+
+\vs
+
+\begin{align*}
+  &f(x)=x^3\sin x\cos x\\
+  &\implies f'(x)=3x^2\sin x\cos x+x^3\cos^2x-x^3\sin^2x
+\end{align*}
+
+The next set of examples uses the chain rule (where sometimes the
+product rule could be used instead). For example, $\sin^2 x$ could be
+interpreted either as $\sin x\sin x$, or as $s(\sin x)$ where
+$s(x)=x^2$.
+
+\begin{align*}
+  f(x)=\sin x^2&\implies f'(x)=\cos x^2\cdot 2x\\
+  f(x)=\sin^2x&\implies f'(x)=2\sin x\cdot \cos x\\
+  f(x)=\sin x^3&\implies f'(x)=\cos x^3\cdot 3x^2\\
+  f(x)=\sin^3x&\implies f'(x)=3\sin^2x\cdot\cos x\\
+  f(x)=\sin \frac{1}{x}&\implies f'(x)=cos \frac{1}{x}\cdot
+                         \frac{-1}{x^2}\\
+  f(x)=\sin(\sin x)&\implies f'(x)=\cos(\sin x)\cdot \cos x\\
+  f(x)=\sin(x^3+3x^2)&\implies f'(x)=\cos(x^3+3x^2)\cdot(3x^2+6x)\\
+  f(x)=(x^3+3x^2)^{53}&\implies f'(x)=53(x^3+3x^2)^{52}\cdot(3x^2+6x)
+\end{align*}
 
 %%% Local Variables:
 %%% TeX-master: "notes"
