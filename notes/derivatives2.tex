@@ -523,6 +523,24 @@ $s(x)=x^2$.
   f(x)=(x^3+3x^2)^{53}&\implies f'(x)=53(x^3+3x^2)^{52}\cdot(3x^2+6x)
 \end{align*}
 
+We now consider a composition of three functions:
+\begin{align*}
+  f(x)=\sin^2x^2=s\circ(\sin\circ s)&\implies f'(x)=2\sin x^2\cdot \cos x^2\cdot 2x\\
+  f(x)=\sin(\sin x^2)=\sin\circ(\sin\circ s)&\implies f'(x)=\cos(\sin x^2)\cdot
+                                      \cos x^2\cdot 2x
+\end{align*}
+
+And finally a composition of four functions:
+\begin{align*}
+  &f(x)=\sin^2(\sin^2x)=s\circ(\sin\circ (s\circ \sin))\\
+  &\implies f'(x)=2\sin(\sin^2x)\cdot\cos(\sin^2x)\cdot2\sin x\cdot\cos x\\
+  &f(x)=\sin((\sin x^2)^2)=\sin\circ s\circ\sin\circ s\\
+  &\implies f'(x)=\cos((\sin x^2)^2)\cdot2\sin x^2\cdot \cos x^2\cdot 2x\\
+  &f(x)=\sin^2(\sin(\sin x))=s\circ\sin\circ\sin\circ\sin\\
+  &\implies f'(x)=2\sin(\sin(\sin x))\cdot \cos(\sin(\sin x))\cdot \cos(\sin
+    x)\cdot \cos x
+\end{align*}
+
 %%% Local Variables:
 %%% TeX-master: "notes"
 %%% End:
