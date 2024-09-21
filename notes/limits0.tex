@@ -1,74 +1,9 @@
 
 \section{Limits, Part I (Prereqs)}
 
-Before we formally define limits, it helps to understand inequalities
-and have a handwavy intuition for limits mechanics. In this chapter we
-learn these prereqs as quickly as possible.
-
-\subsection{Absolute value inequalities}
-Consider an inequality $0<|x-a|<\delta$. This will come up a lot soon. What
-does this inequality mean? The intuitive reading is that the
-difference between $x$ and $a$ is between $0$ and $\delta$. But it's a
-little subtle, so let's look at it carefully. There are actually two
-inequalities here: $0<|x-a|$ and $|x-a|<\delta$. We should consider each
-separately.
-
-\vs
-
-The left side, $0<|x-a|$ is equivalent to $|x-a|>0$. But $|x-a|$ is an
-absolute value, it's \textbf{always} true that $|x-a|\geq 0$. So this
-part of the inequality says $x-a\neq 0$, or $x\neq a$. I don't know why
-mathematicians say $0<|x-a|$ instead of $x\neq a$, probably because
-confusing you brings them pleasure.
-
-\vs
-
-The right side is $|x-a|<\delta$. Intuitively this says that the difference
-between $x$ and $a$ should be less than $\delta$. Put differently, $x$
-should be within $\delta$ of $a$. Algebraically we can write it as two
-cases:
-\begin{enumerate}
-\item $x-a<\delta$
-\item $-(x-a)<\delta$
-\end{enumerate}
-A little basic manipulation, and we can rewrite this as $a-\delta<x<a+\delta$.
-
-\subsection{Bounding with inequalities}
-We will often need to make an inequality of the following form work out:
-
-\[|n||m|<\epsilon\]
-
-Here $\epsilon$ is given to us, we have complete control over the upper bound
-of $|n|$, and $|m|$ can take on values outside our direct control.
-Obviously we can't make the inequality work without knowing
-\textit{something} about $|m|$, so we'll try to find a bound for it in
-terms of other fixed values, or values we control.
-
-\vs
-
-For example, suppose we've discovered there is a fixed value $a$, and
-that $|m|<3|a|+4$. Given that we control $|n|$, how do we bound it in
-terms of $\epsilon$ and $|a|$ in such a way that the inequality
-$|n||m|<\epsilon$ holds?
-
-\vs
-
-Since we control $|n|$ and $(3|a|+4)$ is fixed, we can find $|n|$
-small enough so that $|n|(3|a|+4)<\epsilon$ holds. Then certainly any
-inequality whose left side is smaller, e.g. $|n|(3|a|+3)<\epsilon$, will also
-hold. And since $|m|$ is always smaller than $3|a|+4$, it follows
-$|n||m|<\epsilon$ will hold as well.
-
-\vs
-
-All we have left to do is find a bound for $|n|$ such that
-$|n|(3|a|+4)<\epsilon$ holds, which is of course easy:
-
-\[|n|<\frac{\epsilon}{3|a|+4}\]
-
-Having bound $|n|$ in this way, we can verify that
-$|n|(3|a|+4)<\epsilon$ holds by multiplying both sides of the above
-inequality by $3|a|+4$.
+Before we formally define limits, it helps to have a handwavy
+intuition for limits mechanics, and to understand inequalities. In
+this chapter we learn these prereqs as quickly as possible.
 
 \subsection{Handwavy limits definition}
 
@@ -167,6 +102,70 @@ function at $x=a$. So we never have to consider $1-\sqrt{x}$ as $x=1$,
 $1-\sqrt{x}$ never takes on the value of $0$, and it is safe to divide
 it out.
 
+\subsection{Absolute value inequalities}
+Consider an inequality $0<|x-a|<\delta$. This will come up a lot soon. What
+does this inequality mean? The intuitive reading is that the
+difference between $x$ and $a$ is between $0$ and $\delta$. But it's a
+little subtle, so let's look at it carefully. There are actually two
+inequalities here: $0<|x-a|$ and $|x-a|<\delta$. We should consider each
+separately.
+
+\vs
+
+The left side, $0<|x-a|$ is equivalent to $|x-a|>0$. But $|x-a|$ is an
+absolute value, it's \textbf{always} true that $|x-a|\geq 0$. So this
+part of the inequality says $x-a\neq 0$, or $x\neq a$. I don't know why
+mathematicians say $0<|x-a|$ instead of $x\neq a$, probably because
+confusing you brings them pleasure.
+
+\vs
+
+The right side is $|x-a|<\delta$. Intuitively this says that the difference
+between $x$ and $a$ should be less than $\delta$. Put differently, $x$
+should be within $\delta$ of $a$. Algebraically we can write it as two
+cases:
+\begin{enumerate}
+\item $x-a<\delta$
+\item $-(x-a)<\delta$
+\end{enumerate}
+A little basic manipulation, and we can rewrite this as $a-\delta<x<a+\delta$.
+
+\subsection{Bounding with inequalities}
+We will often need to make an inequality of the following form work out:
+
+\[|n||m|<\epsilon\]
+
+Here $\epsilon$ is given to us, we have complete control over the upper bound
+of $|n|$, and $|m|$ can take on values outside our direct control.
+Obviously we can't make the inequality work without knowing
+\textit{something} about $|m|$, so we'll try to find a bound for it in
+terms of other fixed values, or values we control.
+
+\vs
+
+For example, suppose we've discovered there is a fixed value $a$, and
+that $|m|<3|a|+4$. Given that we control $|n|$, how do we bound it in
+terms of $\epsilon$ and $|a|$ in such a way that the inequality
+$|n||m|<\epsilon$ holds?
+
+\vs
+
+Since we control $|n|$ and $(3|a|+4)$ is fixed, we can find $|n|$
+small enough so that $|n|(3|a|+4)<\epsilon$ holds. Then certainly any
+inequality whose left side is smaller, e.g. $|n|(3|a|+3)<\epsilon$, will also
+hold. And since $|m|$ is always smaller than $3|a|+4$, it follows
+$|n||m|<\epsilon$ will hold as well.
+
+\vs
+
+All we have left to do is find a bound for $|n|$ such that
+$|n|(3|a|+4)<\epsilon$ holds, which is of course easy:
+
+\[|n|<\frac{\epsilon}{3|a|+4}\]
+
+Having bound $|n|$ in this way, we can verify that
+$|n|(3|a|+4)<\epsilon$ holds by multiplying both sides of the above
+inequality by $3|a|+4$.
 
 %%% Local Variables:
 %%% TeX-master: "notes"
