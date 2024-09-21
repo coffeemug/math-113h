@@ -1,27 +1,11 @@
 
-\section{Prerequisites}
+\section{Limits, Part I (Prereqs)}
 
-As I'm working through Spivak, I'm regularly discovering there is a
-ton of high school math I've forgotten (or simply never learned). The
-purpose of this chapter is to relearn the necessary prerequisites as
-quickly as possible.
+Before we formally define limits, it helps to understand inequalities
+and have a handwavy intuition for limits mechanics. In this chapter we
+learn these prereqs as quickly as possible.
 
-\vs
-
-I pull in prerequisites ``lazily''. There is no predefined set of
-topics; nothing that ``should (or shouldn't) be a part of
-precalculus''. When I need to know something to get through Spivak's
-chapter but don't already know it, it goes here.
-
-\vs
-
-A lot of material I'm pulling from ``Paul's Online Notes'' excellent
-\href{https://tutorial.math.lamar.edu/Extras/AlgebraTrigReview/AlgebraTrig.aspx}{Algebra
-  Trig Review}. He definitely nails the topic list-- the stuff his
-calculus students forgot (or never learned) lines up really well with
-what I need.
-
-\subsection{Inequalities}
+\subsection{Absolute value inequalities}
 Consider an inequality $0<|x-a|<\delta$. This will come up a lot soon. What
 does this inequality mean? The intuitive reading is that the
 difference between $x$ and $a$ is between $0$ and $\delta$. But it's a
@@ -49,7 +33,7 @@ cases:
 \end{enumerate}
 A little basic manipulation, and we can rewrite this as $a-\delta<x<a+\delta$.
 
-\subsubsection*{Bounding}
+\subsection{Bounding with inequalities}
 We will often need to make an inequality of the following form work out:
 
 \[|n||m|<\epsilon\]
@@ -86,54 +70,7 @@ Having bound $|n|$ in this way, we can verify that
 $|n|(3|a|+4)<\epsilon$ holds by multiplying both sides of the above
 inequality by $3|a|+4$.
 
-\subsection{Trigonometry}
-
-Let $P$ be a point on a unit circle $x^2+y^2=1$. Let $\theta$ be the length
-of the arc from $(1,0)$ to $P$, measured counterclockwise along the
-circle. Then the coordinates of $P$ are
-$(\cos\theta,\sin\theta)$.\footnote{The order is easy to remember-- it's
-  alphabetical.}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.5\textwidth]{eps/prereqs/trigtldr.eps}
-\end{figure}
-
-The measure of angles by the length of the arc is in units called
-\textit{radians}. Recall the circumference of a circle is $C=2\pi r$,
-and so the circumference of a unit circle is $2\pi$. Thus $\pi$ represents
-a $180^\circ$ angle. Some common angles in radians are
-$2\pi, \pi,\frac{\pi}{2}, \frac{\pi}{3}, \frac{\pi}{4}, \frac{\pi}{6}$, and
-$\frac{3\pi}{2}$. To convert these to degrees simply replace $\pi$ with
-$180$, and compute the fraction.
-
-\vs
-
-It should be self-evident that adding $2\pi$ to an angle results in the
-angle itself; and that adding $\frac{\pi}{2}$ to an angle shifts it by
-$90^{\circ}$. Further:
-\[(\cos 0,\sin 0)=(1,0)\ \ \ \ \ \text{and}\ \ \ \ \ (\cos \frac{\pi}{2},\sin \frac{\pi}{2})=(0,1)\]
-
-\subsubsection*{Plotting}
-It is not too difficult to plot trigonometric functions. Consider some
-properties of cosine we've already seen (or can easily deduce):
-$\cos 0=1$, $\cos \frac{\pi}{2}=0$, $\cos \pi=-1$. We've also seen that
-$\cos{(x+2\pi)}=\cos x$. The $x$-axis below covers $[-3\pi, 3\pi]$ (i.e. a
-total length of $6\pi$). Since cosine repeats every $2\pi$, we should
-expect the graph to repeat thrice. And this is exactly what we see.
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=.75\textwidth]{eps/prereqs/cosine.eps}
-\end{figure}
-
-We can easily increase the frequency by plotting $y=\cos cx$. Here we
-double the frequency with $c=2$:
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=.75\textwidth]{eps/prereqs/cosine2x.eps}
-\end{figure}
-
-\subsection{Limits}
+\subsection{Handwavy limits definition}
 
 Here I only present a hand-wavy definition of limits and use it to
 explain the mechanics of computing limits of functions in practice. A
@@ -171,7 +108,7 @@ limit of this thing? Can you just plug $0$ into the equation? It seems
 to work, but once we formally define limits, we'll have to prove
 somehow that plugging $a=0$ into $x$ gives us the correct result.
 
-\subsubsection*{Limits evaluation mechanics}
+\subsection{Limits evaluation mechanics}
 
 It turns out that it does in fact work because of a few theorems that
 make practical evaluation of many limits easy. Here I'll state these
