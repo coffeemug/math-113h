@@ -59,31 +59,48 @@ double the frequency with $c=2$:
 \clearpage
 \subsection{Limits}
 
-\textbf{Claim 1:} $\lim_{x\to0}x\sin \frac{1}{x}=0$.
+\textbf{Claim 1a:} Let $f(x)=x\sin \frac{1}{x}$. Then
+$\lim_{x\to0}f(x)=0$.
+
+\textbf{Proof.} Let $\epsilon>0$ be given. We must show
+$0<|x-0|<\delta$ implies $|f(x)-0|<\epsilon$. This is easy if you recall
+the co-domain of $\sin$ is $[-1,1]$. This implies:
+\[\left|x\sin \frac{1}{x}\right|\leq |x|\]
+
+Thus fixing $|x|<\epsilon$ implies
+$\left|x\sin \frac{1}{x}\right|<\epsilon$ as desired.
+
+
+
+\vs---\vs
+
+\textbf{Claim 1b:} Let $f(x)=x^2\sin \frac{1}{x}$. Then
+$\lim_{x\to0}f(x)=0$.
+
+\textbf{Proof.} By the same reasoning as above,
+$\left|x^2\sin \frac{1}{x}\right|\leq x^2$. Thus fixing $|x|<\sqrt{\epsilon}$
+implies $\left|x^2\sin \frac{1}{x}\right|<\epsilon$ as desired.
+
+\vs---\vs
+
+\textbf{Claim 1c:} Let $f(x)=\sqrt{|x|}\sin \frac{1}{x}$. Then
+$\lim_{x\to0}f(x)=0$.
+
+\textbf{Proof.} By the same reasoning as above,
+$\left|\sqrt{|x|}\sin \frac{1}{x}\right|\leq \sqrt{|x|}$. Thus fixing
+$|x|<\epsilon^2$ implies
+$\left|\sqrt{|x|}\sin \frac{1}{x}\right|\leq \epsilon$ as desired.
+
+
+\vs---\vs
+
+\textbf{Claim 2:} $\lim_{x\to0}\sin \frac{1}{x}$ does not exist.
 
 \textbf{Proof.}
 
 \vs---\vs
 
-\textbf{Claim 2:} $\lim_{x\to0}x^2\sin \frac{1}{x}=0$.
-
-\textbf{Proof.}
-
-\vs---\vs
-
-\textbf{Claim 3:} $\lim_{x\to0}\sqrt{x}\sin \frac{1}{x}=0$.
-
-\textbf{Proof.}
-
-\vs---\vs
-
-\textbf{Claim 4:} $\lim_{x\to0}\sin \frac{1}{x}$ does not exist.
-
-\textbf{Proof.}
-
-\vs---\vs
-
-\textbf{Claim 5:} $\lim_{x\to\infty}\sin \frac{1}{x}=0$.
+\textbf{Claim 3:} $\lim_{x\to\infty}\sin \frac{1}{x}=0$.
 
 \textbf{Proof.}
 
