@@ -94,21 +94,37 @@ $\left|\sqrt{|x|}\sin \frac{1}{x}\right|\leq \epsilon$ as desired.
 
 \vs---\vs
 
-\textbf{Claim 2:} $\lim_{x\to0}\sin \frac{1}{x}$ does not exist.
+\textbf{Claim 2:} Let $f(x)=\sin \frac{1}{x}$. Then $\lim_{x\to0}f(x)$
+does not exist.
 
-\textbf{Proof.}
+\textbf{Proof.} Let $\epsilon=\frac{1}{2}$. For any $\delta$ there exists
+$x=\frac{1}{\pi/2+2\pi\cdot n}<\delta$. Observe that
+$f(x)=1>\epsilon$. Thus $\lim_{x\to0}f(x)$ does not exist as desired.
 
 \vs---\vs
 
-\textbf{Claim 3:} $\lim_{x\to\infty}\sin \frac{1}{x}=0$.
+\textbf{Claim 3:} Let $f(x)=\sin \frac{1}{x}=0$. Then
+$\lim_{x\to\infty}f(x)=0$.
 
-\textbf{Proof.}
+\textbf{Proof.} Spivak states this without proof. The crux is that
+$|\sin t|<|t|$ for all real $t$ (which we cannot prove until $\sin$ is
+defined later). But using this inequality the proof of the broader
+claim is simple.
+
+\vs
+
+Let $\epsilon>0$ be given. We must show there exists $N$ such that for all
+$x>N$, $|f(x)|<\epsilon$. Since
+$\left|\sin \frac{1}{x}\right|<\left|\frac{1}{x}\right|$, it suffices
+to ensure $\frac{1}{x}<\epsilon$, or $x>\frac{1}{\epsilon}$.
 
 \subsection{Continuity}
 
-\textbf{Claim 1:} $f(x)=\sin \frac{1}{x}$, $g(x)=x\sin \frac{1}{x}$ are not continuous at $0$.
+\textbf{Claim 1:} $f(x)=\sin \frac{1}{x}$, $g(x)=x\sin \frac{1}{x}$
+are not continuous at $0$.
 
-\textbf{Proof.}
+\textbf{Proof.} Neither function is defined at $0$, and thus cannot be
+continuous at $0$.
 
 \vs---\vs
 
@@ -117,11 +133,13 @@ $\left|\sqrt{|x|}\sin \frac{1}{x}\right|\leq \epsilon$ as desired.
   x\sin \frac{1}{x},&x\neq0\\
   0,&x=0
 \end{cases}\]
-Then $G$ is continuous at $0$.
+Then $G$ is continuous at $0$. 
 
 \vs
 
-\textbf{Proof.}
+\textbf{Proof.} This is easy. We saw that $\lim_{x\to0}x\sin
+\frac{1}{x}=0$, and $G(0)=0$. Thus $\lim_{x\to0}x\sin
+\frac{1}{x}=G(0)$, and thus $G$  is continuous at $0$.
 
 \vs---\vs
 
@@ -134,7 +152,8 @@ Then $F$ is \textit{not} continuous at $0$, for any choice of $a$.
 
 \vs
 
-\textbf{Proof.}
+\textbf{Proof.} We saw that $\lim_{x\to0}x\sin \frac{1}{x}$ does not
+exist, thus $F$ cannot be continuous at $0$.
 
 \vs---\vs
 
@@ -143,11 +162,14 @@ Then $F$ is \textit{not} continuous at $0$, for any choice of $a$.
   x\sin \frac{1}{x},&x\neq0\\
   0,&x=0
 \end{cases}\]
-Then $f$ is continuous at $a$ for $a\neq 0$.
+Then $f$ is continuous at all $a$.
 
 \vs
 
-\textbf{Proof.}
+\textbf{Proof.} We already saw that $f$ is continuous at $0$ in claim
+2. By using continuity theorems (and assuming $\sin$ is continuous),
+it's easy to see $x\sin \frac{1}{x}$ is continuous for all $x\neq0$. Thus
+$f$ is continuous for all $a$.
 
 
 \subsection{Derivatives}
