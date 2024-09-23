@@ -94,8 +94,8 @@ $\left|\sqrt{|x|}\sin \frac{1}{x}\right|\leq \epsilon$ as desired.
 
 \vs---\vs
 
-\textbf{Claim 2:} Let $f(x)=\sin \frac{1}{x}$. Then $\lim_{x\to0}f(x)$
-does not exist.
+\textbf{Claim 2:}\label{limits-claim-2} Let $f(x)=\sin \frac{1}{x}$.
+Then $\lim_{x\to0}f(x)$ does not exist.
 
 \textbf{Proof.} Let $\epsilon=\frac{1}{2}$. For any $\delta$ there exists
 $x=\frac{1}{\pi/2+2\pi\cdot n}<\delta$. Observe that
@@ -143,7 +143,16 @@ Then $G$ is continuous at $0$.
 
 \vs---\vs
 
-\textbf{Claim 3:} Let
+\textbf{Claim 3:} $G$ is continuous at all $a$.
+
+\textbf{Proof.} We already saw that $G$ is continuous at $0$ in claim
+2. By using continuity theorems (and assuming $\sin$ is continuous),
+it's easy to see $x\sin \frac{1}{x}$ is continuous for all $x\neq0$. Thus
+$f$ is continuous for all $a$.
+
+\vs---\vs
+
+\textbf{Claim 4:} Let
 \[F(x)=\begin{cases}
   \sin \frac{1}{x},&x\neq0\\
   a,&x=0
@@ -155,23 +164,6 @@ Then $F$ is \textit{not} continuous at $0$, for any choice of $a$.
 \textbf{Proof.} We saw that $\lim_{x\to0}x\sin \frac{1}{x}$ does not
 exist, thus $F$ cannot be continuous at $0$.
 
-\vs---\vs
-
-\textbf{Claim 4:} Let
-\[f(x)=\begin{cases}
-  x\sin \frac{1}{x},&x\neq0\\
-  0,&x=0
-\end{cases}\]
-Then $f$ is continuous at all $a$.
-
-\vs
-
-\textbf{Proof.} We already saw that $f$ is continuous at $0$ in claim
-2. By using continuity theorems (and assuming $\sin$ is continuous),
-it's easy to see $x\sin \frac{1}{x}$ is continuous for all $x\neq0$. Thus
-$f$ is continuous for all $a$.
-
-
 \subsection{Derivatives}
 
 \textbf{Claim 1:} Let
@@ -179,60 +171,59 @@ $f$ is continuous for all $a$.
   x\sin \frac{1}{x},&x\neq0\\
   0,&x=0
 \end{cases}\]
+
 Then $f$ is not differentiable at $0$.
 
 \vs
 
-\textbf{Proof.}
+\textbf{Proof.} Using derivative definition:
+\[\lim_{h\to0}\frac{f(0+h)-f(0)}{h}=\lim_{h\to0}\frac{h\sin
+    \frac{1}{h}-0}{h}=\lim_{h\to0}\sin \frac{1}{h}\]
 
-\vs---\vs
-
-\textbf{Claim 2:} Let
-\[g(x)=\begin{cases}
-  x^2\sin \frac{1}{x},&x\neq0\\
-  0,&x=0
-\end{cases}\]
-Then $g$ is differentiable at $0$.
-
-\vs
-
-\textbf{Proof.}
-
-\subsection{Differentiation}
-
-\textbf{Claim 1:} $g'$ is not differentiable at $0$.
-
-\textbf{Proof.}
+We saw in \ref{limits-claim-2} that $\lim_{h\to0}\sin \frac{1}{h}$ does
+not exist. Thus $f$ is not differentiable at zero.
 
 \vs---\vs
 
 \textbf{Claim 2:} Let
 \[f(x)=\begin{cases}
-  x^3\sin \frac{1}{x},&x\neq0\\
+  x^2\sin \frac{1}{x},&x\neq0\\
   0,&x=0
 \end{cases}\]
-Then $f'$ is not differentiable at $0$.
+
+Then $f$ is differentiable at $0$.
 
 \vs
 
-\textbf{Proof.}
+\textbf{Proof.} Using derivative definition:
+\[\lim_{h\to0}\frac{f(0+h)-f(0)}{h}=\lim_{h\to0}\frac{h^2\sin
+    \frac{1}{h}-0}{h}=\lim_{h\to0}h\sin \frac{1}{h}=0\]
+
+Thus $f'(0)=0$.
 
 \vs---\vs
 
 \textbf{Claim 3:} Let
 \[f(x)=\begin{cases}
-  x^4\sin \frac{1}{x},&x\neq0\\
+  x^2\sin \frac{1}{x},&x\neq0\\
   0,&x=0
 \end{cases}\]
-Then $f''$ is not differentiable at $0$.
+
+Then $f'$ is not differentiable at $0$.
 
 \vs
 
-\textbf{Proof.}
+\textbf{Proof.} Observe that:
+\[f'(x)=\begin{cases}
+  2x\sin \frac{1}{x}-\cos \frac{1}{x},&x\neq0\\
+  0,&x=0
+\end{cases}\]
 
-\vs
+Observe that $\lim_{x\to0}\cos \frac{1}{x}$ does not exist (for the same
+reason $\lim_{x\to0}\sin \frac{1}{x}$ does not exist). Thus
+$\lim_{x\to0}f'(x)$ does not exist. And thus $f'$ is not continuous, let
+alone differentiable at $0$.
 
-\textbf{TODO more stuff on pp 178}
 
 %%% Local Variables:
 %%% TeX-master: "notes"
