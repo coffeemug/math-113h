@@ -4,9 +4,11 @@ Spivak covers variations of trigonometric functions as he goes through
 the book. I initially found it distracting-- it's hard enough to
 understand $\epsilon-\delta$ limits; it's harder still if you're also trying to
 learn trig as you go. But trig is important, and sooner or later it's
-time to understand it. That time is now. Here I introduce the basics
-of trigonometric functions, and then cover everything trig-related
-from Spivak's early chapters that I ignored in these notes until now.
+time to understand it. Because trig examples are crucial in
+understanding the chain rule in the next chapter, that time is now.
+Here I introduce the basics of trigonometric functions, and then cover
+everything trig-related from Spivak's early chapters that I ignored
+until now.
 
 \subsection{Definitions}
 
@@ -37,7 +39,7 @@ $90^{\circ}$. Further:
 \[(\cos 0,\sin 0)=(1,0)\ \ \ \ \ \text{and}\ \ \ \ \ (\cos \frac{\pi}{2},\sin \frac{\pi}{2})=(0,1)\]
 
 \clearpage
-\subsubsection*{Plotting}
+\subsection{Plotting}
 It is not too difficult to plot trigonometric functions. Consider some
 properties of cosine we've already seen (or can easily deduce):
 $\cos 0=1$, $\cos \frac{\pi}{2}=0$, $\cos \pi=-1$. We've also seen that
@@ -163,66 +165,6 @@ Then $F$ is \textit{not} continuous at $0$, for any choice of $a$.
 
 \textbf{Proof.} We saw that $\lim_{x\to0}x\sin \frac{1}{x}$ does not
 exist, thus $F$ cannot be continuous at $0$.
-
-\subsection{Derivatives}
-
-\textbf{Claim 1:} Let
-\[f(x)=\begin{cases}
-  x\sin \frac{1}{x},&x\neq0\\
-  0,&x=0
-\end{cases}\]
-
-Then $f$ is not differentiable at $0$.
-
-\vs
-
-\textbf{Proof.} Using derivative definition:
-\[\lim_{h\to0}\frac{f(0+h)-f(0)}{h}=\lim_{h\to0}\frac{h\sin
-    \frac{1}{h}-0}{h}=\lim_{h\to0}\sin \frac{1}{h}\]
-
-We saw in \ref{limits-claim-2} that $\lim_{h\to0}\sin \frac{1}{h}$ does
-not exist. Thus $f$ is not differentiable at zero.
-
-\vs---\vs
-
-\textbf{Claim 2:} Let
-\[f(x)=\begin{cases}
-  x^2\sin \frac{1}{x},&x\neq0\\
-  0,&x=0
-\end{cases}\]
-
-Then $f$ is differentiable at $0$.
-
-\vs
-
-\textbf{Proof.} Using derivative definition:
-\[\lim_{h\to0}\frac{f(0+h)-f(0)}{h}=\lim_{h\to0}\frac{h^2\sin
-    \frac{1}{h}-0}{h}=\lim_{h\to0}h\sin \frac{1}{h}=0\]
-
-Thus $f'(0)=0$.
-
-\vs---\vs
-
-\textbf{Claim 3:} Let
-\[f(x)=\begin{cases}
-  x^2\sin \frac{1}{x},&x\neq0\\
-  0,&x=0
-\end{cases}\]
-
-Then $f'$ is not differentiable at $0$.
-
-\vs
-
-\textbf{Proof.} Observe that:
-\[f'(x)=\begin{cases}
-  2x\sin \frac{1}{x}-\cos \frac{1}{x},&x\neq0\\
-  0,&x=0
-\end{cases}\]
-
-Observe that $\lim_{x\to0}\cos \frac{1}{x}$ does not exist (for the same
-reason $\lim_{x\to0}\sin \frac{1}{x}$ does not exist). Thus
-$\lim_{x\to0}f'(x)$ does not exist. And thus $f'$ is not continuous, let
-alone differentiable at $0$.
 
 
 %%% Local Variables:

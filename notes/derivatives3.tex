@@ -1,5 +1,123 @@
 
-\section{Derivatives, Part III (Consequences)}
+\section{Derivatives, Part III (Leibniz notation)}
+
+The notation $f'$ that we've used so far is called the Lagrange
+notation.\footnote{Wikipedia claims the notation was invented by Euler
+  and Lagrange only popularized it.} However, there is another
+notation for the derivative in common use. You may have already seen
+something like $\frac{dy}{dx}$. This is called the Leibniz notation.
+
+\vs
+
+The Leibniz notation has many of what Spivak calls ``vagaries''. It
+has multiple interpretations-- formal and informal. The informal
+interpretation doesn't map to modern mathematics, but can
+\textit{sometimes} be useful (while at other times misleading). The
+full, unambigous Leibniz notation is verbose, so in practice people
+end up taking liberties with it. As a consequence, its meaning must
+often be discerned from the context.
+
+\vs
+
+This flexibility makes the notation very useful in science and
+engineering, but also makes it difficult to learn. For clarity Spivak
+standardizes on the Lagrange notation and banishes Leibniz notation to
+the problems. But since the Leibniz notation is so common, I take a
+different approach and explore it here in a dedicated chapter.
+
+\vs
+
+I will first introduce the full unambigous Leibniz notation and
+discuss its historical and modern interpretations. I wil then discuss
+its various ``vagaries''-- shortcuts that people take in practice.
+Finally, I'll do a bunch of practice problems that might show up in
+science and engineering to get used to the notation.
+
+\subsection{Historical interpretation}
+
+We start with the historical interpretation, where the notation began.
+Leibniz didn't know about limits. He thought the derivative is the
+value of the quotient $\frac{f(x+h)-f(x)}{h}$ when $h$ is
+``infinitesimally small''. He denoted this infinitesimally small
+quantity of $h$ by $dx$, and the corresponding difference
+$f(x+dx)-f(x)$ by $df(x)$. Thus for a given function $f$ the Leibniz
+notation for its derivative $f'$ is:
+\[\frac{df(x)}{dx}=f'\]
+
+Intuitively, we can think of $d$ in a historical context as ``delta''
+or ``change''. Then we can interpret this notation as Leibniz did-- a
+quotient of a tiny change in $f(x)$ and a tiny change in $x$. There
+are two important notes.
+
+\vs
+
+\textit{First}, $d$ is not a value. If it were, you could cancel out
+$d$'s in the numerator and the denomenator. But you can't. Instead
+think of $d$ as an operator. When applied to $f(x)$ or $x$, it
+produces an infinitesimally small quantity. Alternatively you can
+think of $df(x)$ and $dx$ as one symbol that happens to look like
+multiplication, but isn't.\footnote{I read somewhere that in his
+  notebooks Leibniz experimented with extending $d$ with a squiggle on
+  top that went over $x$ to indicate that $d$ is not a value, but I
+  haven't been able to verify if that's true.}
+
+\vs
+
+\textit{Second}, note that $\frac{df(x)}{dx}$ denotes a function
+equivalent to $f'$, \textit{not} a value equivalent to $f'(x)$. To
+denote the value of the derivative function at $a$ we use the
+following notation:
+\[\left. \frac{d f(x)}{dx} \right|_{x=a}=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}=f'(a)\]
+
+To summarize, the \textbf{full and unambiguous Leibniz notation} is as
+follows:
+\[\frac{df(x)}{dx}=f' \qquad\text{and}\qquad \left. \frac{d f(x)}{dx} \right|_{x=a}=f'(a)\]
+
+
+\subsection{Modern interpretation}
+
+Complete ordered fields do not have a notion of infinitesimally small
+quantities. Thus in a modern interpretation we treat
+$\frac{df(x)}{dx}$ as a symbol denoting $f'$, \textit{not} as a
+quotient of numbers. Nothing here is being divided, nothing can be
+canceled out. In a modern interpretation $\frac{df(x)}{dx}$ is just
+one thing that \textit{happens to look} like a quotient but isn't,
+anymore than $f'$ is a quotient.
+
+\vs
+
+
+
+\vs
+
+Leibniz notation for the second derivative is
+\[\frac{d\left(\frac{df(x)}{dx}\right)}{dx},\ \ \ \text{abbreviated
+    to}\ \ \ \frac{d^2f(x)}{(dx)^2}, \ \ \ \text{or more often to}\ \
+  \ \frac{d^2f(x)}{dx^2}.\]
+
+\subsection{Shortcuts and vagaries}
+
+There are two notable ambiguities associated with the Leibniz
+notation. First, $\frac{df(x)}{dx}$ is frequently abbreviated to
+$\frac{df}{dx}$. Second, $\frac{df(x)}{dx}$ sometimes means the
+function $f'$, and sometimes means the value $f'(x)$. The meaning of
+the symbol often must be deteremined from the specific context.
+
+\subsection{Chain rule}
+
+In the next chapter we will learn that $(f\circ g)'(x)=f'(g(x))\cdot g'(x)$.
+In Leibniz notation it ought to look like this:
+\[\frac{d f(g(x))}{dx} = \left. \frac{d f(y)}{dy} \right|_{y=g(x)} \cdot
+  \frac{d g(x)}{dx}\]
+
+But nobody does it this way. Usually people state that if $y=g(x)$ and
+$z=f(y)$ then:
+\[\frac{dz}{dx}=\frac{dz}{dy}\cdot \frac{dy}{dx}\]
+
+\subsection{Implicit differentiation}
+
+\subsection{Notation practice}
+
 
 %%% Local Variables:
 %%% TeX-master: "notes"
