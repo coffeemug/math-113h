@@ -1,0 +1,243 @@
+
+\section{Derivatives, Part IIb (Leibniz notation)}
+
+The notation $f'$ that we've used so far is called the Lagrange
+notation.\footnote{Wikipedia claims the notation was invented by Euler
+  and Lagrange only popularized it.} However, there is another
+notation for the derivative in common use. You may have already seen
+something like $\frac{dy}{dx}$. This is called the Leibniz notation.
+
+\vs
+
+The Leibniz notation has many of what Spivak calls ``vagaries''. It
+has multiple interpretations-- formal and informal. The informal
+interpretation doesn't map to modern mathematics, but can
+\textit{sometimes} be useful (while at other times misleading). The
+full, unambigous Leibniz notation, at least as Spivak defines it, is
+verbose, so in practice people end up taking liberties with it. As a
+consequence, its meaning must often be discerned from the context.
+
+\vs
+
+This flexibility makes the notation very useful in science and
+engineering, but also makes it difficult to learn. Spivak chose to
+standardize on the Lagrange notation to maximize clarity, and banished
+Leibniz notation to problem sections. But since the Leibniz notation
+is so common, I take a different approach and explore it here in a
+dedicated chapter.
+
+\subsection{Historical motivation}
+
+We start with the historical interpretation, where the notation began.
+Leibniz didn't know about limits. He thought the derivative is the
+value of the quotient
+\[\frac{f(x+h)-f(x)}{h}\]
+
+when $h$ is ``infinitesimally small''. He denoted this infinitesimally
+small quantity of $h$ by $dx$, and the corresponding difference
+$f(x+dx)-f(x)$ by $df(x)$. Thus for a given function $f$ the Leibniz
+notation for its derivative $f'$ is:
+\[\frac{df(x)}{dx}=f'\]
+
+Intuitively, we can think of $d$ in a historical context as ``delta''
+or ``change''. Then we can interpret this notation as Leibniz did-- a
+quotient of a tiny change in $f(x)$ and a tiny change in $x$. However,
+this explanation comes with two important disclaimers.
+
+\vs
+
+\textit{First}, $d$ is not a value. If it were a value, you could
+cancel out $d$'s in the numerator and the denomenator. But you can't.
+Instead think of $d$ as an operator. When applied to $f(x)$ or $x$, it
+produces an infinitesimally small quantity. Alternatively you can
+think of $df(x)$ and $dx$ as one symbol that happens to look like
+multiplication, but isn't.\footnote{I read somewhere that in his
+  notebooks Leibniz experimented with extending $d$ with a squiggle on
+  top that went over $x$ to indicate that $d$ is not a value, but I
+  haven't been able to verify if that's true.}
+
+\vs
+
+\textit{Second}, note that $\frac{df(x)}{dx}$ denotes a function
+equivalent to $f'$, \textit{not} a value equivalent to $f'(x)$. To
+denote the image of the derivative function at $a$ we use the
+following notation:
+\[\left. \frac{d f(x)}{dx} \right|_{x=a}=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}=f'(a)\]
+
+\subsection{Modern interpretation}
+
+To summarize, the \textbf{full and unambiguous Leibniz notation} in
+modern interpretation is:
+\[\frac{df(x)}{dx}=f' \qquad\text{and}\qquad \left. \frac{d f(x)}{dx} \right|_{x=a}=f'(a)\]
+
+Real numbers do not have a notion of infinitesimally small quantities.
+Thus in a modern interpretation we treat $\frac{df(x)}{dx}$ as a
+symbol denoting $f'$, \textit{not} as a quotient of numbers. Nothing
+here is being divided, nothing can be canceled out. In a modern
+interpretation $\frac{df(x)}{dx}$ is just one thing that
+\textit{happens to look} like a quotient but isn't, anymore than $f'$
+is a quotient.
+
+\subsection{Second derivative}
+
+A question arises for how to express the second (or nth) derivative in
+the Leibniz notation. Let $g(x)=\frac{df(x)}{dx}$ (i.e. let $g$ be the
+first derivative of $f$). Then it follows that the second derivative
+in Leibniz notation is $\frac{dg(x)}{dx}=g'=f''$. Substituting the
+definition of $g$ we get:
+\[\frac{d\left(\frac{df(x)}{dx}\right)}{dx}=f''\]
+
+Of course this is too verbose and no one wants to write it this way.
+This is where the vagaries begin. For convenience people use the usual
+algebraic rules to get a simpler notation, eventhough formally
+everything is one symbol and you can't actually do algebra on it:
+\[\frac{d\left(\frac{df(x)}{dx}\right)}{dx}=\frac{d^2f(x)}{dx^2}\]
+
+Two questions arise here.
+
+\vs
+
+\textit{First}, why $dx^2$? Shouldn't it be $(dx)^2$? One way to
+answer this question is to remember that $dx$ is one symbol, \textit{not} a
+multiplication (because $d$ is not a value). And so we're just
+squaring that one symbol $dx$, which doesn't require parentheses.
+
+\vs
+
+Another probably more honest way to answer this question is to recall
+that this isn't real algebra-- we just use a simularcum of algebra out
+of convenience. But convenience is a morally flexible thing, and
+people decided to drop parentheses because they're a pain to write. So
+$(dx)^2$ became $dx^2$.
+
+\vs
+
+\textit{Second}, we said before that $df(x)$ can be thought of as one
+symbol. Then what is this $d^2$ business? The answer here is the same--
+we aren't doing real algebra, but a simularcum of algebra out of
+convenience. We aren't really squaring anything; we're overloading
+exponentiation to mean ``second derivative''. The symbol $d^2f(x)$ is
+again one symbol.
+
+\subsection{Liberties and ambiguities}
+
+There are a few more liberties people take with the Leibniz notation.
+Let $f(x)=x^2$. If we want to denote the derivative of $f$ we can do
+it in two ways:
+\[\frac{df(x)}{dx} \qquad\text{or}\qquad \frac{dx^2}{dx}\]
+
+Here $\frac{dx^2}{dx}$ is new, but the meaning should be clear. We're
+just replacing $f(x)$ in $df(x)$ with the definition of $f(x)$. This
+is a little confusing because in the particular case of $f(x)=x^2$,
+it's visually similar to the notation for second derivative. There are
+no ambiguities here so far-- it's just a visual artifact of the
+notation we have to learn to ignore. But now the liberties come.
+
+\vs
+
+Suppose we wanted to state what the derivative of $f$ is. In Lagrange
+notation we say $f'(a)=2a$. In Leibniz notation the proper way to say
+it would be as follows:
+\[\left.\frac{df(x)}{dx}\right|_{x=a}=2a\]
+
+But this is obviously a pain, so people end up taking two liberties.
+First, everyone drops the vertical line that denotes the application
+at $a$. So in practice the form above becomes:
+\[\frac{df(x)}{dx}=2x\]
+
+This shouldn't ``compile'' because $\frac{df(x)}{dx}=f'$. Thus this
+statement is equivalent to saying $f'=2x$, which doesn't make sense.
+But this is the notation most people use, and you have to get used to
+it.
+
+\vs
+
+Second, people decided that writing $\frac{df(x)}{dx}$ is too painful,
+and in practice everyone writes $\frac{df}{dx}$. This also shouldn't
+compile (it would be something like writing $\lim_{x\to a}f$, which also
+doesn't make sense). But again, it's the notation most people use.
+
+\vs
+
+To summarize what we have so far:
+\[\left.\frac{df(x)}{dx}\right|_{x=a}=2a \qquad\text{becomes}\qquad \frac{df}{dx}=2x\]
+
+\subsection{Chain rule}
+
+How do we express the chain rule $(f\circ g)'(x)=f'(g(x))\cdot g'(x)$ in
+Leibniz notation? In the full and unambiguous version the chain rule
+ought to look like this:
+\[\frac{d f(g(x))}{dx} = \left. \frac{d f(y)}{dy} \right|_{y=g(x)} \cdot
+  \frac{d g(x)}{dx}\]
+
+But, surprise, nobody does it this way. Usually people say that if
+$y=g(x)$ and $z=f(y)$ then:
+\[\frac{dz}{dx}=\frac{dz}{dy}\cdot \frac{dy}{dx}\]
+
+Let's go through some examples of using this formula, and then see
+what's going on here. Let $z=\sin y, y=\cos x$. Then
+\begin{align*}
+  \frac{dz}{dx}&=\frac{dz}{dy}\cdot \frac{dy}{dx}\\
+  &=\cos y \cdot (-\sin x)\\
+  &=-\cos (\cos x) \cdot \sin x
+\end{align*}
+
+How about $z=\sin u, u=x+x^2$? Well,
+\begin{align*}
+  \frac{dz}{dx}&=\frac{dz}{du}\cdot \frac{du}{dx}\\
+               &=\cos u \cdot (2x+1)\\
+               &=\cos (x+x^2)\cdot(2x+1)
+\end{align*}
+
+How about a more complicated chain $z=\sin v, v=\cos u, u=\sin x$?
+\begin{align*}
+  \frac{dz}{dx}&=\frac{dz}{dv}\cdot \frac{dv}{dx}\\
+               &=\frac{dz}{dv}\cdot \frac{dv}{du}\cdot \frac{du}{dx}\\
+               &=\cos v \cdot (-\sin u)\cdot \cos x\\
+               &=-\cos(\cos (\sin x)\cdot\sin (\sin x)\cdot \cos x
+\end{align*}
+
+Now, there are a bunch of notational liberties here:
+\begin{itemize}
+\item $y=\ldots$ implicitly defines a function $y(x)$ which is then used in
+  e.g. $\frac{dy}{dx}$. But $y$ can also be references as a value
+  (e.g. ``plot $y$ when $x$ is $\ldots$''). So the deliniation between
+  functions and the values they take on is blurred.
+\item $dz$ on the left side of the equations (e.g. in $\frac{dz}{dx}$)
+  denotes $f\circ g$. But $dz$ on the right side of the equations (e.g. in
+  $\frac{dz}{dy}$) denotes $f$. In other words, the denomenator has a
+  bearing on the meaning of the numerator.
+\item $\frac{dz}{dy}$ denotes the derivative function, but is also
+  understood to be ``an expression involing $y$'' that must be
+  substituted with the value of $y$ in the final answer. E.g. in the
+  first example $\frac{dz}{dy}$ is equal to $\cos y$, and we must then
+  substitute $y$ with $\cos x$.
+\end{itemize}
+
+Despite all these quirks and ambiguities, with some practice we begin
+to see how easy and useful the Leibniz notation is. In the next two
+sections we will refine this understanding as we deal with physical
+problems involving the derivative.
+
+\subsection{Implicit differentiation}
+Suppose we have an equation for a unit circle $x^2+y^2=1$, and we want
+to know $y$ changes with $x$. We will solve this problem in two ways.
+First, using a ``brute force'' approach by explicitly solving for $y$
+and then differentiating. Second, using a technique called
+\textit{implicit differentiation} that considerably simplifies the
+problem.
+
+\subsubsection*{Brute force approach}
+With the brute force approach we solve for $y$ and differentiate.
+Observe that $y^2=1-x^2$, and thus
+
+\[y=\sqrt{1-x^2}\qquad\text{and}\qquad y=-\sqrt{1-x^2}\]
+
+\subsubsection*{Implicit differentiation approach}
+
+\subsection{Related rates}
+
+
+%%% Local Variables:
+%%% TeX-master: "notes"
+%%% End:
