@@ -174,8 +174,8 @@ But, surprise, nobody does it this way. Usually people say that if
 $y=g(x)$ and $z=f(y)$ then:
 \[\frac{dz}{dx}=\frac{dz}{dy}\cdot \frac{dy}{dx}\]
 
-Let's go through some examples of using this formula to get a feel for
-it. Let $z=\sin y, y=\cos x$. Then
+Let's go through some examples of using this formula, and then see
+what's going on here. Let $z=\sin y, y=\cos x$. Then
 \begin{align*}
   \frac{dz}{dx}&=\frac{dz}{dy}\cdot \frac{dy}{dx}\\
   &=\cos y \cdot (-\sin x)\\
@@ -184,7 +184,7 @@ it. Let $z=\sin y, y=\cos x$. Then
 
 How about $z=\sin u, u=x+x^2$? Well,
 \begin{align*}
-  \frac{dz}{dz}&=\frac{dz}{du}\cdot \frac{du}{dx}\\
+  \frac{dz}{dx}&=\frac{dz}{du}\cdot \frac{du}{dx}\\
                &=\cos u \cdot (2x+1)\\
                &=\cos (x+x^2)\cdot(2x+1)
 \end{align*}
@@ -196,6 +196,28 @@ How about a more complicated chain $z=\sin v, v=\cos u, u=\sin x$?
                &=\cos v \cdot (-\sin u)\cdot \cos x\\
                &=-\cos(\cos (\sin x)\cdot\sin (\sin x)\cdot \cos x
 \end{align*}
+
+Now, there are a bunch of notational liberties here:
+\begin{itemize}
+\item $y=\ldots$ implicitly defines a function $y(x)$ which is then used in
+  e.g. $\frac{dy}{dx}$. But $y$ can also be references as a value
+  (e.g. ``plot $y$ when $x$ is $\ldots$''). So the deliniation between
+  functions and the values they take on is blurred.
+\item $dz$ on the left side of the equations (e.g. in $\frac{dz}{dx}$)
+  denotes $f\circ g$. But $dz$ on the right side of the equations (e.g. in
+  $\frac{dz}{dy}$) denotes $f$. In other words, the denomenator has a
+  bearing on the meaning of the numerator.
+\item $\frac{dz}{dy}$ denotes the derivative function, but is also
+  understood to be ``an expression involing $y$'' that must be
+  substituted with the value of $y$ in the final answer. E.g. in the
+  first example $\frac{dz}{dy}$ is equal to $\cos y$, and we must then
+  substitute $y$ with $\cos x$.
+\end{itemize}
+
+Despite all these quirks and ambiguities, with some practice we begin
+to see how easy and useful the Leibniz notation is. In the next two
+sections we will refine this understanding as we deal with physical
+problems involving the derivative.
 
 \subsection{Implicit differentiation}
 
