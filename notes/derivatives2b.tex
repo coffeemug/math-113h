@@ -221,19 +221,48 @@ problems involving the derivative.
 
 \subsection{Implicit differentiation}
 Suppose we have an equation for a unit circle $x^2+y^2=1$, and we want
-to know $y$ changes with $x$. We will solve this problem in two ways.
-First, using a ``brute force'' approach by explicitly solving for $y$
-and then differentiating. Second, using a technique called
-\textit{implicit differentiation} that considerably simplifies the
-problem.
+to know $y$ changes with changes in $x$. We will solve this problem in
+two ways. First, using a ``brute force'' approach by explicitly
+solving for $y$ and then differentiating. Second, using a technique
+called \textit{implicit differentiation} that considerably simplifies
+the problem.
 
 \subsubsection*{Brute force approach}
 With the brute force approach we solve for $y$ and differentiate.
-Observe that $y^2=1-x^2$, and thus
-
+Observe that $y^2=1-x^2$, and thus there are two solutions (one for
+half-circle above the $x$-axis, and one for half-circle below):
 \[y=\sqrt{1-x^2}\qquad\text{and}\qquad y=-\sqrt{1-x^2}\]
 
+Differentiating, we get:
+\[y'=-\frac{x}{\sqrt{1-x^2}}=-\frac{x}{y}\qquad\text{and}\qquad
+  y'=-\frac{x}{-\sqrt{1-x^2}}=-\frac{x}{y}\]
+
+Thus $y'=-\frac{x}{y}$ when $y\neq0$.
+
 \subsubsection*{Implicit differentiation approach}
+We now take a different approach and find a solution without
+explicitly solving for $x$. We want to find $\frac{dy}{dx}$. The first
+thing we'll do is take a derivative of each side of the equations:
+\begin{align*}
+  &x^2+y^2=1\\
+  &\implies \frac{d}{dx}(x^2+y^2)=\frac{d}{dx}1\\
+  &\implies \frac{d}{dx}x^2+\frac{d}{dx}y^2=0\\
+\end{align*}
+
+Now $\frac{dx^2}{dx}=2x$ by a straightforward application of
+differentiation theorem 6. But what about $\frac{dy^2}{dx}$? This
+would tell us how $y^2$ changes with changes in $x$ (\textit{not} with
+changes in $y$), but how to do determine that is not obvious. And so
+we use the chain rule:\footnote{This is very handwavy and I'm running
+  out of steam. Spivak discusses implicit differentiation in his
+  chapter on inverse functions, so I expect to come back to this topic
+later.}
+
+\begin{align*}
+  &2x+\frac{dy^2}{dy}\cdot \frac{dy}{dx}=0\\
+  &\implies 2x+2y\cdot \frac{dy}{dx}=0\\
+  &\implies \frac{dy}{dx}=\frac{-2x}{2y}=-\frac{x}{y}
+\end{align*}
 
 \subsection{Related rates}
 
