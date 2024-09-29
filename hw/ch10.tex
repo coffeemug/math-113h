@@ -47,7 +47,33 @@ changing when it has area of $16\pi$ in$^2$?
 
 \vs---\vs
 
+Let $A_o$ be the area of the outer circle and $A_i$ the area of the
+inner circle. Then:
+\begin{align*}
+  &A_o-A_i=9\\
+  &\implies \frac{dA_o}{dt}-\frac{dA_i}{dt}=0\\
+  &\implies \frac{dA_o}{dt}=\frac{dA_i}{dt}\\
+\end{align*}
 
+Note that $\frac{dA_o}{dt}=10\pi$. Let $r_i$ be radius of the inner
+circle. Then:
+\begin{align*}
+  &\implies 10\pi=\frac{d(\pi r_i^2)}{dt}\\
+  &\implies 10\pi=2\pi r_i\cdot \frac{dr_i}{dt}\\
+  &\implies \frac{dr_i}{dt}=\frac{10\pi}{2\pi r_i}=5/r_i
+\end{align*}
+
+When the area of the smaller circle is $16\pi=\pi r_i^2$, its radius is
+$r_i=4$. Thus:
+\begin{align*}
+  &\implies \frac{dr_i}{dt}=\frac{10\pi}{2\pi r_i}=5/4
+\end{align*}
+
+We want to find $\frac{d(2\pi r_i)}{dt}$:
+\begin{align*}
+  \frac{d(2\pi r_i)}{dt}&=\frac{d(2\pi r_i)}{dr_i}\cdot \frac{dr_i}{dt}\\
+                      &=2\pi\cdot \frac{5}{4}=\frac{10\pi}{4}=\frac{5\pi}{2}
+\end{align*}
 
 \subsection*{Problem 9}
 Particle $A$ moves along the positive horizontal axis, and particle
