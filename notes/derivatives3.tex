@@ -25,9 +25,9 @@ such that $f'(x)=0$.\footnote{If $x$ is a maximum and/or critical
 
 \vs---\vs
 
-\textbf{Theorem 1.} Let $f$ be any function defined on $(a,b)$. If $x$
-is a maximum (or minimum) point for $f$ on $(a,b)$, and $f$ is
-differentiable at $x$, then $f'(x)=0$.
+\textbf{Theorem 1a.} Let $f$ be any function defined on $(a,b)$. If $x$
+is a maximum point for $f$ on $(a,b)$, and $f$ is differentiable at
+$x$, then $f'(x)=0$.
 
 \vs
 
@@ -38,7 +38,45 @@ $f'(0)=0$ as an obvious counterexample\footnote{In this case this
 
 \vs
 
-\textbf{Proof.}
+\textbf{Proof.} \textit{Informally}, suppose $a$ is a maximum point.
+Draw a secant line between $a$ and $a_l$ (to its left), and another
+line between $a$ and $a_r$ (to its right). The $a-a_l$ line will slope
+up, the $a-a_r$ line will slope down. Thus at $a$ the slope crosses
+from positive to negative, and is $0$.
+
+\vs
+
+\textit{Formally}, let $h\in\mathcal{R}$ such that $x+h\in(a,b)$. If $h<0$ it follows that:
+\begin{align*}
+  &f(x+h)\leq f(x)&\text{since $f(x)$ is a maximum value}\\
+  &\implies f(x+h)-f(x)\leq 0\\
+  &\implies\frac{f(x+h)-f(x)}{h}\geq0&\text{dividing by negative $h$}\\
+  &\implies \lim_{h\to0^-}\frac{f(x+h)-f(x)}{h}\geq0&\text{see
+                                                 \ref{subsec:onesided-limits}
+                                                 and
+                                                 \ref{subsubsec:nonzero-lemma}}
+\end{align*}
+
+Conversely, if $h>0$ it follows that:
+\begin{align*}
+  &\implies \frac{f(x+h)-f(x)}{h}\leq0&\text{dividing by positive $h$}\\
+  &\implies \lim_{h\to0^+}\frac{f(x+h)-f(x)}{h}\leq0
+\end{align*}
+
+By hypothesis, $f$ is differentiable at $x$. Thus the two limits must
+be equal to each other, and to $f'(x)$. Therefore $f'(x)\geq0$ and
+$f'(x)\leq0$. Thus $f'(x)=0$ as desired.
+
+\vs
+
+\textbf{Theorem 1b.} Let $f$ be any function defined on $(a,b)$. If
+$x$ is a \textit{minimum} point for $f$ on $(a,b)$, and $f$ is
+differentiable at $x$, then $f'(x)=0$.
+
+\vs
+
+\textbf{Proof.} Let $g=-f$. Then $x$ is a maximum point of $g$. By 1a,
+$g'(x)=0$, thus $(-f)'(x)=-1\cdot f'(x)=0$, and thus $f'(x)=0$ as desired.
 
 \subsection{Mean value theorem}
 \subsection{Increasing and decreasing functions}
