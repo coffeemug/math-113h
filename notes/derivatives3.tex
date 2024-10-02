@@ -78,7 +78,45 @@ differentiable at $x$, then $f'(x)=0$.
 \textbf{Proof.} Let $g=-f$. Then $x$ is a maximum point of $g$. By 1a,
 $g'(x)=0$, thus $(-f)'(x)=-1\cdot f'(x)=0$, and thus $f'(x)=0$ as desired.
 
+\vs
+
+\textbf{Theorem 2.} If $f$ is defined on $(a,b)$ and has a local
+maximum (or minimum) at $x$, and $f$ is differentiable at $x$, then
+$f'(x)=0$.
+
+\vs
+
+\textbf{Proof.} The proof is a trivial application of theorem 1 to $f$
+on $(x-\delta, x+\delta)$.
+
+\vs---\vs
+
+The obvious (extremely valuable) consequences of these theorems is
+that we can find minimum and maximum values of $f$ by solving for
+$f'(x)=0$.
+
 \subsection{Mean value theorem}
+
+\textbf{Theorem 3 (Rolle's theorem).} Let $f$ be continuous on $[a,b]$
+differentiable on $(a,b)$, and let $f(a)=f(b)$. Then there exists
+$x\in(a,b)$ such that $f'(x)=0$.
+
+\vs
+
+\textbf{Proof.} There are two cases:
+\begin{itemize}
+\item \textit{Case 1.} Suppose the maximum or the minimum occurs at a
+  point $x\in(a,b)$. Then $f'(x)=0$ by theorem 1, and we are done.
+\item \textit{Case 2.} Suppose the maximum and the minimum both occur
+  at endpoints. Since $f(a)=f(b)$, the maximum and the minimum values
+  are equal and $f$ is constant. Then for any $x\in(a,b), f'(x)=0$ and
+  we are done.
+\end{itemize}
+
+\textbf{Theorem 4 (Mean value theorem).}
+
+TODO
+
 \subsection{Increasing and decreasing functions}
 \subsection{Graph sketching}
 \subsection{Maxima and manima, part II}
