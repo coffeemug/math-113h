@@ -121,16 +121,31 @@ there exists $x\in(a,b)$ such that:
 
 Here are three intuitions:
 \begin{enumerate}
-\item \textit{Geometric intuition.} There exists line a tagent to $f$
+\item \textit{Geometric intuition.} There exists a line tangent to $f$
   parallel to the line between the endpoints (i.e. line between
   $(a, f(a))$ and $(b, f(b))$).
 \item \textit{Algebraic intuition.} There exists a point $x$ at which
   instantaneous rate of change of $f$ is equal to the average change
   of $f$ on $[a,b]$.
-\item \textit{Physical intuition.} If you travel 60 miles in one hour,
+\item \textit{Physical example.} If you travel 60 miles in one hour,
   at some point you must have been travelling exactly 60 miles per
   hour.
 \end{enumerate}
+
+\textbf{Proof.}
+
+Here's an informal proof outline:
+\begin{itemize}
+\item Take the line segment formed by endpoints $(a,f(a))$ and
+  $(b,f(b))$.
+\item Construct a function that for $x\in(a,b)$ returns the vertical
+  distance between $f(x)$ and the line segment. (We'll show it's
+  continuous and differentiable.)
+\item By Rolle's theorem, it has a flat tangent. It's easy to show
+  algebraically (and visualize geometrically) this proves the MVT.
+\end{itemize}
+
+
 
 
 \subsection{Increasing and decreasing functions}
