@@ -138,14 +138,40 @@ Here's an informal proof outline:
 \begin{itemize}
 \item Take the line segment formed by endpoints $(a,f(a))$ and
   $(b,f(b))$.
-\item Construct a function that for $x\in(a,b)$ returns the vertical
+\item Construct a function $g$ that for $x\in(a,b)$ returns the vertical
   distance between $f(x)$ and the line segment. (We'll show it's
-  continuous and differentiable.)
+  continuous and differentiable.)\footnote{It turns out not to matter
+    whether $g$ computes the distance between $f$ and the line
+    segment, or $f$ and the line segment shifted down by $f(a)$ (i.e.
+    down to $x$-axis). So in practice we use the lattern form to avoid
+    dealing with the $f(a)$ term in the linear equation.}
 \item By Rolle's theorem, it has a flat tangent. It's easy to show
   algebraically (and visualize geometrically) this proves the MVT.
 \end{itemize}
 
+Formally, let\footnote{See \ref{subsubsec-point-slope-form} for how
+  the point-slope form is used to construct the second term.}
+\[h(x)=f(x)-\left[\frac{f(b)-f(a)}{b-a}(x-a)\right]\]
 
+Observe $h$ is continuous on $[a,b]$ and differentiable on $(a,b)$.
+Further:
+\begin{align*}
+  h(a)&=f(a)-\left[\frac{f(b)-f(a)}{b-a}\cdot0\right]=f(a)\\
+  h(b)&=f(b)-\left[\frac{f(b)-f(a)}{b-a}(b-a)\right]\\
+      &=f(b)-[f(b)-f(a)]\\
+      &=f(a)
+\end{align*}
+
+Thus we can apply Rolle's Theorem $h$ to conclude there is $x\in(a,b)$
+such that:\footnote{Note the derivative of a line is its slope, thus
+  $\frac{d}{dx}\left[\frac{f(b)-f(a)}{b-a}(x-a)\right]=\frac{f(b)-f(a)}{b-a}$.}
+
+\begin{align*}
+  &0=h'(x)=f'(x)-\frac{f(b)-f(a)}{b-a}\\
+  &\implies f'(x)=\frac{f(b)-f(a)}{b-a}
+\end{align*}
+
+QED.
 
 
 \subsection{Increasing and decreasing functions}
