@@ -1,5 +1,5 @@
 
-\section{Derivatives, Part III (Consequences)}
+\section{Derivatives, Part IIIa (Consequences)}
 
 \subsection{Maxima and manima, part I}
 We start with some definitions. Let $f$ be a function and $A$ a set of
@@ -174,11 +174,78 @@ such that:\footnote{Note the derivative of a line is its slope, thus
 QED.
 
 
-\subsection{Increasing and decreasing functions}
+\subsection{MVT consequences}
+\textbf{Corollary 1.} If $f$ is defined on an interval and $f'(x)=0$
+for all $x$ in the interval, then $f$ is constant on the interval.
+
+\vs
+
+\textit{Intuitively,} if the velocity of a particle is always zero,
+the particle must be standing still.
+
+\vs
+
+\textbf{Proof.} Let $a\neq b$ be any two points on the interval. Then
+there is $x\in(a,b)$ such that $f'(x)=\frac{f(b)-f(a)}{b-a}$. But
+$f'(x)=0$ for all $x$ on the interval, thus $0=\frac{f(b)-f(a)}{b-a}$.
+Thuf $f(a)=f(b)$ for any $a,b$ (i.e. $f$ is constant on the interval
+as desired).
+
+\vs---\vs
+
+\textbf{Corollary 2.} If $f,g$ are defined on the same interval, and
+$f'(x)=g'(x)$ for all $x$ in the interval, then there is
+$c\in\mathcal{R}$ such that $f=g+c$.
+
+\vs
+
+\textbf{Proof.} Observe that
+\begin{align*}
+  &f'(x)=g'(x)\\
+  &\implies f'(x)-g'(x)=0\\
+  &(f-g)'(x)=0
+\end{align*}
+
+By corollary 1, $(f-g)$ is constant, i.e. $f=g+c$ as desired.
+
+\vs---\vs
+
+\textbf{Definition.} A function is \textbf{increasing} on an interval
+if $f(a)<f(b)$ whenever $a,b$ are two numbers in the interval with
+$a<b$.\footnote{The decreasing function definition is obvious.}
+
+\vs
+
+\textbf{Corollary 3a.} If $f'(x)>0$ for all $x$ on an interval, then
+$f$ is increasing on the interval.
+
+\vs
+
+\textbf{Proof.} Let $a<b$ be two points on an interval. Then there
+exists $x\in(a,b)$ such that
+\[f'(x)=\frac{f(b)-f(a)}{b-a}\]
+
+But $f'(x)>0$ for all $x\in(a,b)$, thus
+\[\frac{f(b)-f(a)}{b-a}>0\]
+
+We know $b-a>0$, thus $f(b)>f(a)$ as desired.
+
+\vs---\vs
+
+\textbf{Corollary 3b.} If $f'(x)<0$ for all $x$ on an interval, then
+$f$ is decreasing on the interval.
+
+\vs
+
+\textbf{Proof.} The proof is an obvious modification of 3a.
+
 \subsection{Graph sketching}
+
 \subsection{Maxima and manima, part II}
+
 \subsection{L'H\^opital's rule}
-\subsection{Convexity and concavity}
+
+
 
 %%% Local Variables:
 %%% TeX-master: "notes"
