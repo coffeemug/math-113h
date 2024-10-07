@@ -233,7 +233,7 @@ exists for all $x$ in $0<|x-a|<\delta$, and (3) $\lim_{x\to a}f'(x)$ exists.
 Then $f'(a)$ exists and
 \[f'(a)=\lim_{x\to a}f'(x)\]
 
-\textit{Intuitively,} derivatives can have no holes. Put differently,
+\textit{Intuitively,} derivatives cannot have holes. Put differently,
 $f'$ \textit{can} be discontinuous at $a$ by fluctuating wildly near
 $a$\footnote{In \ref{subsec-sine-poly} we've already seen an example
   of this:
@@ -244,7 +244,34 @@ $a$\footnote{In \ref{subsec-sine-poly} we've already seen an example
 not by being undefined at $a$, or by being defined at $a$ to be far from its limit
 near $a$.
 
-\textbf{Proof.} 
+\vs
+
+\textbf{Proof.} Informally, for ``nice'' functions like $f$, the mean
+value theorem applies on tiny scales of $\delta-\epsilon$ limits.
+
+\vs
+
+By derivative definition
+\[f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}\]
+
+For sufficiently small $h$, both positive and negative, by supposition:
+\begin{itemize}
+\item $f$ will be continuous on $[a,a+h]$
+\item $f$ will be differentiable on $(a,a+h)$
+\end{itemize}
+
+These conditions are sufficient for the mean value theorem, and thus
+there exists $\alpha_h\in(a, a+h)$ such that:
+\[\frac{f(a+h)-f(a)}{h}=f'(\alpha_h)\]
+
+Putting this together:\footnote{Spivak observes the last equation in
+  the proof is handwavy and needs a proper $\delta-\epsilon$ proof. I need to move
+  on, so leaving this as a TODO.}
+\begin{align*}
+  f'(a)&=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}&\text{by derivative definition}\\
+       &=\lim_{h\to0}f'(\alpha_h)&\text{by mean value theorem}\\
+       &=\lim_{x\to a}f'(x)&\text{$\alpha_h\in(a,a+h)$, thus as $h\to0$, $\alpha_h\to a$}
+\end{align*}
 
 \subsection{Local maxima and manima}
 \textbf{Definition.} A point $x$ in $A$ is a \textbf{local maximum
