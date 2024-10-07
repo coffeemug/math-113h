@@ -228,7 +228,23 @@ $f$ is decreasing on the interval.
 
 \vs---\vs
 
+\textbf{Theorem 7.} Suppose (1) $f$ is continuous at $a$, (2) $f'(x)$
+exists for all $x$ in $0<|x-a|<\delta$, and (3) $\lim_{x\to a}f'(x)$ exists.
+Then $f'(a)$ exists and
+\[f'(a)=\lim_{x\to a}f'(x)\]
 
+\textit{Intuitively,} derivatives can have no holes. Put differently,
+$f'$ \textit{can} be discontinuous at $a$ by fluctuating wildly near
+$a$\footnote{In \ref{subsec-sine-poly} we've already seen an example
+  of this:
+  \[f(x)=\begin{cases}
+    x^2\sin \frac{1}{x},&x\neq0\\
+    0,&x=0.
+  \end{cases}\]}, but
+not by being undefined at $a$, or by being defined at $a$ to be far from its limit
+near $a$.
+
+\textbf{Proof.} 
 
 \subsection{Local maxima and manima}
 \textbf{Definition.} A point $x$ in $A$ is a \textbf{local maximum
