@@ -226,7 +226,39 @@ $f$ is decreasing on the interval.
 
 \textbf{Proof.} The proof is an obvious modification of 3a.
 
-\vs---\vs
+\subsection{Local maxima and manima}
+\textbf{Definition.} A point $x$ in $A$ is a \textbf{local maximum
+  point} for $f$ on $A$ if there is some $\delta>0$ such that $x$ is a
+maximum point for $f$ on $A\cap(x-\delta, x+\delta)$.
+
+\vs
+
+\textbf{Theorem 2.} If $f$ is defined on $(a,b)$ and has a local
+maximum (or minimum) at $x$, and $f$ is differentiable at $x$, then
+$f'(x)=0$.
+
+\vs
+
+\textbf{Proof.} The proof is a trivial application of theorem 1 to $f$
+on $(x-\delta, x+\delta)$.
+
+\subsection{Graph sketching}
+
+\subsection{L'H\^opital's rule}
+We will build up to L'H\^opital's rule in the following way:
+
+\begin{enumerate}
+\item First, we'll cover a special case of L'H\^opital's rule (no
+  holes in derivatives).
+\item To prove the L'H\^opital's rule we'll need Cauchy's Mean Value
+  Theorem (a generalization of the Mean Value Theorem). When stated
+  outright it can be hard to parse, so we'll build up to it informally
+  next.
+\item Formally prove Cauchy's Mean Value Theorem.
+\item Prove L'H\^opital's rule.
+\end{enumerate}
+
+---\vs
 
 \textbf{Theorem 7.} Suppose (1) $f$ is continuous at $a$, (2) $f'(x)$
 exists for all $x$ in $0<|x-a|<\delta$, and (3) $\lim_{x\to a}f'(x)$ exists.
@@ -273,25 +305,71 @@ Putting this together:\footnote{Spivak observes the last equation in
        &=\lim_{x\to a}f'(x)&\text{$\alpha_h\in(a,a+h)$, thus as $h\to0$, $\alpha_h\to a$}
 \end{align*}
 
-\subsection{Local maxima and manima}
-\textbf{Definition.} A point $x$ in $A$ is a \textbf{local maximum
-  point} for $f$ on $A$ if there is some $\delta>0$ such that $x$ is a
-maximum point for $f$ on $A\cap(x-\delta, x+\delta)$.
+\vs---\vs
+
+\textbf{Theorem 8 (Cauchy's MVT), handwavy version.}
 
 \vs
 
-\textbf{Theorem 2.} If $f$ is defined on $(a,b)$ and has a local
-maximum (or minimum) at $x$, and $f$ is differentiable at $x$, then
-$f'(x)=0$.
+Let $f,g$ be continuous on $[a,b]$ and differentiable on $(a,b)$.
+\textit{Intuitively,} theorem 8 states that there exists a point
+$x\in(a,b)$ where $\frac{f'(x)}{g'(x)}$ (i.e. the ratio of
+\textit{instantaneous} changes of $f$ and $g$) is the same as the
+ratio of \textit{average} changes of $f$ and $g$ on $[a,b]$.
 
 \vs
 
-\textbf{Proof.} The proof is a trivial application of theorem 1 to $f$
-on $(x-\delta, x+\delta)$.
+A more formal version of this is:
+\begin{align*}
+  \frac{f'(x)}{g'(x)}&=\frac{f(b)-f(a)}{b-a}\div \frac{g(b)-g(a)}{b-a}\\
+                     &=\frac{f(b)-f(a)}{b-a}\cdot \frac{b-a}{g(b)-g(a)}\\
+                     &=\frac{f(b)-f(a)}{g(b)-g(a)}
+\end{align*}
 
-\subsection{Graph sketching}
+when $g'(x)\neq 0$ and $g(b)-g(a)\neq0$.
 
-\subsection{L'H\^opital's rule}
+\vs
+
+There are two additional considerations. First, if $g(x)=x$ then
+$g'(x)=1$, and the theorem simplifies to $f'(x)=\frac{f(b)-f(a)}{b-a}$
+(i.e. we obtain the mean value theorem).
+
+\vs
+
+Second, to avoid division by zero constraints, formally the Cauchy
+theorem is expressed as a multiplication rather than division of
+terms:
+
+\begin{align*}
+  &\frac{f'(x)}{g'(x)}=\frac{f(b)-f(a)}{g(b)-g(a)}\\
+  &\implies [f(b)-f(a)]g'(x)=[g(b)-g(a)]f'(x)
+\end{align*}
+
+With this buildup, we're ready to prove Cauchy's MVT.
+
+\vs
+
+\textbf{Theorem 8 (Cauchy's MVT).} Let $f,g$ be continuous on $[a,b]$
+and differentiable on $(a,b)$. Then there exists $x\in(a,b)$ such that
+\[[f(b)-f(a)]g'(x)=[g(b)-g(a)]f'(x)\]
+
+\vs
+
+\textbf{Proof.} Let
+\[h(x)=f(x)[g(b)-g(a)]-g(x)[f(b)-f(a)]\]
+
+Then $h$ is continuous on $[a,b]$ and differentiable on $(a,b)$.
+Further observe that\footnote{If you plug $a$ and $b$ into $h(x)$, I
+  promise this works (I checked).}
+\[h(a)=f(a)g(b)-f(b)g(a)=h(b)\]
+
+Thus $h(a)=h(b)$, Rolle's theorem applies, and there exists
+$x\in(a,b)$ such that $h'(x)=0$. Taking the derivative of
+$h$\footnote{Note to derive $h'$ we treat $g(b)-g(a)$ and $f(b)-f(a)$
+  as constants.}:
+\[0=h'(x)=f(x)'[g(b)-g(a)]-g(x)'[f(b)-f(a)]\]
+
+---\vs
 
 
 
