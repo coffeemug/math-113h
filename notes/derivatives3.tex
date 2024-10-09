@@ -248,14 +248,16 @@ on $(x-\delta, x+\delta)$.
 We will build up to L'H\^opital's rule in the following way:
 
 \begin{enumerate}
-\item First, we'll cover a special case of L'H\^opital's rule (no
-  holes in derivatives).
+\item First, we'll cover a special case of L'H\^opital's rule (theorem
+  7, no holes in derivatives).
 \item To prove the L'H\^opital's rule we'll need Cauchy's Mean Value
   Theorem (a generalization of the Mean Value Theorem). When stated
   outright it can be hard to parse, so we'll build up to it informally
   next.
 \item Formally prove Cauchy's Mean Value Theorem.
 \item Prove L'H\^opital's rule.
+\item We then reprove theorem 7 in a simpler way using L'H\^opital's
+  rule.
 \end{enumerate}
 
 ---\vs
@@ -278,8 +280,10 @@ near $a$.
 
 \vs
 
-\textbf{Proof.} Informally, for ``nice'' functions like $f$, the mean
-value theorem applies on tiny scales of $\delta-\epsilon$ limits.
+\textbf{Proof 1.}\footnote{We will give a second proof in terms of
+  L'H\^opital's rule at the end of this chapter.} Informally, for
+``nice'' functions like $f$, the mean value theorem applies on tiny
+scales of $\delta-\epsilon$ limits.
 
 \vs
 
@@ -377,6 +381,33 @@ $\lim_{x\to a}\frac{f'(x)}{g'(x)}$ exists. Then
 $\lim_{x\to a}\frac{f(x)}{g(x)}$ exists, and
 \[\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}\]
 
+\textbf{Proof.} 
+
+\vs---\vs
+
+\textbf{Theorem 7, proof 2.} We can now offer a second proof for
+Theorem 7, as it turns out to be a special case of L'H\^opital's rule.
+
+\vs
+
+Recall, the theorem asserts the following. Suppose (1) $f$ is
+continuous at $a$, (2) $f'(x)$ exists for all $x$ in $0<|x-a|<\delta$, and
+(3) $\lim_{x\to a}f'(x)$ exists. Then $f'(a)$ exists and
+\[f'(a)=\lim_{x\to a}f'(x)\]
+
+\vs
+
+By derivative definition:
+\[f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\]
+
+Let $x=a+h$. We can rewrite the equation above as follows:
+\[f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}\]
+
+Clearly $\lim_{x\to a}[f(x)-f(a)]=0$ and $\lim_{x\to a}[x-a]=0$. Thus by
+L'H\^opital's rule:
+\[f'(a)=\lim_{x\to a}\frac{f'(x)}{1}=\lim_{x\to a}f'(x),\]
+
+as desired.
 
 %%% Local Variables:
 %%% TeX-master: "notes"
