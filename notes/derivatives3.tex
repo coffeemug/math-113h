@@ -449,16 +449,38 @@ MVT applies, i.e. there exists $\alpha\in(a,x)$ such that:
 \vs
 
 It is easy to see $g'(\alpha)\neq0$. This is true because by hypothesis
-$\lim_{x\to a}f'(x)/g'(x)$ exists for all $x\in(a-\delta, a+\delta)$, thus
-$g'(x)\neq0$.
+$\lim_{x\to a}f'(x)/g'(x)$ exists for all $x\in(a-\delta, a+\delta)$ except possibly
+$x=a$, thus $g'(x)\neq0$.
 
 \vs
 
-We have left to prove $g(x)\neq0$.
+We have left to prove $g(x)\neq0$. Suppose for contradiction $g(x)=0$.
+Apply mean value theorem to $g$ on $[a,x]$. Recall we defined
+$g(a)=0$, thus there exists $x_1\in[a,x]$ such that $g'(x_1)=0$. This
+contradicts the paragraphaph above. The same argument applies to
+interval $[x,a]$.
 
 \vs
+
+Therefore:
+\begin{align*}
+  &f(x)g'(\alpha)=g(x)f'(\alpha)\\
+  &\implies \frac{f(x)}{g(x)}=\frac{f'(\alpha)}{g'(\alpha)}
+\end{align*}
+
 
 \textit{Step 4:} Take limits of both sides.
+
+\vs
+
+Recall that $\alpha\in(a,x)$ or $\alpha\in(x,a)$. Thus as $x$ approaches $a$, $\alpha$
+approaches $a$. Therefore
+\[\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{\alpha\to a}\frac{f'(\alpha)}{g'(\alpha)}\]
+as desired.\footnote{This is a complicated proof, and I don't think
+  Spivak does a particularly good job of it. I should maybe go back
+  and clean this up when I can look at it again with fresh eyes. Lots
+  of sloppiness here. But I spent enough time on it so for now ready
+  to move on.}
 
 \vs---\vs
 
