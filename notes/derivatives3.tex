@@ -381,7 +381,84 @@ $h$\footnote{Note to derive $h'$ we treat $g(b)-g(a)$ and $f(b)-f(a)$
 Then\footnote{Of course assuming $\lim_{x\to a}\frac{f'(x)}{g'(x)}$ exists.}
 \[\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}\]
 
-\textbf{Proof.}
+\textbf{Proof.} Recall Cauchy's MVT states that assuming $f,g$ are
+continuous on $[a,b]$ and differentiable on $(a,b)$, there exists
+$x\in(a,b)$ such that
+\[\frac{f'(x)}{g'(x)}=\frac{f(b)-f(a)}{g(b)-g(a)}\]
+
+\textit{Informally}, if we can make $f(a)=g(a)=0$, this equation will
+start to look vaguely close to what we need. Assuming we can make it
+work, we can then take limits of both sides to prove the L'H\^opital's
+rule. This gives us a very rough outline of the proof.
+\begin{enumerate}
+\item For Cauchy's MVT to work we need to show continuity of $f$ and
+  $g$.
+\item ``Vaguely'' looking like what we need is not enough. We need to
+  figure out how to map L'H\^opital's to Cauchy's MVT exactly.
+\item To divide we need to show $g'(x)\neq0$ and $g(b)\neq0$.
+\item Finally, we must take limits of both sides.
+\end{enumerate}
+
+We now proceed with formalizing each step.
+
+\vs
+
+\textit{Step 1:} Show $f,g$ are continuous.
+
+\vs
+
+By hypothesis $\lim_{x\to a}f(x)=0$ and $\lim_{x\to a}g(x)=0$. We don't
+know the definitions of $f(a)$ and $g(a)$. But since in L'H\^opital's
+rule we only care about limits, redefining $f(a)$ or $g(a)$ will not
+affect the hypothesis. Thus, redefine $f(a)=g(a)=0$. Since now
+$\lim_{x\to a}f(x)=f(a)$ and $\lim_{x\to a}g(x)=g(a)$, it follows
+$f,g$ are now continuous.
+
+\vs
+
+\textit{Step 2:} Map L'H\^opital's rule to Cauchy's MVT.
+
+\vs
+
+Further by hypothesis, $\lim_{x\to a}f'(x)/g'(x)$ exists. By limit
+definition $f'(x)$ and $g'(x)$ exist in the neighborhood of
+$x\in(a-\delta, a+\delta)$ with the possible exception of $x=a$. Let's consider
+all $x\in(a-\delta, a)$ and $x\in(a, a+\delta)$ separately.
+
+\vs
+
+For all $x\in(a-\delta, a)$ consider $f$ and $g$ on interval $[x,a]$. Both
+are continuous on $[x,a]$ and differentiable on $(x,a)$, thus Cauchy's
+MVT applies, i.e. there exists $\alpha\in(x,a)$ such that:
+\begin{align*}
+  &[f(a)-f(x)]g'(\alpha)=[g(a)-g(x)]f'(\alpha)\\
+  &\implies -f(x)g'(\alpha)=-g(x)f'(\alpha)&&\text{since $f(a)=g(a)=0$}\\
+  &\implies f(x)g'(\alpha)=g(x)f'(\alpha)&&\text{multiply both sides by $-1$}
+\end{align*}
+
+Similarly, for all $x\in(a, a+\delta)$ consider $f$ and $g$ on interval $[a,x]$. Both
+are continuous on $[a,x]$ and differentiable on $(a,x)$, thus Cauchy's
+MVT applies, i.e. there exists $\alpha\in(a,x)$ such that:
+\begin{align*}
+  &[f(x)-f(a)]g'(\alpha)=[g(x)-g(a)]f'(\alpha)\\
+  &\implies f(x)g'(\alpha)=g(x)f'(\alpha)&&\text{since $f(a)=g(a)=0$}
+\end{align*}
+
+\textit{Step 3:} Show $g'(\alpha)\neq0$ and $g(x)\neq0$.
+
+\vs
+
+It is easy to see $g'(\alpha)\neq0$. This is true because by hypothesis
+$\lim_{x\to a}f'(x)/g'(x)$ exists for all $x\in(a-\delta, a+\delta)$, thus
+$g'(x)\neq0$.
+
+\vs
+
+We have left to prove $g(x)\neq0$.
+
+\vs
+
+\textit{Step 4:} Take limits of both sides.
 
 \vs---\vs
 
