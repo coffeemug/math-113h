@@ -82,6 +82,10 @@ The obvious (extremely valuable) consequences of these theorems is
 that we can find minimum and maximum values of $f$ by solving for
 $f'(x)=0$.
 
+\subsubsection*{On closed intervals}
+
+\subsubsection*{On open intervals}
+
 \subsection{Mean Value Theorem}
 
 \textbf{Theorem 3 (Rolle's theorem).} Let $f$ be continuous on $[a,b]$
@@ -195,7 +199,7 @@ $c\in\mathcal{R}$ such that $f=g+c$.
 
 By corollary 1, $(f-g)$ is constant, i.e. $f=g+c$ as desired.
 
-\vs---\vs
+\subsection{Increasing and decreasing functions}
 
 \textbf{Definition.} A function is \textbf{increasing} on an interval
 if $f(a)<f(b)$ whenever $a,b$ are two numbers in the interval with
@@ -241,6 +245,44 @@ $f'(x)=0$.
 
 \textbf{Proof.} The proof is a trivial application of theorem 1 to $f$
 on $(x-\delta, x+\delta)$.
+
+\vs---\vs
+
+\textbf{Theorem 5.} Suppose $f'(a)=0$. If $f''(a)>0$, then $f$ has a
+local minimum at $a$; if $f''(a)<0$, then $f$ has a local maximum at
+$a$.
+
+\vs
+
+\textit{Intuitively,} $f''(a)>0$ means the slope of $f$ (represented
+by $f'$) is increasing around $a$. Thus the curve must be sloping
+upward.
+
+\vs
+
+\textbf{Proof.}
+\begin{align*}
+  f''(a)&=\lim_{h\to0}\frac{f'(a+h)-f'(a)}{h}&&\text{by derivative definition}\\
+        &=\lim_{h\to0}\frac{f'(a+h)}{h}&&\text{$f'(a)=0$ by hypothesis}\\
+\end{align*}
+
+Suppose $f''(a)>0$. By nonzero neighborhood lemma (see
+\ref{subsubsec:nonzero-lemma}), $f'(a+h)/h>0$ for sufficiently small
+$h$. Therefore, for sufficiently small $h$:
+\begin{itemize}
+\item $f'(a+h)>0$ when $h>0$
+\item $f'(a+h)<0$ when $h<0$
+\end{itemize}
+
+Thus by Corollary 3 of MVT:
+\begin{itemize}
+\item $f$ is increasing in some interval to the right of $a$
+\item $f$ is decreasing in some interval to the left of $a$
+\end{itemize}
+
+Thus $f$ has a local minimum at $a$, as desired\footnote{The proof for
+  $f''(a)<0$ is similar.}
+
 
 \subsection{Graph sketching}
 
