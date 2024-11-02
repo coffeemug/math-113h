@@ -11,9 +11,14 @@ results.
 
 \vs
 
-I reordered some content from Spivak's chapter for clarity, but kept
-the theorem and corollary numbering scheme. Thus theorem numbers here
-aren't in order, but they match the numbers in Spivak.
+I reordered content from Spivak's chapter for clarity, but kept the
+theorem and corollary numbering scheme. Thus theorem numbers here
+aren't in order, but they match the numbers in Spivak.\footnote{This
+  was the most meandering of Spivak's chapters; it took \textit{a lot}
+  of reordering for the overall structure to make sense. Not sure if
+  it's the material, the presentation, or just me losing steam, but
+  getting through this chapter took forever. By the end of it I was
+  bored to tears, barely able to force myself to finish it.}
 
 \subsection{Maxima and manima}
 We start with some definitions. Let $f$ be a function and $A$ a set of
@@ -134,6 +139,31 @@ $x\in(a,b)$ such that $f'(x)=0$.
   we are done.
 \end{itemize}
 
+\vs---\vs
+
+\textbf{Claim:} Let $f(x)=a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$. Then
+$f$ has at most $n$ roots.
+
+\vs
+
+\textbf{Proof.} TODO
+
+
+\vs---\vs
+
+\textbf{Claim:} Let $f(x)=a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$. Then
+$f$ has at most $n-1$ critical points.
+
+\vs
+
+\textbf{Proof.} This is easy. Observe that
+\[f'(x)=a_n n x^{n-1} + a_{n-1} (n-1) x^{n-2} + \dots + a_1\] Thus by
+previous claim, $f'$ has at most $n-1$ roots. Since for maximum and
+minimum points $f'(x)=0$ (theorem 1a), $f$ can have at most $n-1$
+maximum and minimum points, as desired.
+
+\vs---\vs
+
 \textbf{Theorem 4 (Mean value theorem).}
 
 Let $f$ be continuous on $[a,b]$ and differentiable on $(a,b)$. Then
@@ -194,9 +224,9 @@ such that:\footnote{Note the derivative of a line is its slope, thus
 
 QED.
 
+\vs---\vs
 
-\subsection{MVT consequences}
-\textbf{Corollary 1.} If $f$ is defined on an interval and $f'(x)=0$
+\textbf{MVT Corollary 1.} If $f$ is defined on an interval and $f'(x)=0$
 for all $x$ in the interval, then $f$ is constant on the interval.
 
 \vs
@@ -214,7 +244,7 @@ as desired).
 
 \vs---\vs
 
-\textbf{Corollary 2.} If $f,g$ are defined on the same interval, and
+\textbf{MVT Corollary 2.} If $f,g$ are defined on the same interval, and
 $f'(x)=g'(x)$ for all $x$ in the interval, then there is
 $c\in\mathcal{R}$ such that $f=g+c$.
 
@@ -237,7 +267,7 @@ $a<b$.\footnote{The decreasing function definition is obvious.}
 
 \vs
 
-\textbf{Corollary 3a.} If $f'(x)>0$ for all $x$ on an interval, then
+\textbf{MVT Corollary 3a.} If $f'(x)>0$ for all $x$ on an interval, then
 $f$ is increasing on the interval.
 
 \vs
@@ -253,7 +283,7 @@ We know $b-a>0$, thus $f(b)>f(a)$ as desired.
 
 \vs---\vs
 
-\textbf{Corollary 3b.} If $f'(x)<0$ for all $x$ on an interval, then
+\textbf{MVT Corollary 3b.} If $f'(x)<0$ for all $x$ on an interval, then
 $f$ is decreasing on the interval.
 
 \vs
@@ -277,6 +307,29 @@ $f'(x)=0$.
 on $(x-\delta, x+\delta)$.
 
 \vs---\vs
+
+The opposite of theorem 2 isn't true-- if $f'(x)=0$ it does not
+necessarily imply there is a local minimum or maximum at $x$ (consider
+$f(x)=x^3$ at $x=0$ for example). Thus if we want to determine if a
+point is a local maximum, we cannot use theorem 2 to make that
+determination. We need some other way. The derivative offers us two
+such tests to choose between.
+
+\subsubsection*{First derivative test}
+
+Suppose $f'(x)=0$. Check the sign of $f'$ on some interval to the
+left and right of $x$. Then:
+\begin{itemize}
+\item If $f'>0$ to the left of $x$ and $f'<0$ to the right, then $x$
+  is a local maximum (since $f$ is increasing to the left and
+  decreasing to the right of $x$).
+\item If $f'<0$ to the left of $x$ and $f'>0$ to the right, then $x$
+  is a local minimum (since $f$ is decreasing to the left and
+  increasing to the right of $x$).
+\item Otherwise $x$ is a saddle point.
+\end{itemize}
+
+\subsubsection*{Second derivative test}
 
 \textbf{Theorem 5.} Suppose $f'(a)=0$. If $f''(a)>0$, then $f$ has a
 local minimum at $a$; if $f''(a)<0$, then $f$ has a local maximum at
@@ -337,7 +390,55 @@ desired.\footnote{The proof for $f''(a)>0$ is similar.}
 
 
 \subsection{Graph sketching}
+We've now developed all the tools to get our first capability-- using
+derivatives to approximate the shapes of graphs. Putting everything
+together, to sketch a graph of a ``reasonable'' function $f$, follow
+the following steps.
 
+\vs
+
+First of all, check if the function is even, or is odd.\footnote{Even
+  functions are of the form $f(-x)=f(x)$ (i.e. symmetric about the
+  $y$-axis). Odd functions are of the form $f(-x)=-f(x)$ (i.e.
+  symmetric about the origin).} Symmetries can save a lot of time!
+Then:
+
+\begin{enumerate}
+\item Express the domain of $f$ as a union of intervals.
+\item Find limits as $f$ approaches \textit{open}
+  endpoints.\footnote{Usually via one-sided and infinite limits, and
+    limits at infinity.}
+\item Find $f'$. Identify critical points (where $f'(x)=0$),
+intervals where $f'>0$ (so $f$ is increasing), and intervals where
+$f'<0$ (so $f$ is decreasing).
+\item Use the first derivative test to identify local minima and
+  maxima.
+\item Plot obvious points (intercepts of axes, local minima and
+  maxima, and points where the derivative doesn't exist). Interpolate
+  the graph between them!
+\end{enumerate}
+
+\subsubsection*{Example 1}
+First example is $f(x)=x^3+3x^2-9x+12$.
+
+\begin{enumerate}
+\item
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
+
+\subsubsection*{Example 2}
+Second example is $f(x)=\frac{x^2}{1-x^2}$.
+
+\begin{enumerate}
+\item
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
 
 \subsection{L'H\^opital's rule}
 We will build up to L'H\^opital's rule in the following way:
