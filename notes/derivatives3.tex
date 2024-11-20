@@ -146,7 +146,26 @@ $f$ has at most $n$ roots.
 
 \vs
 
-\textbf{Proof.} TODO
+\textbf{Proof.}\footnote{This is normally an algebraic theorem, but in
+  the interest of pedagogy Caclulus offers an easy proof.} Suppose
+$x_1, x_2$ are roots of $f$, i.e. $f(x_1)=f(x_2)=0$. Then by Rolle's
+theorem there exists $x_1<x<x_2$ such that $f'(x)=0$. Thus if $f$ has
+$k$ different roots $x_1<x_2<\ldots<x_k$, it follows $f'$ has at least
+$k-1$ different roots (one between $x_1$ and $x_2$, one between $x_2$
+and $x_3$, etc.)
+
+\vs
+
+It is now easy to prove our claim by induction. It's easy to see
+\[f(x)=a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0\]
+
+has at most one root for $n=1$. Assume the claim is true for $n$.
+Consider the polynomial
+\[g(x)=b_{n+1}x^{n+1}+b_nx^n+\ldots+b_0\] Suppose for contradiction
+$g$ has \textit{more} than $n+1$ roots. Then by the argument in the
+first paragraph, $g'$ would have more than $n$ roots. But we assumed
+the claim holds for $n$, a contradiction. Thus $g$ has at most $n+1$
+roots as desired.
 
 
 \vs---\vs
